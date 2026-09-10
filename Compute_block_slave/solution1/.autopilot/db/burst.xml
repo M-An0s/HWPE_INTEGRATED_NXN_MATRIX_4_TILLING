@@ -1,0 +1,6 @@
+<VitisHLS:BurstInfo>
+    <burst group="BURST_VERBOSE_MISSED" fe_name="NonSimpleMemoryAccessMissed" src_info="Compute_block_slave/Compute_slave.cpp:48:14" msg_id="214-227" msg_severity="INFO" msg_body="Volatile or Atomic access cannot be transformed" resolution="214-227" ID="entry.store.9" VarName="dummy" ParentFunc="compute_slave(hls::stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;, ap_int&lt;32&gt;*)"/>
+    <burst group="BURST_VERBOSE_MISSED" fe_name="NonSimpleMemoryAccessMissed" src_info="Compute_block_slave/Compute_slave.cpp:50:13" msg_id="214-227" msg_severity="INFO" msg_body="Volatile or Atomic access cannot be transformed" resolution="214-227" ID="entry.load.12" VarName="dummy" ParentFunc="compute_slave(hls::stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;, ap_int&lt;32&gt;*)"/>
+    <burst group="BURST_VERBOSE_MISSED" fe_name="NonSimpleMemoryAccessMissed" src_info="Compute_block_slave/Compute_slave.cpp:50:11" msg_id="214-227" msg_severity="INFO" msg_body="Volatile or Atomic access cannot be transformed" resolution="214-227" ID="entry.store.13" VarName="dummy" ParentFunc="compute_slave(hls::stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;, hls::stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;, ap_int&lt;32&gt;*)"/>
+</VitisHLS:BurstInfo>
+

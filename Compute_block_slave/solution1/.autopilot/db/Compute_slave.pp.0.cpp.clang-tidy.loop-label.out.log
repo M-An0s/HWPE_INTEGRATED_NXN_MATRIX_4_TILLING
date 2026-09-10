@@ -1,0 +1,55 @@
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:31953:7: warning: Added loop label VITIS_LOOP_1211_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1211_1: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:31953:7: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:32927:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:32927:5: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:32941:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:32941:5: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:32955:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:32955:5: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:34566:7: warning: Added loop label VITIS_LOOP_1245_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1245_1: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:34566:7: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36397:5: warning: Added loop label VITIS_LOOP_53_1:   [xilinx-label-all-loops]
+    for (int i =0;i<4;i++ ){
+    ^~~
+    VITIS_LOOP_53_1: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36397:5: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36398:9: warning: Added loop label VITIS_LOOP_54_2:   [xilinx-label-all-loops]
+        for(int j=0;j<3;j+=2){
+        ^~~
+        VITIS_LOOP_54_2: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36398:9: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36404:6: warning: Added loop label VITIS_LOOP_60_3:   [xilinx-label-all-loops]
+     for (int i =0;i<4;i++ ){
+     ^~~
+     VITIS_LOOP_60_3: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36404:6: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36405:9: warning: Added loop label VITIS_LOOP_61_4:   [xilinx-label-all-loops]
+        for(int j=0;j<3;j+=2){
+        ^~~
+        VITIS_LOOP_61_4: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36405:9: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36413:9: warning: Added loop label VITIS_LOOP_69_5:   [xilinx-label-all-loops]
+        for (int com = 0; com < 4; com++) {
+        ^~~
+        VITIS_LOOP_69_5: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36413:9: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36415:13: warning: Added loop label VITIS_LOOP_71_6:   [xilinx-label-all-loops]
+            for (int ptr = 0; ptr < 4; ptr++) {
+            ^~~
+            VITIS_LOOP_71_6: 
+/home/pulp1/HLS_corrected/Compute_block_slave/solution1/.autopilot/db/Compute_slave.pp.0.cpp:36415:13: note: FIX-IT applied suggested code changes

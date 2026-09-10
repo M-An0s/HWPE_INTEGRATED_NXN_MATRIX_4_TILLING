@@ -1,0 +1,23 @@
+<dict>
+  <key>main-file</key>
+  <string>/home/pulp1/HLS_corrected/Control/solution1/.autopilot/db/control.pp.0.cpp</string>
+  <key>diagnostics</key>
+  <array>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>Control/control.cpp</string>
+      <key>line</key>
+      <integer>101</integer>
+      <key>column</key>
+      <integer>12</integer>
+      <key>message</key>
+      <string>enumeration value &apos;START_SLAVES&apos; not handled in switch</string>
+      <key>ID</key>
+      <integer>4973</integer>
+      <key>WarningOption</key>
+      <string>switch</string>
+    </dict>
+  </array>
+</dict>

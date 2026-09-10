@@ -1,0 +1,88 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vivado' configuration: config_interface -m_axi_latency=0
+INFO: [HLS 200-1510] Running: set_part xczu7ev-ffvc1156-2-e 
+INFO: [HLS 200-1611] Setting target device to 'xczu7ev-ffvc1156-2-e'
+INFO: [HLS 200-1510] Running: create_clock -period 10 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-1510] Running: csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 3.42 seconds. CPU system time: 0.62 seconds. Elapsed time: 4.06 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 742.461 MB.
+INFO: [HLS 200-10] Analyzing design file 'Control/control.cpp' ... 
+WARNING: [HLS 207-4973] enumeration value 'START_SLAVES' not handled in switch (Control/control.cpp:101:12)
+WARNING: [HLS 207-5292] unused parameter 'function' (Control/control.cpp:22:41)
+WARNING: [HLS 207-5292] unused parameter 'start' (Control/control.cpp:22:56)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 5.15 seconds. CPU system time: 0.77 seconds. Elapsed time: 5.94 seconds; current allocated memory: 744.840 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-210] Disaggregating variable 'a_i' (Control/control.cpp:34:0)
+INFO: [HLS 214-210] Disaggregating variable 'b_i' (Control/control.cpp:34:0)
+INFO: [HLS 214-210] Disaggregating variable 'c_i' (Control/control.cpp:34:0)
+INFO: [HLS 214-210] Disaggregating variable 'd_o' (Control/control.cpp:34:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'buffer_1_rd1' with compact=bit mode in 32-bits (Control/control.cpp:34:0)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'buffer_1_rd' with compact=bit mode in 32-bits (Control/control.cpp:34:0)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.96 seconds. CPU system time: 0.54 seconds. Elapsed time: 4.53 seconds; current allocated memory: 745.180 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 745.180 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 754.820 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 766.605 MB.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.19 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.21 seconds; current allocated memory: 800.125 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 801.629 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'cont' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'cont' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.17 seconds; current allocated memory: 801.629 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 801.629 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'cont' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/a_i_valid' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/a_i_ready' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'a_i_ready' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/a_i_data' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/a_i_strb' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/b_i_valid' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/b_i_ready' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'b_i_ready' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/b_i_data' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/b_i_strb' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/c_i_valid' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/c_i_ready' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'c_i_ready' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/c_i_data' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/c_i_strb' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/d_o_valid' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'd_o_valid' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/d_o_ready' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/d_o_data' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'd_o_data' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/d_o_strb' to 'ap_none'.
+WARNING: [RTGEN 206-101] Port 'd_o_strb' with mode 'ap_none' may require an associated data valid signal to correctly communicate with other blocks or a test bench; automatic C/RTL co-simulation may not be able to verify such a port.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/clear' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/enable' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/function_r' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/start_r' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/shift' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/len' to 'ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/f_cnt' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/f_valid' to 'ap_vld'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/buffer_1_rd' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'cont/buffer_1_rd1' to 'ap_fifo'.

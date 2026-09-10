@@ -1,0 +1,1469 @@
+<profile>
+    <ReportVersion>
+        <Version>2022.2</Version>
+    </ReportVersion>
+    <UserAssignments>
+        <unit>ns</unit>
+        <ProductFamily>zynquplus</ProductFamily>
+        <Part>xczu7ev-ffvc1156-2-e</Part>
+        <TopModelName>cont</TopModelName>
+        <TargetClockPeriod>10.00</TargetClockPeriod>
+        <ClockUncertainty>2.70</ClockUncertainty>
+        <FlowTarget>vivado</FlowTarget>
+    </UserAssignments>
+    <PerformanceEstimates>
+        <PipelineType>no</PipelineType>
+        <SummaryOfTimingAnalysis>
+            <unit>ns</unit>
+            <EstimatedClockPeriod>5.267</EstimatedClockPeriod>
+        </SummaryOfTimingAnalysis>
+        <SummaryOfOverallLatency>
+            <unit>clock cycles</unit>
+            <Best-caseLatency>0</Best-caseLatency>
+            <Average-caseLatency>0</Average-caseLatency>
+            <Worst-caseLatency>0</Worst-caseLatency>
+            <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+            <Interval-min>1</Interval-min>
+            <Interval-max>1</Interval-max>
+        </SummaryOfOverallLatency>
+    </PerformanceEstimates>
+    <AreaEstimates>
+        <Resources>
+            <FF>191</FF>
+            <LUT>788</LUT>
+            <BRAM_18K>0</BRAM_18K>
+            <DSP>0</DSP>
+            <URAM>0</URAM>
+        </Resources>
+        <AvailableResources>
+            <BRAM_18K>624</BRAM_18K>
+            <DSP>1728</DSP>
+            <FF>460800</FF>
+            <LUT>230400</LUT>
+            <URAM>96</URAM>
+        </AvailableResources>
+    </AreaEstimates>
+    <InterfaceSummary>
+        <RtlPorts>
+            <name>ap_clk</name>
+            <Object>cont</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>ap_rst</name>
+            <Object>cont</Object>
+            <Type>return value</Type>
+            <Scope/>
+            <IOProtocol>ap_ctrl_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_i_valid</name>
+            <Object>a_i_valid</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_i_ready</name>
+            <Object>a_i_ready</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_i_data</name>
+            <Object>a_i_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>a_i_strb</name>
+            <Object>a_i_strb</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>b_i_valid</name>
+            <Object>b_i_valid</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>b_i_ready</name>
+            <Object>b_i_ready</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>b_i_data</name>
+            <Object>b_i_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>b_i_strb</name>
+            <Object>b_i_strb</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>c_i_valid</name>
+            <Object>c_i_valid</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>c_i_ready</name>
+            <Object>c_i_ready</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>c_i_data</name>
+            <Object>c_i_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>c_i_strb</name>
+            <Object>c_i_strb</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>4</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>d_o_valid</name>
+            <Object>d_o_valid</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>d_o_ready</name>
+            <Object>d_o_ready</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>d_o_data</name>
+            <Object>d_o_data</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>32</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>d_o_strb</name>
+            <Object>d_o_strb</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>4</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>clear</name>
+            <Object>clear</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>enable</name>
+            <Object>enable</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>function_r</name>
+            <Object>function_r</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>start_r</name>
+            <Object>start_r</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>shift</name>
+            <Object>shift</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>5</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>len</name>
+            <Object>len</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>11</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>f_cnt</name>
+            <Object>f_cnt</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>11</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>f_cnt_ap_vld</name>
+            <Object>f_cnt</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>f_valid</name>
+            <Object>f_valid</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>f_valid_ap_vld</name>
+            <Object>f_valid</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_rd_dout</name>
+            <Object>buffer_1_rd</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_rd_empty_n</name>
+            <Object>buffer_1_rd</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_rd_read</name>
+            <Object>buffer_1_rd</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_rd1_dout</name>
+            <Object>buffer_1_rd1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>32</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_rd1_empty_n</name>
+            <Object>buffer_1_rd1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_rd1_read</name>
+            <Object>buffer_1_rd1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_fifo</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_wr_address0</name>
+            <Object>buffer_1_wr</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>5</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_wr_ce0</name>
+            <Object>buffer_1_wr</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_wr_we0</name>
+            <Object>buffer_1_wr</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_wr_d0</name>
+            <Object>buffer_1_wr</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>64</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_wr1_address0</name>
+            <Object>buffer_1_wr1</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>5</Bits>
+            <Attribute>address</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_wr1_ce0</name>
+            <Object>buffer_1_wr1</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_wr1_we0</name>
+            <Object>buffer_1_wr1</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>buffer_1_wr1_d0</name>
+            <Object>buffer_1_wr1</Object>
+            <Type>array</Type>
+            <Scope/>
+            <IOProtocol>ap_memory</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>64</Bits>
+            <Attribute>data</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>compute_start1</name>
+            <Object>compute_start1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>compute_done1</name>
+            <Object>compute_done1</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>compute_start2</name>
+            <Object>compute_start2</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>compute_done2</name>
+            <Object>compute_done2</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>slave_start1</name>
+            <Object>slave_start1</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>slave_done1</name>
+            <Object>slave_done1</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>slave_start2</name>
+            <Object>slave_start2</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>slave_done2</name>
+            <Object>slave_done2</Object>
+            <Type>scalar</Type>
+            <Scope/>
+            <IOProtocol>ap_none</IOProtocol>
+            <IOConfig/>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+    </InterfaceSummary>
+    <RTLDesignHierarchy>
+        <TopModule MAX_DEPTH="2">
+            <ModuleName>cont</ModuleName>
+            <BindInstances>add_ln231_fu_1028_p2 add_ln186_fu_1047_p2 add_ln186_cast_fu_1054_p2 add_ln155_fu_1217_p2 grp_fu_873_p2 add_ln139_fu_1299_p2 grp_fu_873_p2</BindInstances>
+        </TopModule>
+    </RTLDesignHierarchy>
+    <ModuleInformation>
+        <Module>
+            <Name>cont</Name>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>5.267</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>0</Best-caseLatency>
+                    <Average-caseLatency>0</Average-caseLatency>
+                    <Worst-caseLatency>0</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>0 ns</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>0 ns</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>0 ns</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>1</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>191</FF>
+                    <AVAIL_FF>460800</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>788</LUT>
+                    <AVAIL_LUT>230400</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>624</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>1728</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>96</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln231_fu_1028_p2" SOURCE="Control/control.cpp:231" URAM="0" VARIABLE="add_ln231"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln186_fu_1047_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:186" URAM="0" VARIABLE="add_ln186"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln186_cast_fu_1054_p2" SOURCE="Control/control.cpp:228" URAM="0" VARIABLE="add_ln186_cast"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln155_fu_1217_p2" SOURCE="Control/control.cpp:155" URAM="0" VARIABLE="add_ln155"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_873_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:840" URAM="0" VARIABLE="add_ln840_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln139_fu_1299_p2" SOURCE="Control/control.cpp:139" URAM="0" VARIABLE="add_ln139"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_873_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:840" URAM="0" VARIABLE="add_ln840"/>
+            </BindNodes>
+        </Module>
+    </ModuleInformation>
+    <FIFOInformation/>
+    <UserConfigCommands/>
+    <Args>
+        <Arg ArgName="a_i" index="0" direction="inout" srcType="hs_is_t*" srcSize="96">
+            <hwRefs>
+                <hwRef type="port" interface="a_i_valid" name="a_i_valid" usage="data" direction="in"/>
+                <hwRef type="port" interface="a_i_ready" name="a_i_ready" usage="data" direction="out"/>
+                <hwRef type="port" interface="a_i_data" name="a_i_data" usage="data" direction="in"/>
+                <hwRef type="port" interface="a_i_strb" name="a_i_strb" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="b_i" index="1" direction="inout" srcType="hs_is_t*" srcSize="96">
+            <hwRefs>
+                <hwRef type="port" interface="b_i_valid" name="b_i_valid" usage="data" direction="in"/>
+                <hwRef type="port" interface="b_i_ready" name="b_i_ready" usage="data" direction="out"/>
+                <hwRef type="port" interface="b_i_data" name="b_i_data" usage="data" direction="in"/>
+                <hwRef type="port" interface="b_i_strb" name="b_i_strb" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="c_i" index="2" direction="out" srcType="hs_is_t*" srcSize="96">
+            <hwRefs>
+                <hwRef type="port" interface="c_i_valid" name="c_i_valid" usage="data" direction="in"/>
+                <hwRef type="port" interface="c_i_ready" name="c_i_ready" usage="data" direction="out"/>
+                <hwRef type="port" interface="c_i_data" name="c_i_data" usage="data" direction="in"/>
+                <hwRef type="port" interface="c_i_strb" name="c_i_strb" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="d_o" index="3" direction="inout" srcType="hs_is_t*" srcSize="96">
+            <hwRefs>
+                <hwRef type="port" interface="d_o_valid" name="d_o_valid" usage="data" direction="out"/>
+                <hwRef type="port" interface="d_o_ready" name="d_o_ready" usage="data" direction="in"/>
+                <hwRef type="port" interface="d_o_data" name="d_o_data" usage="data" direction="out"/>
+                <hwRef type="port" interface="d_o_strb" name="d_o_strb" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="clear" index="4" direction="in" srcType="bool" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="clear" name="clear" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="enable" index="5" direction="in" srcType="bool" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="enable" name="enable" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="function" index="6" direction="in" srcType="bool" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="function_r" name="function_r" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="start" index="7" direction="in" srcType="bool" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="start_r" name="start_r" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="shift" index="8" direction="in" srcType="ap_uint&lt;5&gt;" srcSize="8">
+            <hwRefs>
+                <hwRef type="port" interface="shift" name="shift" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="len" index="9" direction="in" srcType="ap_uint&lt;11&gt;" srcSize="16">
+            <hwRefs>
+                <hwRef type="port" interface="len" name="len" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="f_cnt" index="10" direction="out" srcType="ap_uint&lt;11&gt;*" srcSize="16">
+            <hwRefs>
+                <hwRef type="port" interface="f_cnt" name="f_cnt" usage="data" direction="out"/>
+                <hwRef type="port" interface="f_cnt_ap_vld" name="f_cnt_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="f_valid" index="11" direction="out" srcType="bool*" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="f_valid" name="f_valid" usage="data" direction="out"/>
+                <hwRef type="port" interface="f_valid_ap_vld" name="f_valid_ap_vld" usage="control" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="buffer_1_rd" index="12" direction="in" srcType="stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="buffer_1_rd" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="buffer_1_rd1" index="13" direction="in" srcType="stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;" srcSize="32">
+            <hwRefs>
+                <hwRef type="interface" interface="buffer_1_rd1" name="" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="buffer_1_wr" index="14" direction="out" srcType="ap_int&lt;64&gt;*" srcSize="64">
+            <hwRefs>
+                <hwRef type="port" interface="buffer_1_wr_address0" name="buffer_1_wr_address0" usage="address" direction="out"/>
+                <hwRef type="port" interface="buffer_1_wr_ce0" name="buffer_1_wr_ce0" usage="control" direction="out"/>
+                <hwRef type="port" interface="buffer_1_wr_we0" name="buffer_1_wr_we0" usage="control" direction="out"/>
+                <hwRef type="port" interface="buffer_1_wr_d0" name="buffer_1_wr_d0" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="buffer_1_wr1" index="15" direction="out" srcType="ap_int&lt;64&gt;*" srcSize="64">
+            <hwRefs>
+                <hwRef type="port" interface="buffer_1_wr1_address0" name="buffer_1_wr1_address0" usage="address" direction="out"/>
+                <hwRef type="port" interface="buffer_1_wr1_ce0" name="buffer_1_wr1_ce0" usage="control" direction="out"/>
+                <hwRef type="port" interface="buffer_1_wr1_we0" name="buffer_1_wr1_we0" usage="control" direction="out"/>
+                <hwRef type="port" interface="buffer_1_wr1_d0" name="buffer_1_wr1_d0" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="compute_start1" index="16" direction="out" srcType="bool*" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="compute_start1" name="compute_start1" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="compute_done1" index="17" direction="in" srcType="bool" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="compute_done1" name="compute_done1" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="compute_start2" index="18" direction="out" srcType="bool*" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="compute_start2" name="compute_start2" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="compute_done2" index="19" direction="in" srcType="bool" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="compute_done2" name="compute_done2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="slave_start1" index="20" direction="out" srcType="bool*" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="slave_start1" name="slave_start1" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="slave_done1" index="21" direction="in" srcType="bool" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="slave_done1" name="slave_done1" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="slave_start2" index="22" direction="out" srcType="bool*" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="slave_start2" name="slave_start2" usage="data" direction="out"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="slave_done2" index="23" direction="in" srcType="bool" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="slave_done2" name="slave_done2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+    </Args>
+    <Interfaces>
+        <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
+            <busParams>
+                <busParam busParamName="ASSOCIATED_RESET">ap_rst</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_clk">CLK</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_clk</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="ap_rst" type="reset" busTypeName="reset" mode="slave">
+            <busParams>
+                <busParam busParamName="POLARITY">ACTIVE_HIGH</busParam>
+            </busParams>
+            <portMaps>
+                <portMap portMapName="ap_rst">RST</portMap>
+            </portMaps>
+            <ports>
+                <port>ap_rst</port>
+            </ports>
+        </Interface>
+        <Interface InterfaceName="a_i_valid" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="a_i_valid">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>a_i_valid</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="a_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="a_i_ready" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="a_i_ready">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>a_i_ready</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="a_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="a_i_data" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="a_i_data">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>a_i_data</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="a_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="a_i_strb" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="4">
+            <portMaps>
+                <portMap portMapName="a_i_strb">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>a_i_strb</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="a_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="b_i_valid" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="b_i_valid">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>b_i_valid</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="b_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="b_i_ready" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="b_i_ready">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>b_i_ready</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="b_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="b_i_data" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="b_i_data">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>b_i_data</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="b_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="b_i_strb" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="4">
+            <portMaps>
+                <portMap portMapName="b_i_strb">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>b_i_strb</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="b_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="c_i_valid" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="c_i_valid">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>c_i_valid</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="c_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="c_i_ready" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="c_i_ready">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>c_i_ready</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="c_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="c_i_data" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="c_i_data">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>c_i_data</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="c_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="c_i_strb" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="4">
+            <portMaps>
+                <portMap portMapName="c_i_strb">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>c_i_strb</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="c_i"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="d_o_valid" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="d_o_valid">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>d_o_valid</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="d_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="d_o_ready" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="d_o_ready">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>d_o_ready</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="d_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="d_o_data" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="32">
+            <portMaps>
+                <portMap portMapName="d_o_data">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>d_o_data</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="d_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="d_o_strb" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="4">
+            <portMaps>
+                <portMap portMapName="d_o_strb">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>d_o_strb</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="d_o"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="clear" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="clear">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>clear</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="clear"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="enable" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="enable">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>enable</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="enable"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="function_r" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="function_r">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>function_r</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="function"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="start_r" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="start_r">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>start_r</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="start"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="shift" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="5">
+            <portMaps>
+                <portMap portMapName="shift">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>shift</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="shift"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="len" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="11">
+            <portMaps>
+                <portMap portMapName="len">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>len</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="len"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="f_cnt" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="11">
+            <portMaps>
+                <portMap portMapName="f_cnt">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>f_cnt</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="f_cnt"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="f_valid" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="f_valid">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>f_valid</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="f_valid"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="buffer_1_rd" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="buffer_1_rd_">
+            <portMaps>
+                <portMap portMapName="buffer_1_rd_dout">RD_DATA</portMap>
+                <portMap portMapName="buffer_1_rd_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="buffer_1_rd_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>buffer_1_rd_dout</port>
+                <port>buffer_1_rd_empty_n</port>
+                <port>buffer_1_rd_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="buffer_1_rd"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="buffer_1_rd1" type="ap_fifo" busTypeName="acc_fifo_read" mode="master" dataWidth="32" portPrefix="buffer_1_rd1_">
+            <portMaps>
+                <portMap portMapName="buffer_1_rd1_dout">RD_DATA</portMap>
+                <portMap portMapName="buffer_1_rd1_empty_n">EMPTY_N</portMap>
+                <portMap portMapName="buffer_1_rd1_read">RD_EN</portMap>
+            </portMaps>
+            <ports>
+                <port>buffer_1_rd1_dout</port>
+                <port>buffer_1_rd1_empty_n</port>
+                <port>buffer_1_rd1_read</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0" argName="buffer_1_rd1"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="buffer_1_wr_address0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="5">
+            <portMaps>
+                <portMap portMapName="buffer_1_wr_address0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>buffer_1_wr_address0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="buffer_1_wr"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="buffer_1_wr_d0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="64">
+            <portMaps>
+                <portMap portMapName="buffer_1_wr_d0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>buffer_1_wr_d0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="buffer_1_wr"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="buffer_1_wr1_address0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="5">
+            <portMaps>
+                <portMap portMapName="buffer_1_wr1_address0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>buffer_1_wr1_address0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="buffer_1_wr1"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="buffer_1_wr1_d0" type="data" busTypeName="data" protocol="ap_memory" mode="master" dataWidth="64">
+            <portMaps>
+                <portMap portMapName="buffer_1_wr1_d0">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>buffer_1_wr1_d0</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0" argName="buffer_1_wr1"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="compute_start1" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="compute_start1">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>compute_start1</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="compute_start1"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="compute_done1" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="compute_done1">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>compute_done1</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="compute_done1"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="compute_start2" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="compute_start2">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>compute_start2</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="compute_start2"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="compute_done2" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="compute_done2">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>compute_done2</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="compute_done2"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="slave_start1" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="slave_start1">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>slave_start1</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="slave_start1"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="slave_done1" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="slave_done1">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>slave_done1</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="slave_done1"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="slave_start2" type="data" busTypeName="data" protocol="ap_none" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="slave_start2">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>slave_start2</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="slave_start2"/>
+            </constraints>
+        </Interface>
+        <Interface InterfaceName="slave_done2" type="data" busTypeName="data" protocol="ap_none" mode="slave" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="slave_done2">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>slave_done2</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="slave_done2"/>
+            </constraints>
+        </Interface>
+    </Interfaces>
+    <ReportHWInterface>
+        <section name="HW Interfaces" level="0">
+            <item name="AP_FIFO">
+                <table isCollapsed="0">
+                    <keys size="2">Interface, Data Width</keys>
+                    <column name="buffer_1_rd">32, </column>
+                    <column name="buffer_1_rd1">32, </column>
+                </table>
+            </item>
+            <item name="AP_MEMORY">
+                <table isCollapsed="0">
+                    <keys size="2">Interface, Bitwidth</keys>
+                    <column name="buffer_1_wr1_address0">5, , </column>
+                    <column name="buffer_1_wr1_d0">64, , </column>
+                    <column name="buffer_1_wr_address0">5, , </column>
+                    <column name="buffer_1_wr_d0">64, , </column>
+                </table>
+            </item>
+            <item name="Other Ports">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Mode, Bitwidth</keys>
+                    <column name="a_i_data">ap_none, 32, , </column>
+                    <column name="a_i_ready">ap_none, 1, , </column>
+                    <column name="a_i_strb">ap_none, 4, , </column>
+                    <column name="a_i_valid">ap_none, 1, , </column>
+                    <column name="b_i_data">ap_none, 32, , </column>
+                    <column name="b_i_ready">ap_none, 1, , </column>
+                    <column name="b_i_strb">ap_none, 4, , </column>
+                    <column name="b_i_valid">ap_none, 1, , </column>
+                    <column name="c_i_data">ap_none, 32, , </column>
+                    <column name="c_i_ready">ap_none, 1, , </column>
+                    <column name="c_i_strb">ap_none, 4, , </column>
+                    <column name="c_i_valid">ap_none, 1, , </column>
+                    <column name="clear">ap_none, 1, , </column>
+                    <column name="compute_done1">ap_none, 1, , </column>
+                    <column name="compute_done2">ap_none, 1, , </column>
+                    <column name="compute_start1">ap_none, 1, , </column>
+                    <column name="compute_start2">ap_none, 1, , </column>
+                    <column name="d_o_data">ap_none, 32, , </column>
+                    <column name="d_o_ready">ap_none, 1, , </column>
+                    <column name="d_o_strb">ap_none, 4, , </column>
+                    <column name="d_o_valid">ap_none, 1, , </column>
+                    <column name="enable">ap_none, 1, , </column>
+                    <column name="f_cnt">ap_vld, 11, , </column>
+                    <column name="f_valid">ap_vld, 1, , </column>
+                    <column name="function_r">ap_none, 1, , </column>
+                    <column name="len">ap_none, 11, , </column>
+                    <column name="shift">ap_none, 5, , </column>
+                    <column name="slave_done1">ap_none, 1, , </column>
+                    <column name="slave_done2">ap_none, 1, , </column>
+                    <column name="slave_start1">ap_none, 1, , </column>
+                    <column name="slave_start2">ap_none, 1, , </column>
+                    <column name="start_r">ap_none, 1, , </column>
+                </table>
+            </item>
+            <item name="TOP LEVEL CONTROL">
+                <table isCollapsed="0">
+                    <keys size="3">Interface, Type, Ports</keys>
+                    <column name="ap_clk">clock, ap_clk, </column>
+                    <column name="ap_rst">reset, ap_rst, </column>
+                    <column name="ap_ctrl">ap_ctrl_none, , </column>
+                </table>
+            </item>
+        </section>
+    </ReportHWInterface>
+    <ReportSWInterface>
+        <section name="SW I/O Information" level="0">
+            <item name="Top Function Arguments">
+                <table isCollapsed="1">
+                    <keys size="3">Argument, Direction, Datatype</keys>
+                    <column name="a_i">inout, hs_is_t*</column>
+                    <column name="b_i">inout, hs_is_t*</column>
+                    <column name="c_i">out, hs_is_t*</column>
+                    <column name="d_o">inout, hs_is_t*</column>
+                    <column name="clear">in, bool</column>
+                    <column name="enable">in, bool</column>
+                    <column name="function">in, bool</column>
+                    <column name="start">in, bool</column>
+                    <column name="shift">in, ap_uint&lt;5&gt;</column>
+                    <column name="len">in, ap_uint&lt;11&gt;</column>
+                    <column name="f_cnt">out, ap_uint&lt;11&gt;*</column>
+                    <column name="f_valid">out, bool*</column>
+                    <column name="buffer_1_rd">in, stream&lt;ap_uint&lt;32&gt; 0&gt;&amp;</column>
+                    <column name="buffer_1_rd1">in, stream&lt;ap_uint&lt;32&gt; 0&gt;&amp;</column>
+                    <column name="buffer_1_wr">out, ap_int&lt;64&gt;*</column>
+                    <column name="buffer_1_wr1">out, ap_int&lt;64&gt;*</column>
+                    <column name="compute_start1">out, bool*</column>
+                    <column name="compute_done1">in, bool</column>
+                    <column name="compute_start2">out, bool*</column>
+                    <column name="compute_done2">in, bool</column>
+                    <column name="slave_start1">out, bool*</column>
+                    <column name="slave_done1">in, bool</column>
+                    <column name="slave_start2">out, bool*</column>
+                    <column name="slave_done2">in, bool</column>
+                </table>
+            </item>
+            <item name="SW-to-HW Mapping">
+                <table isCollapsed="1">
+                    <keys size="4">Argument, HW Interface, HW Type, HW Usage</keys>
+                    <column name="a_i">a_i_valid, port, , </column>
+                    <column name="a_i">a_i_ready, port, , </column>
+                    <column name="a_i">a_i_data, port, , </column>
+                    <column name="a_i">a_i_strb, port, , </column>
+                    <column name="b_i">b_i_valid, port, , </column>
+                    <column name="b_i">b_i_ready, port, , </column>
+                    <column name="b_i">b_i_data, port, , </column>
+                    <column name="b_i">b_i_strb, port, , </column>
+                    <column name="c_i">c_i_valid, port, , </column>
+                    <column name="c_i">c_i_ready, port, , </column>
+                    <column name="c_i">c_i_data, port, , </column>
+                    <column name="c_i">c_i_strb, port, , </column>
+                    <column name="d_o">d_o_valid, port, , </column>
+                    <column name="d_o">d_o_ready, port, , </column>
+                    <column name="d_o">d_o_data, port, , </column>
+                    <column name="d_o">d_o_strb, port, , </column>
+                    <column name="clear">clear, port, , </column>
+                    <column name="enable">enable, port, , </column>
+                    <column name="function">function_r, port, , </column>
+                    <column name="start">start_r, port, , </column>
+                    <column name="shift">shift, port, , </column>
+                    <column name="len">len, port, , </column>
+                    <column name="f_cnt">f_cnt, port, , </column>
+                    <column name="f_cnt">f_cnt_ap_vld, port, , </column>
+                    <column name="f_valid">f_valid, port, , </column>
+                    <column name="f_valid">f_valid_ap_vld, port, , </column>
+                    <column name="buffer_1_rd">buffer_1_rd, interface, , </column>
+                    <column name="buffer_1_rd1">buffer_1_rd1, interface, , </column>
+                    <column name="buffer_1_wr">buffer_1_wr_address0, port, offset, </column>
+                    <column name="buffer_1_wr">buffer_1_wr_ce0, port, , </column>
+                    <column name="buffer_1_wr">buffer_1_wr_we0, port, , </column>
+                    <column name="buffer_1_wr">buffer_1_wr_d0, port, , </column>
+                    <column name="buffer_1_wr1">buffer_1_wr1_address0, port, offset, </column>
+                    <column name="buffer_1_wr1">buffer_1_wr1_ce0, port, , </column>
+                    <column name="buffer_1_wr1">buffer_1_wr1_we0, port, , </column>
+                    <column name="buffer_1_wr1">buffer_1_wr1_d0, port, , </column>
+                    <column name="compute_start1">compute_start1, port, , </column>
+                    <column name="compute_done1">compute_done1, port, , </column>
+                    <column name="compute_start2">compute_start2, port, , </column>
+                    <column name="compute_done2">compute_done2, port, , </column>
+                    <column name="slave_start1">slave_start1, port, , </column>
+                    <column name="slave_done1">slave_done1, port, , </column>
+                    <column name="slave_start2">slave_start2, port, , </column>
+                    <column name="slave_done2">slave_done2, port, , </column>
+                </table>
+            </item>
+        </section>
+    </ReportSWInterface>
+    <PragmaReport>
+        <Pragma type="interface" location="Control/control.cpp:36" status="valid" parentFunction="cont" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
+        <Pragma type="interface" location="Control/control.cpp:38" status="valid" parentFunction="cont" variable="a_i" isDirective="0" options="ap_none port=a_i"/>
+        <Pragma type="disaggregate" location="Control/control.cpp:39" status="valid" parentFunction="cont" variable="a_i" isDirective="0" options="variable=a_i"/>
+        <Pragma type="interface" location="Control/control.cpp:40" status="valid" parentFunction="cont" variable="b_i" isDirective="0" options="ap_none port=b_i"/>
+        <Pragma type="disaggregate" location="Control/control.cpp:41" status="valid" parentFunction="cont" variable="b_i" isDirective="0" options="variable=b_i"/>
+        <Pragma type="interface" location="Control/control.cpp:42" status="valid" parentFunction="cont" variable="c_i" isDirective="0" options="ap_none port=c_i"/>
+        <Pragma type="disaggregate" location="Control/control.cpp:43" status="valid" parentFunction="cont" variable="c_i" isDirective="0" options="variable=c_i"/>
+        <Pragma type="interface" location="Control/control.cpp:44" status="valid" parentFunction="cont" variable="d_o" isDirective="0" options="ap_none port=d_o"/>
+        <Pragma type="disaggregate" location="Control/control.cpp:45" status="valid" parentFunction="cont" variable="d_o" isDirective="0" options="variable=d_o"/>
+        <Pragma type="interface" location="Control/control.cpp:47" status="valid" parentFunction="cont" variable="buffer_1_rd" isDirective="0" options="ap_fifo port=buffer_1_rd"/>
+        <Pragma type="interface" location="Control/control.cpp:48" status="valid" parentFunction="cont" variable="buffer_1_rd1" isDirective="0" options="ap_fifo port=buffer_1_rd1"/>
+        <Pragma type="interface" location="Control/control.cpp:49" status="valid" parentFunction="cont" variable="buffer_1_wr" isDirective="0" options="ap_memory port=buffer_1_wr"/>
+        <Pragma type="interface" location="Control/control.cpp:50" status="valid" parentFunction="cont" variable="buffer_1_wr1" isDirective="0" options="ap_memory port=buffer_1_wr1"/>
+        <Pragma type="interface" location="Control/control.cpp:51" status="valid" parentFunction="cont" variable="compute_start1" isDirective="0" options="ap_none port=compute_start1"/>
+        <Pragma type="interface" location="Control/control.cpp:52" status="valid" parentFunction="cont" variable="compute_done1" isDirective="0" options="ap_none port=compute_done1"/>
+        <Pragma type="interface" location="Control/control.cpp:53" status="valid" parentFunction="cont" variable="compute_start2" isDirective="0" options="ap_none port=compute_start2"/>
+        <Pragma type="interface" location="Control/control.cpp:54" status="valid" parentFunction="cont" variable="compute_done2" isDirective="0" options="ap_none port=compute_done2"/>
+        <Pragma type="interface" location="Control/control.cpp:55" status="valid" parentFunction="cont" variable="slave_start1" isDirective="0" options="ap_none port=slave_start1"/>
+        <Pragma type="interface" location="Control/control.cpp:56" status="valid" parentFunction="cont" variable="slave_done1" isDirective="0" options="ap_none port=slave_done1"/>
+        <Pragma type="interface" location="Control/control.cpp:57" status="valid" parentFunction="cont" variable="slave_start2" isDirective="0" options="ap_none port=slave_start2"/>
+        <Pragma type="interface" location="Control/control.cpp:58" status="valid" parentFunction="cont" variable="slave_done2" isDirective="0" options="ap_none port=slave_done2"/>
+    </PragmaReport>
+</profile>
+

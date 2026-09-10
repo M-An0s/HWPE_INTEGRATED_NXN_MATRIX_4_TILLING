@@ -1,0 +1,18 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [{
+          "functionName": "compute_slave",
+          "label": "",
+          "functionLabel": "",
+          "id": "1",
+          "sourceFile": "\/home\/pulp1\/HLS_corrected\/script.ctl",
+          "sourceLine": "10",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "compute_slave"
+              }]
+          }
+        }]
+    }]}

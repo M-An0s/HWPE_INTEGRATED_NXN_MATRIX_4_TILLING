@@ -1,0 +1,6 @@
+remark: Control/control.cpp:34:0: Disaggregating variable 'a_i'
+remark: Control/control.cpp:34:0: Disaggregating variable 'b_i'
+remark: Control/control.cpp:34:0: Disaggregating variable 'c_i'
+remark: Control/control.cpp:34:0: Disaggregating variable 'd_o'
+remark: Control/control.cpp:34:0: Aggregating fifo (hls::stream) variable 'buffer_1_rd1' with compact=bit mode in 32-bits
+remark: Control/control.cpp:34:0: Aggregating fifo (hls::stream) variable 'buffer_1_rd' with compact=bit mode in 32-bits

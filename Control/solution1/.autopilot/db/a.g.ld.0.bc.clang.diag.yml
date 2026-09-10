@@ -1,0 +1,72 @@
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: Control/control.cpp, Line: 34, Column: 0 }
+Function:        _Z4contP7hs_is_tS0_S0_S0_bbbb7ap_uintILi5EES1_ILi11EEPS3_PbRN3hls6streamIS1_ILi32EELi0EEESA_P6ap_intILi64EESD_S5_bS5_bS5_bS5_b
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            a_i
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: Control/control.cpp, Line: 34, Column: 0 }
+Function:        _Z4contP7hs_is_tS0_S0_S0_bbbb7ap_uintILi5EES1_ILi11EEPS3_PbRN3hls6streamIS1_ILi32EELi0EEESA_P6ap_intILi64EESD_S5_bS5_bS5_bS5_b
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            b_i
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: Control/control.cpp, Line: 34, Column: 0 }
+Function:        _Z4contP7hs_is_tS0_S0_S0_bbbb7ap_uintILi5EES1_ILi11EEPS3_PbRN3hls6streamIS1_ILi32EELi0EEESA_P6ap_intILi64EESD_S5_bS5_bS5_bS5_b
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            c_i
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-disaggr
+Name:            DisaggrSucc
+DebugLoc:        { File: Control/control.cpp, Line: 34, Column: 0 }
+Function:        _Z4contP7hs_is_tS0_S0_S0_bbbb7ap_uintILi5EES1_ILi11EEPS3_PbRN3hls6streamIS1_ILi32EELi0EEESA_P6ap_intILi64EESD_S5_bS5_bS5_bS5_b
+Args:            
+  - String:          'Disaggregating variable '''
+  - Name:            d_o
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: Control/control.cpp, Line: 34, Column: 0 }
+Function:        _Z4contP7hs_is_tS0_S0_S0_bbbb7ap_uintILi5EES1_ILi11EEPS3_PbRN3hls6streamIS1_ILi32EELi0EEESA_P6ap_intILi64EESD_S5_bS5_bS5_bS5_b
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        'fifo (hls::stream)'
+  - String:          ' variable '''
+  - Name:            buffer_1_rd1
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '32'
+  - String:          '-bits'
+...
+--- !Passed
+Pass:            reflow-aggr
+Name:            AggrSucc
+DebugLoc:        { File: Control/control.cpp, Line: 34, Column: 0 }
+Function:        _Z4contP7hs_is_tS0_S0_S0_bbbb7ap_uintILi5EES1_ILi11EEPS3_PbRN3hls6streamIS1_ILi32EELi0EEESA_P6ap_intILi64EESD_S5_bS5_bS5_bS5_b
+Args:            
+  - String:          'Aggregating '
+  - HwTyName:        'fifo (hls::stream)'
+  - String:          ' variable '''
+  - Name:            buffer_1_rd
+  - String:          ''' with '
+  - AggregateTypeName: 'compact=bit'
+  - String:          ' mode in '
+  - Bitwidth:        '32'
+  - String:          '-bits'
+...

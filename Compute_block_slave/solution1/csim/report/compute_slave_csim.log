@@ -1,0 +1,15 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../Compute_test.cpp in debug mode
+   Compiling ../../../Compute_slave.cpp in debug mode
+   Generating csim.exe
+
+Result matrix (nest):
+    55    100    145     58 
+   130    250    370    193 
+   205    400    595    328 
+   280    550    820    463 
+
+PASS: COMPUTE nest matches reference 4x5*5x4
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

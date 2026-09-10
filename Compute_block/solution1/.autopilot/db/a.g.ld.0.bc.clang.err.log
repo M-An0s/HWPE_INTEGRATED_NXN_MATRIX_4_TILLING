@@ -1,0 +1,4 @@
+remark: Compute_block/Compute.cpp:47:13: Applying array_partition to 'REG': Complete partitioning on dimension 1. Complete partitioning on dimension 2.
+remark: Compute_block/Compute.cpp:52:14: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.10 dummy  compute(ap_int<64>*, ap_int<32>*, bool) 
+remark: Compute_block/Compute.cpp:54:13: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.load.13 dummy  compute(ap_int<64>*, ap_int<32>*, bool) 
+remark: Compute_block/Compute.cpp:54:11: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.14 dummy  compute(ap_int<64>*, ap_int<32>*, bool) 
