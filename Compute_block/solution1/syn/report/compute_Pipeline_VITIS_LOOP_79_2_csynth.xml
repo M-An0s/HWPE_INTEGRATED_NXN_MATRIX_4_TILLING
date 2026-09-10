@@ -200,8 +200,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>indvars_iv397</name>
-<Object>indvars_iv397</Object>
+<name>indvars_iv1</name>
+<Object>indvars_iv1</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>

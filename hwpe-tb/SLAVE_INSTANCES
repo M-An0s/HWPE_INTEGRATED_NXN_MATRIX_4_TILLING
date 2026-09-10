@@ -1,0 +1,40 @@
+   compute_slave i_slave1 (
+    .ap_clk              ( clk_i          ),
+    .ap_rst              ( ~rst_ni         ),   // MATCH master polarity
+    .ap_start            ( slave_start1   ),
+    .ap_done             ( slave_done1    ),
+    .ap_idle             (                ),
+    .ap_ready            (                ),
+    // fwd_in1 <- FIFO fed by master1
+    .fwd_in1_dout        ( s1_fwd1_dout    ),
+    .fwd_in1_empty_n     ( s1_fwd1_empty_n ),
+    .fwd_in1_read        ( s1_fwd1_read    ),
+    // fwd_in2 <- FIFO fed by master2
+    .fwd_in2_dout        ( s1_fwd2_dout    ),
+    .fwd_in2_empty_n     ( s1_fwd2_empty_n ),
+    .fwd_in2_read        ( s1_fwd2_read    ),
+    // result -> slave1 result memory
+    .result_out_address0 ( s1_res_addr    ),
+    .result_out_ce0      ( s1_res_ce      ),
+    .result_out_we0      ( s1_res_we      ),
+    .result_out_d0       ( s1_res_d       )
+  );
+
+   compute_slave i_slave2 (
+    .ap_clk              ( clk_i          ),
+    .ap_rst              ( ~rst_ni         ),
+    .ap_start            ( slave_start2   ),
+    .ap_done             ( slave_done2    ),
+    .ap_idle             (                ),
+    .ap_ready            (                ),
+    .fwd_in1_dout        ( s2_fwd1_dout    ),
+    .fwd_in1_empty_n     ( s2_fwd1_empty_n ),
+    .fwd_in1_read        ( s2_fwd1_read    ),
+    .fwd_in2_dout        ( s2_fwd2_dout    ),
+    .fwd_in2_empty_n     ( s2_fwd2_empty_n ),
+    .fwd_in2_read        ( s2_fwd2_read    ),
+    .result_out_address0 ( s2_res_addr    ),
+    .result_out_ce0      ( s2_res_ce      ),
+    .result_out_we0      ( s2_res_we      ),
+    .result_out_d0       ( s2_res_d       )
+  );

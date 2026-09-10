@@ -264,6 +264,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "buffer_V", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "compute_launched", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "compute_launched2", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "slave_launched", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "store_result_ready", "Type" : "OVld", "Direction" : "IO"}]}]}
 
 
@@ -320,6 +321,7 @@ set ArgLastReadFirstWriteLatency {
 		buffer_V {Type IO LastRead -1 FirstWrite -1}
 		compute_launched {Type IO LastRead -1 FirstWrite -1}
 		compute_launched2 {Type IO LastRead -1 FirstWrite -1}
+		slave_launched {Type IO LastRead -1 FirstWrite -1}
 		store_result_ready {Type IO LastRead -1 FirstWrite -1}}}
 
 set hasDtUnsupportedChannel 0

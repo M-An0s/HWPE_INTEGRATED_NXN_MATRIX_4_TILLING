@@ -6,15 +6,15 @@
 #define M_size 8
 
 enum State{
-    IDLE,
-    LOAD_MEM_1,
-    LOAD_MEM_2,
-    START_MPE1,
-    START_MPE2,
-    START_SLAVES,
-    WAIT_ALL,
-    READ,
-    UNLOAD
+    IDLE,               //0
+    LOAD_MEM_1,         //1
+    LOAD_MEM_2,         //2
+    START_MPE1,         //3
+    START_MPE2,         //4
+    START_SLAVES,       //5
+    WAIT_ALL,           //6
+    READ,               //7
+    UNLOAD              //8
 };
 
 // shift/function still selects the mode; kept for the mac_fsm contract.
@@ -121,7 +121,7 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
                 *slave_start1 =0;
                 *slave_start2 =0;
 
-                state = LOAD_MEM_1;
+                state = START_SLAVES;
                 done1_seen=0;
                 done2_seen=0;
                 slave_done1_seen =0;
@@ -163,7 +163,7 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
             break;}
         
         
-      /*   case START_SLAVES:{
+        case START_SLAVES:{
             if(slave_launched == 0){
                 *slave_start1 = 1;
                 *slave_start2 = 1;
@@ -173,7 +173,7 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
                     *slave_start2 = 0;
                     state = LOAD_MEM_1;
                 }
-            break;}  */
+            break;}  
 
         case START_MPE1:{
             if(compute_launched == 0){ //STARTS ONLY ONCE
@@ -195,10 +195,9 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
             } else {
                 *compute_start2 = 0;
                 //reset the count
-            }
-            if(done2_seen){
                 state = WAIT_ALL;
             }
+           
             break;}
 
        

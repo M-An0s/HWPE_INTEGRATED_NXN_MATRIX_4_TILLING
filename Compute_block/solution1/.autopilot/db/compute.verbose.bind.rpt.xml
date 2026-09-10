@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'compute'" level="0">
-<item name = "Date">Thu Sep 10 02:53:43 2026
+<item name = "Date">Thu Sep 10 14:52:41 2026
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Compute_block</item>
@@ -31,8 +31,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_compute_Pipeline_VITIS_LOOP_60_1_fu_351">compute_Pipeline_VITIS_LOOP_60_1, 9, 9, 90.000 ns, 90.000 ns, 9, 9, no</column>
-<column name="grp_compute_Pipeline_VITIS_LOOP_79_2_fu_423">compute_Pipeline_VITIS_LOOP_79_2, 2, 8, 20.000 ns, 80.000 ns, 2, 8, no</column>
+<column name="grp_compute_Pipeline_VITIS_LOOP_60_1_fu_359">compute_Pipeline_VITIS_LOOP_60_1, 9, 9, 90.000 ns, 90.000 ns, 9, 9, no</column>
+<column name="grp_compute_Pipeline_VITIS_LOOP_79_2_fu_435">compute_Pipeline_VITIS_LOOP_79_2, 2, 8, 20.000 ns, 80.000 ns, 2, 8, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

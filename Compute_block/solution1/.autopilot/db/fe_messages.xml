@@ -20,6 +20,12 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Compute_block/Compute.cpp:39:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="compute" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_memory port=buffer_2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Compute_block/Compute.cpp:40:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_fifo port=fwd_out1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Compute_block/Compute.cpp:41:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="compute" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_fifo port=fwd_out2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Compute_block/Compute.cpp:50:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="compute" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=REG complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
@@ -28,6 +34,12 @@
     </msg>
     <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="Compute_block/Compute.cpp:47:13" msg_body="Applying array_partition to 'REG': Complete partitioning on dimension 1. Complete partitioning on dimension 2.">
         <args Dim="islist 1 2" Mode="islist Complete Complete" UOName="REG"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="Compute_block/Compute.cpp:36:0" msg_body="Aggregating fifo (hls::stream) variable 'fwd_out2' with compact=bit mode in 32-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="32" HwTyName="fifo (hls::stream)" Name="fwd_out2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="Compute_block/Compute.cpp:36:0" msg_body="Aggregating fifo (hls::stream) variable 'fwd_out1' with compact=bit mode in 32-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="32" HwTyName="fifo (hls::stream)" Name="fwd_out1"/>
     </msg>
 </xilinx:hls_fe_msgs>
 

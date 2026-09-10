@@ -236,9 +236,13 @@ class AESL_RUNTIME_BC {
     fstream file_token;
     string mName;
 };
+unsigned int ap_apatb_fwd_out1_cap_bc;
+static AESL_RUNTIME_BC __xlx_fwd_out1_V_size_Reader("../tv/stream_size/stream_size_out_fwd_out1.dat");
+unsigned int ap_apatb_fwd_out2_cap_bc;
+static AESL_RUNTIME_BC __xlx_fwd_out2_V_size_Reader("../tv/stream_size/stream_size_out_fwd_out2.dat");
 using hls::sim::Byte;
-extern "C" void compute(Byte<8>*, Byte<4>*, char);
-extern "C" void apatb_compute_hw(volatile void * __xlx_apatb_param_buffer_1, volatile void * __xlx_apatb_param_buffer_2, char __xlx_apatb_param_phase) {
+extern "C" void compute(Byte<8>*, Byte<4>*, char, int*, int*);
+extern "C" void apatb_compute_hw(volatile void * __xlx_apatb_param_buffer_1, volatile void * __xlx_apatb_param_buffer_2, char __xlx_apatb_param_phase, volatile void * __xlx_apatb_param_fwd_out1, volatile void * __xlx_apatb_param_fwd_out2) {
 using hls::sim::createStream;
   // Collect __xlx_buffer_1__tmp_vec
 std::vector<Byte<8>> __xlx_buffer_1__tmp_vec;
@@ -256,8 +260,16 @@ __xlx_buffer_2__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_buffer_2)[i]);
   int __xlx_size_param_buffer_2 = 16;
   int __xlx_offset_param_buffer_2 = 0;
   int __xlx_offset_byte_param_buffer_2 = 0*4;
+  //Create input buffer for fwd_out1
+  ap_apatb_fwd_out1_cap_bc = __xlx_fwd_out1_V_size_Reader.read_size();
+  int* __xlx_fwd_out1_input_buffer= new int[ap_apatb_fwd_out1_cap_bc];
+auto* sfwd_out1 = createStream((hls::stream<int>*)__xlx_apatb_param_fwd_out1);
+  //Create input buffer for fwd_out2
+  ap_apatb_fwd_out2_cap_bc = __xlx_fwd_out2_V_size_Reader.read_size();
+  int* __xlx_fwd_out2_input_buffer= new int[ap_apatb_fwd_out2_cap_bc];
+auto* sfwd_out2 = createStream((hls::stream<int>*)__xlx_apatb_param_fwd_out2);
   // DUT call
-  compute(__xlx_buffer_1__tmp_vec.data(), __xlx_buffer_2__tmp_vec.data(), __xlx_apatb_param_phase);
+  compute(__xlx_buffer_1__tmp_vec.data(), __xlx_buffer_2__tmp_vec.data(), __xlx_apatb_param_phase, sfwd_out1->data<int>(), sfwd_out2->data<int>());
 // print __xlx_apatb_param_buffer_1
 for (size_t i = 0; i < __xlx_size_param_buffer_1; ++i) {
 ((Byte<8>*)__xlx_apatb_param_buffer_1)[i] = __xlx_buffer_1__tmp_vec[__xlx_offset_param_buffer_1+i];
@@ -266,4 +278,6 @@ for (size_t i = 0; i < __xlx_size_param_buffer_1; ++i) {
 for (size_t i = 0; i < __xlx_size_param_buffer_2; ++i) {
 ((Byte<4>*)__xlx_apatb_param_buffer_2)[i] = __xlx_buffer_2__tmp_vec[__xlx_offset_param_buffer_2+i];
 }
+sfwd_out1->transfer((hls::stream<int>*)__xlx_apatb_param_fwd_out1);
+sfwd_out2->transfer((hls::stream<int>*)__xlx_apatb_param_fwd_out2);
 }

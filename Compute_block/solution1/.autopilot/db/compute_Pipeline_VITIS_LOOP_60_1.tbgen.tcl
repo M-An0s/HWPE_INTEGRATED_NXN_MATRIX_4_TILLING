@@ -45,6 +45,8 @@ set C_modelArgList {
 	{ REG_V_2 int 16 regular  }
 	{ REG_V_1 int 16 regular  }
 	{ REG_V int 16 regular  }
+	{ fwd_out1 int 32 regular {fifo 1 volatile }  }
+	{ fwd_out2 int 32 regular {fifo 1 volatile }  }
 	{ i_cast int 2 regular  }
 	{ buffer_1 int 64 regular {array 8 { 1 3 } 1 1 }  }
 	{ REG_V_63_out int 16 regular {pointer 1}  }
@@ -114,6 +116,8 @@ set C_modelArgMapList {[
  	{ "Name" : "REG_V_2", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
  	{ "Name" : "REG_V_1", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
  	{ "Name" : "REG_V", "interface" : "wire", "bitwidth" : 16, "direction" : "READONLY"} , 
+ 	{ "Name" : "fwd_out1", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
+ 	{ "Name" : "fwd_out2", "interface" : "fifo", "bitwidth" : 32, "direction" : "WRITEONLY"} , 
  	{ "Name" : "i_cast", "interface" : "wire", "bitwidth" : 2, "direction" : "READONLY"} , 
  	{ "Name" : "buffer_1", "interface" : "memory", "bitwidth" : 64, "direction" : "READONLY"} , 
  	{ "Name" : "REG_V_63_out", "interface" : "wire", "bitwidth" : 16, "direction" : "WRITEONLY"} , 
@@ -150,7 +154,7 @@ set C_modelArgMapList {[
  	{ "Name" : "REG_V_32_out", "interface" : "wire", "bitwidth" : 16, "direction" : "WRITEONLY"} , 
  	{ "Name" : "self_sum_V_out", "interface" : "wire", "bitwidth" : 32, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 108
+set portNum 114
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -158,6 +162,12 @@ set portList {
 	{ ap_done sc_out sc_logic 1 predone -1 } 
 	{ ap_idle sc_out sc_logic 1 done -1 } 
 	{ ap_ready sc_out sc_logic 1 ready -1 } 
+	{ fwd_out1_din sc_out sc_lv 32 signal 32 } 
+	{ fwd_out1_full_n sc_in sc_logic 1 signal 32 } 
+	{ fwd_out1_write sc_out sc_logic 1 signal 32 } 
+	{ fwd_out2_din sc_out sc_lv 32 signal 33 } 
+	{ fwd_out2_full_n sc_in sc_logic 1 signal 33 } 
+	{ fwd_out2_write sc_out sc_logic 1 signal 33 } 
 	{ REG_V_31 sc_in sc_lv 16 signal 0 } 
 	{ REG_V_30 sc_in sc_lv 16 signal 1 } 
 	{ REG_V_29 sc_in sc_lv 16 signal 2 } 
@@ -190,76 +200,76 @@ set portList {
 	{ REG_V_2 sc_in sc_lv 16 signal 29 } 
 	{ REG_V_1 sc_in sc_lv 16 signal 30 } 
 	{ REG_V sc_in sc_lv 16 signal 31 } 
-	{ i_cast sc_in sc_lv 2 signal 32 } 
-	{ buffer_1_address0 sc_out sc_lv 3 signal 33 } 
-	{ buffer_1_ce0 sc_out sc_logic 1 signal 33 } 
-	{ buffer_1_q0 sc_in sc_lv 64 signal 33 } 
-	{ REG_V_63_out sc_out sc_lv 16 signal 34 } 
-	{ REG_V_63_out_ap_vld sc_out sc_logic 1 outvld 34 } 
-	{ REG_V_62_out sc_out sc_lv 16 signal 35 } 
-	{ REG_V_62_out_ap_vld sc_out sc_logic 1 outvld 35 } 
-	{ REG_V_61_out sc_out sc_lv 16 signal 36 } 
-	{ REG_V_61_out_ap_vld sc_out sc_logic 1 outvld 36 } 
-	{ REG_V_60_out sc_out sc_lv 16 signal 37 } 
-	{ REG_V_60_out_ap_vld sc_out sc_logic 1 outvld 37 } 
-	{ REG_V_59_out sc_out sc_lv 16 signal 38 } 
-	{ REG_V_59_out_ap_vld sc_out sc_logic 1 outvld 38 } 
-	{ REG_V_58_out sc_out sc_lv 16 signal 39 } 
-	{ REG_V_58_out_ap_vld sc_out sc_logic 1 outvld 39 } 
-	{ REG_V_57_out sc_out sc_lv 16 signal 40 } 
-	{ REG_V_57_out_ap_vld sc_out sc_logic 1 outvld 40 } 
-	{ REG_V_56_out sc_out sc_lv 16 signal 41 } 
-	{ REG_V_56_out_ap_vld sc_out sc_logic 1 outvld 41 } 
-	{ REG_V_55_out sc_out sc_lv 16 signal 42 } 
-	{ REG_V_55_out_ap_vld sc_out sc_logic 1 outvld 42 } 
-	{ REG_V_54_out sc_out sc_lv 16 signal 43 } 
-	{ REG_V_54_out_ap_vld sc_out sc_logic 1 outvld 43 } 
-	{ REG_V_53_out sc_out sc_lv 16 signal 44 } 
-	{ REG_V_53_out_ap_vld sc_out sc_logic 1 outvld 44 } 
-	{ REG_V_52_out sc_out sc_lv 16 signal 45 } 
-	{ REG_V_52_out_ap_vld sc_out sc_logic 1 outvld 45 } 
-	{ REG_V_51_out sc_out sc_lv 16 signal 46 } 
-	{ REG_V_51_out_ap_vld sc_out sc_logic 1 outvld 46 } 
-	{ REG_V_50_out sc_out sc_lv 16 signal 47 } 
-	{ REG_V_50_out_ap_vld sc_out sc_logic 1 outvld 47 } 
-	{ REG_V_49_out sc_out sc_lv 16 signal 48 } 
-	{ REG_V_49_out_ap_vld sc_out sc_logic 1 outvld 48 } 
-	{ REG_V_48_out sc_out sc_lv 16 signal 49 } 
-	{ REG_V_48_out_ap_vld sc_out sc_logic 1 outvld 49 } 
-	{ REG_V_47_out sc_out sc_lv 16 signal 50 } 
-	{ REG_V_47_out_ap_vld sc_out sc_logic 1 outvld 50 } 
-	{ REG_V_46_out sc_out sc_lv 16 signal 51 } 
-	{ REG_V_46_out_ap_vld sc_out sc_logic 1 outvld 51 } 
-	{ REG_V_45_out sc_out sc_lv 16 signal 52 } 
-	{ REG_V_45_out_ap_vld sc_out sc_logic 1 outvld 52 } 
-	{ REG_V_44_out sc_out sc_lv 16 signal 53 } 
-	{ REG_V_44_out_ap_vld sc_out sc_logic 1 outvld 53 } 
-	{ REG_V_43_out sc_out sc_lv 16 signal 54 } 
-	{ REG_V_43_out_ap_vld sc_out sc_logic 1 outvld 54 } 
-	{ REG_V_42_out sc_out sc_lv 16 signal 55 } 
-	{ REG_V_42_out_ap_vld sc_out sc_logic 1 outvld 55 } 
-	{ REG_V_41_out sc_out sc_lv 16 signal 56 } 
-	{ REG_V_41_out_ap_vld sc_out sc_logic 1 outvld 56 } 
-	{ REG_V_40_out sc_out sc_lv 16 signal 57 } 
-	{ REG_V_40_out_ap_vld sc_out sc_logic 1 outvld 57 } 
-	{ REG_V_39_out sc_out sc_lv 16 signal 58 } 
-	{ REG_V_39_out_ap_vld sc_out sc_logic 1 outvld 58 } 
-	{ REG_V_38_out sc_out sc_lv 16 signal 59 } 
-	{ REG_V_38_out_ap_vld sc_out sc_logic 1 outvld 59 } 
-	{ REG_V_37_out sc_out sc_lv 16 signal 60 } 
-	{ REG_V_37_out_ap_vld sc_out sc_logic 1 outvld 60 } 
-	{ REG_V_36_out sc_out sc_lv 16 signal 61 } 
-	{ REG_V_36_out_ap_vld sc_out sc_logic 1 outvld 61 } 
-	{ REG_V_35_out sc_out sc_lv 16 signal 62 } 
-	{ REG_V_35_out_ap_vld sc_out sc_logic 1 outvld 62 } 
-	{ REG_V_34_out sc_out sc_lv 16 signal 63 } 
-	{ REG_V_34_out_ap_vld sc_out sc_logic 1 outvld 63 } 
-	{ REG_V_33_out sc_out sc_lv 16 signal 64 } 
-	{ REG_V_33_out_ap_vld sc_out sc_logic 1 outvld 64 } 
-	{ REG_V_32_out sc_out sc_lv 16 signal 65 } 
-	{ REG_V_32_out_ap_vld sc_out sc_logic 1 outvld 65 } 
-	{ self_sum_V_out sc_out sc_lv 32 signal 66 } 
-	{ self_sum_V_out_ap_vld sc_out sc_logic 1 outvld 66 } 
+	{ i_cast sc_in sc_lv 2 signal 34 } 
+	{ buffer_1_address0 sc_out sc_lv 3 signal 35 } 
+	{ buffer_1_ce0 sc_out sc_logic 1 signal 35 } 
+	{ buffer_1_q0 sc_in sc_lv 64 signal 35 } 
+	{ REG_V_63_out sc_out sc_lv 16 signal 36 } 
+	{ REG_V_63_out_ap_vld sc_out sc_logic 1 outvld 36 } 
+	{ REG_V_62_out sc_out sc_lv 16 signal 37 } 
+	{ REG_V_62_out_ap_vld sc_out sc_logic 1 outvld 37 } 
+	{ REG_V_61_out sc_out sc_lv 16 signal 38 } 
+	{ REG_V_61_out_ap_vld sc_out sc_logic 1 outvld 38 } 
+	{ REG_V_60_out sc_out sc_lv 16 signal 39 } 
+	{ REG_V_60_out_ap_vld sc_out sc_logic 1 outvld 39 } 
+	{ REG_V_59_out sc_out sc_lv 16 signal 40 } 
+	{ REG_V_59_out_ap_vld sc_out sc_logic 1 outvld 40 } 
+	{ REG_V_58_out sc_out sc_lv 16 signal 41 } 
+	{ REG_V_58_out_ap_vld sc_out sc_logic 1 outvld 41 } 
+	{ REG_V_57_out sc_out sc_lv 16 signal 42 } 
+	{ REG_V_57_out_ap_vld sc_out sc_logic 1 outvld 42 } 
+	{ REG_V_56_out sc_out sc_lv 16 signal 43 } 
+	{ REG_V_56_out_ap_vld sc_out sc_logic 1 outvld 43 } 
+	{ REG_V_55_out sc_out sc_lv 16 signal 44 } 
+	{ REG_V_55_out_ap_vld sc_out sc_logic 1 outvld 44 } 
+	{ REG_V_54_out sc_out sc_lv 16 signal 45 } 
+	{ REG_V_54_out_ap_vld sc_out sc_logic 1 outvld 45 } 
+	{ REG_V_53_out sc_out sc_lv 16 signal 46 } 
+	{ REG_V_53_out_ap_vld sc_out sc_logic 1 outvld 46 } 
+	{ REG_V_52_out sc_out sc_lv 16 signal 47 } 
+	{ REG_V_52_out_ap_vld sc_out sc_logic 1 outvld 47 } 
+	{ REG_V_51_out sc_out sc_lv 16 signal 48 } 
+	{ REG_V_51_out_ap_vld sc_out sc_logic 1 outvld 48 } 
+	{ REG_V_50_out sc_out sc_lv 16 signal 49 } 
+	{ REG_V_50_out_ap_vld sc_out sc_logic 1 outvld 49 } 
+	{ REG_V_49_out sc_out sc_lv 16 signal 50 } 
+	{ REG_V_49_out_ap_vld sc_out sc_logic 1 outvld 50 } 
+	{ REG_V_48_out sc_out sc_lv 16 signal 51 } 
+	{ REG_V_48_out_ap_vld sc_out sc_logic 1 outvld 51 } 
+	{ REG_V_47_out sc_out sc_lv 16 signal 52 } 
+	{ REG_V_47_out_ap_vld sc_out sc_logic 1 outvld 52 } 
+	{ REG_V_46_out sc_out sc_lv 16 signal 53 } 
+	{ REG_V_46_out_ap_vld sc_out sc_logic 1 outvld 53 } 
+	{ REG_V_45_out sc_out sc_lv 16 signal 54 } 
+	{ REG_V_45_out_ap_vld sc_out sc_logic 1 outvld 54 } 
+	{ REG_V_44_out sc_out sc_lv 16 signal 55 } 
+	{ REG_V_44_out_ap_vld sc_out sc_logic 1 outvld 55 } 
+	{ REG_V_43_out sc_out sc_lv 16 signal 56 } 
+	{ REG_V_43_out_ap_vld sc_out sc_logic 1 outvld 56 } 
+	{ REG_V_42_out sc_out sc_lv 16 signal 57 } 
+	{ REG_V_42_out_ap_vld sc_out sc_logic 1 outvld 57 } 
+	{ REG_V_41_out sc_out sc_lv 16 signal 58 } 
+	{ REG_V_41_out_ap_vld sc_out sc_logic 1 outvld 58 } 
+	{ REG_V_40_out sc_out sc_lv 16 signal 59 } 
+	{ REG_V_40_out_ap_vld sc_out sc_logic 1 outvld 59 } 
+	{ REG_V_39_out sc_out sc_lv 16 signal 60 } 
+	{ REG_V_39_out_ap_vld sc_out sc_logic 1 outvld 60 } 
+	{ REG_V_38_out sc_out sc_lv 16 signal 61 } 
+	{ REG_V_38_out_ap_vld sc_out sc_logic 1 outvld 61 } 
+	{ REG_V_37_out sc_out sc_lv 16 signal 62 } 
+	{ REG_V_37_out_ap_vld sc_out sc_logic 1 outvld 62 } 
+	{ REG_V_36_out sc_out sc_lv 16 signal 63 } 
+	{ REG_V_36_out_ap_vld sc_out sc_logic 1 outvld 63 } 
+	{ REG_V_35_out sc_out sc_lv 16 signal 64 } 
+	{ REG_V_35_out_ap_vld sc_out sc_logic 1 outvld 64 } 
+	{ REG_V_34_out sc_out sc_lv 16 signal 65 } 
+	{ REG_V_34_out_ap_vld sc_out sc_logic 1 outvld 65 } 
+	{ REG_V_33_out sc_out sc_lv 16 signal 66 } 
+	{ REG_V_33_out_ap_vld sc_out sc_logic 1 outvld 66 } 
+	{ REG_V_32_out sc_out sc_lv 16 signal 67 } 
+	{ REG_V_32_out_ap_vld sc_out sc_logic 1 outvld 67 } 
+	{ self_sum_V_out sc_out sc_lv 32 signal 68 } 
+	{ self_sum_V_out_ap_vld sc_out sc_logic 1 outvld 68 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -268,6 +278,12 @@ set NewPortList {[
  	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
  	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
  	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "fwd_out1_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "fwd_out1", "role": "din" }} , 
+ 	{ "name": "fwd_out1_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fwd_out1", "role": "full_n" }} , 
+ 	{ "name": "fwd_out1_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fwd_out1", "role": "write" }} , 
+ 	{ "name": "fwd_out2_din", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "fwd_out2", "role": "din" }} , 
+ 	{ "name": "fwd_out2_full_n", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fwd_out2", "role": "full_n" }} , 
+ 	{ "name": "fwd_out2_write", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "fwd_out2", "role": "write" }} , 
  	{ "name": "REG_V_31", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "REG_V_31", "role": "default" }} , 
  	{ "name": "REG_V_30", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "REG_V_30", "role": "default" }} , 
  	{ "name": "REG_V_29", "direction": "in", "datatype": "sc_lv", "bitwidth":16, "type": "signal", "bundle":{"name": "REG_V_29", "role": "default" }} , 
@@ -419,6 +435,12 @@ set RtlHierarchyInfo {[
 			{"Name" : "REG_V_2", "Type" : "None", "Direction" : "I"},
 			{"Name" : "REG_V_1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "REG_V", "Type" : "None", "Direction" : "I"},
+			{"Name" : "fwd_out1", "Type" : "Fifo", "Direction" : "O",
+				"BlockSignal" : [
+					{"Name" : "fwd_out1_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "fwd_out2", "Type" : "Fifo", "Direction" : "O",
+				"BlockSignal" : [
+					{"Name" : "fwd_out2_blk_n", "Type" : "RtlSignal"}]},
 			{"Name" : "i_cast", "Type" : "None", "Direction" : "I"},
 			{"Name" : "buffer_1", "Type" : "Memory", "Direction" : "I"},
 			{"Name" : "REG_V_63_out", "Type" : "Vld", "Direction" : "O"},
@@ -496,6 +518,8 @@ set ArgLastReadFirstWriteLatency {
 		REG_V_2 {Type I LastRead 0 FirstWrite -1}
 		REG_V_1 {Type I LastRead 0 FirstWrite -1}
 		REG_V {Type I LastRead 0 FirstWrite -1}
+		fwd_out1 {Type O LastRead -1 FirstWrite 1}
+		fwd_out2 {Type O LastRead -1 FirstWrite 1}
 		i_cast {Type I LastRead 0 FirstWrite -1}
 		buffer_1 {Type I LastRead 0 FirstWrite -1}
 		REG_V_63_out {Type O LastRead -1 FirstWrite 5}
@@ -576,6 +600,8 @@ set Spec2ImplPortList {
 	REG_V_2 { ap_none {  { REG_V_2 in_data 0 16 } } }
 	REG_V_1 { ap_none {  { REG_V_1 in_data 0 16 } } }
 	REG_V { ap_none {  { REG_V in_data 0 16 } } }
+	fwd_out1 { ap_fifo {  { fwd_out1_din fifo_port_we 1 32 }  { fwd_out1_full_n fifo_status 0 1 }  { fwd_out1_write fifo_data 1 1 } } }
+	fwd_out2 { ap_fifo {  { fwd_out2_din fifo_port_we 1 32 }  { fwd_out2_full_n fifo_status 0 1 }  { fwd_out2_write fifo_data 1 1 } } }
 	i_cast { ap_none {  { i_cast in_data 0 2 } } }
 	buffer_1 { ap_memory {  { buffer_1_address0 mem_address 1 3 }  { buffer_1_ce0 mem_ce 1 1 }  { buffer_1_q0 in_data 0 64 } } }
 	REG_V_63_out { ap_vld {  { REG_V_63_out out_data 1 16 }  { REG_V_63_out_ap_vld out_vld 1 1 } } }

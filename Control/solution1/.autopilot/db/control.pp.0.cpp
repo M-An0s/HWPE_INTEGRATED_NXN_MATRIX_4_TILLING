@@ -36506,7 +36506,7 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
                 *slave_start1 =0;
                 *slave_start2 =0;
 
-                state = LOAD_MEM_1;
+                state = START_SLAVES;
                 done1_seen=0;
                 done2_seen=0;
                 slave_done1_seen =0;
@@ -36546,7 +36546,20 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
                 state = START_MPE2;
             }
             break;}
-# 178 "Control/control.cpp"
+
+
+        case START_SLAVES:{
+            if(slave_launched == 0){
+                *slave_start1 = 1;
+                *slave_start2 = 1;
+                slave_launched = 1;
+                }else {
+                    *slave_start1 = 0;
+                    *slave_start2 = 0;
+                    state = LOAD_MEM_1;
+                }
+            break;}
+
         case START_MPE1:{
             if(compute_launched == 0){
                 *compute_start1 = 1;
@@ -36567,10 +36580,9 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
             } else {
                 *compute_start2 = 0;
 
-            }
-            if(done2_seen){
                 state = WAIT_ALL;
             }
+
             break;}
 
 

@@ -523,10 +523,10 @@ newFuncRoot:31 %REG_V_36_reload_read = read i16 @_ssdm_op_Read.ap_auto.i16, i16 
 
 <Node id="70" bw="2" op_0_bw="2" op_1_bw="2">
 <![CDATA[
-newFuncRoot:32 %indvars_iv397_read = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %indvars_iv397
+newFuncRoot:32 %indvars_iv1_read = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %indvars_iv1
 
 ]]></Node>
-<StgValue><ssdm name="indvars_iv397_read"/></StgValue>
+<StgValue><ssdm name="indvars_iv1_read"/></StgValue>
 </operation>
 
 <operation id="41" st_id="1" stage="1" lat="1">
@@ -733,7 +733,7 @@ VITIS_LOOP_82_3:5 %add_ln79 = add i2 %com_1, i2 1
 
 <Node id="85" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
-VITIS_LOOP_82_3:6 %br_ln79 = br i1 %icmp_ln79, void %VITIS_LOOP_82_3.split, void %for.inc136.loopexit.exitStub
+VITIS_LOOP_82_3:6 %br_ln79 = br i1 %icmp_ln79, void %VITIS_LOOP_82_3.split, void %for.inc140.loopexit.exitStub
 
 ]]></Node>
 <StgValue><ssdm name="br_ln79"/></StgValue>
@@ -749,7 +749,7 @@ VITIS_LOOP_82_3:6 %br_ln79 = br i1 %icmp_ln79, void %VITIS_LOOP_82_3.split, void
 
 <Node id="98" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="2">
 <![CDATA[
-VITIS_LOOP_82_3.split:11 %tmp_4_1 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_33_reload_read, i16 %REG_V_41_reload_read, i16 %REG_V_49_reload_read, i16 %REG_V_57_reload_read, i2 %indvars_iv397_read
+VITIS_LOOP_82_3.split:11 %tmp_4_1 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_33_reload_read, i16 %REG_V_41_reload_read, i16 %REG_V_49_reload_read, i16 %REG_V_57_reload_read, i2 %indvars_iv1_read
 
 ]]></Node>
 <StgValue><ssdm name="tmp_4_1"/></StgValue>
@@ -861,7 +861,7 @@ VITIS_LOOP_82_3.split:17 %zext_ln186_6 = zext i16 %tmp_9_1
 
 <Node id="105" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="2">
 <![CDATA[
-VITIS_LOOP_82_3.split:18 %tmp_10_1 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_37_reload_read, i16 %REG_V_45_reload_read, i16 %REG_V_53_reload_read, i16 %REG_V_61_reload_read, i2 %indvars_iv397_read
+VITIS_LOOP_82_3.split:18 %tmp_10_1 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_37_reload_read, i16 %REG_V_45_reload_read, i16 %REG_V_53_reload_read, i16 %REG_V_61_reload_read, i2 %indvars_iv1_read
 
 ]]></Node>
 <StgValue><ssdm name="tmp_10_1"/></StgValue>
@@ -909,7 +909,7 @@ VITIS_LOOP_82_3.split:20 %mul_ln1494_3 = mul i32 %zext_ln186_7, i32 %zext_ln186_
 
 <Node id="108" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="2">
 <![CDATA[
-VITIS_LOOP_82_3.split:21 %tmp_4_2 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_34_reload_read, i16 %REG_V_42_reload_read, i16 %REG_V_50_reload_read, i16 %REG_V_58_reload_read, i2 %indvars_iv397_read
+VITIS_LOOP_82_3.split:21 %tmp_4_2 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_34_reload_read, i16 %REG_V_42_reload_read, i16 %REG_V_50_reload_read, i16 %REG_V_58_reload_read, i2 %indvars_iv1_read
 
 ]]></Node>
 <StgValue><ssdm name="tmp_4_2"/></StgValue>
@@ -1021,7 +1021,7 @@ VITIS_LOOP_82_3.split:27 %zext_ln186_10 = zext i16 %tmp_9_2
 
 <Node id="115" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="2">
 <![CDATA[
-VITIS_LOOP_82_3.split:28 %tmp_10_2 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_38_reload_read, i16 %REG_V_46_reload_read, i16 %REG_V_54_reload_read, i16 %REG_V_62_reload_read, i2 %indvars_iv397_read
+VITIS_LOOP_82_3.split:28 %tmp_10_2 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_38_reload_read, i16 %REG_V_46_reload_read, i16 %REG_V_54_reload_read, i16 %REG_V_62_reload_read, i2 %indvars_iv1_read
 
 ]]></Node>
 <StgValue><ssdm name="tmp_10_2"/></StgValue>
@@ -1069,7 +1069,7 @@ VITIS_LOOP_82_3.split:30 %mul_ln1494_5 = mul i32 %zext_ln186_11, i32 %zext_ln186
 
 <Node id="134" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
-VITIS_LOOP_82_3.split:47 %br_ln86 = br i1 %phase_read, void %for.inc133, void %if.then106
+VITIS_LOOP_82_3.split:47 %br_ln86 = br i1 %phase_read, void %for.inc137, void %if.then110
 
 ]]></Node>
 <StgValue><ssdm name="br_ln86"/></StgValue>
@@ -1085,7 +1085,7 @@ VITIS_LOOP_82_3.split:47 %br_ln86 = br i1 %phase_read, void %for.inc133, void %i
 
 <Node id="146" bw="0" op_0_bw="2" op_1_bw="2" op_2_bw="0" op_3_bw="0">
 <![CDATA[
-for.inc133:0 %store_ln79 = store i2 %add_ln79, i2 %com
+for.inc137:0 %store_ln79 = store i2 %add_ln79, i2 %com
 
 ]]></Node>
 <StgValue><ssdm name="store_ln79"/></StgValue>
@@ -1101,7 +1101,7 @@ for.inc133:0 %store_ln79 = store i2 %add_ln79, i2 %com
 
 <Node id="147" bw="0" op_0_bw="0">
 <![CDATA[
-for.inc133:1 %br_ln79 = br void %VITIS_LOOP_82_3
+for.inc137:1 %br_ln79 = br void %VITIS_LOOP_82_3
 
 ]]></Node>
 <StgValue><ssdm name="br_ln79"/></StgValue>
@@ -1119,7 +1119,7 @@ for.inc133:1 %br_ln79 = br void %VITIS_LOOP_82_3
 
 <Node id="88" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="2">
 <![CDATA[
-VITIS_LOOP_82_3.split:1 %tmp_4 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_32_reload_read, i16 %REG_V_40_reload_read, i16 %REG_V_48_reload_read, i16 %REG_V_56_reload_read, i2 %indvars_iv397_read
+VITIS_LOOP_82_3.split:1 %tmp_4 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_32_reload_read, i16 %REG_V_40_reload_read, i16 %REG_V_48_reload_read, i16 %REG_V_56_reload_read, i2 %indvars_iv1_read
 
 ]]></Node>
 <StgValue><ssdm name="tmp_4"/></StgValue>
@@ -1224,7 +1224,7 @@ VITIS_LOOP_82_3.split:7 %zext_ln186_2 = zext i16 %tmp_9
 
 <Node id="95" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="2">
 <![CDATA[
-VITIS_LOOP_82_3.split:8 %tmp_s = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_36_reload_read, i16 %REG_V_44_reload_read, i16 %REG_V_52_reload_read, i16 %REG_V_60_reload_read, i2 %indvars_iv397_read
+VITIS_LOOP_82_3.split:8 %tmp_s = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_36_reload_read, i16 %REG_V_44_reload_read, i16 %REG_V_52_reload_read, i16 %REG_V_60_reload_read, i2 %indvars_iv1_read
 
 ]]></Node>
 <StgValue><ssdm name="tmp_s"/></StgValue>
@@ -1329,7 +1329,7 @@ VITIS_LOOP_82_3.split:30 %mul_ln1494_5 = mul i32 %zext_ln186_11, i32 %zext_ln186
 
 <Node id="118" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="2">
 <![CDATA[
-VITIS_LOOP_82_3.split:31 %tmp_4_3 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_35_reload_read, i16 %REG_V_43_reload_read, i16 %REG_V_51_reload_read, i16 %REG_V_59_reload_read, i2 %indvars_iv397_read
+VITIS_LOOP_82_3.split:31 %tmp_4_3 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_35_reload_read, i16 %REG_V_43_reload_read, i16 %REG_V_51_reload_read, i16 %REG_V_59_reload_read, i2 %indvars_iv1_read
 
 ]]></Node>
 <StgValue><ssdm name="tmp_4_3"/></StgValue>
@@ -1434,7 +1434,7 @@ VITIS_LOOP_82_3.split:40 %zext_ln186_14 = zext i16 %tmp_9_3
 
 <Node id="128" bw="16" op_0_bw="16" op_1_bw="16" op_2_bw="16" op_3_bw="16" op_4_bw="16" op_5_bw="2">
 <![CDATA[
-VITIS_LOOP_82_3.split:41 %tmp_10_3 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_39_reload_read, i16 %REG_V_47_reload_read, i16 %REG_V_55_reload_read, i16 %REG_V_63_reload_read, i2 %indvars_iv397_read
+VITIS_LOOP_82_3.split:41 %tmp_10_3 = mux i16 @_ssdm_op_Mux.ap_auto.4i16.i2, i16 %REG_V_39_reload_read, i16 %REG_V_47_reload_read, i16 %REG_V_55_reload_read, i16 %REG_V_63_reload_read, i2 %indvars_iv1_read
 
 ]]></Node>
 <StgValue><ssdm name="tmp_10_3"/></StgValue>
@@ -1786,7 +1786,7 @@ VITIS_LOOP_82_3.split:45 %add_ln88_1 = add i32 %mul_ln1494_5, i32 %mul_ln1494_7
 
 <Node id="149" bw="0">
 <![CDATA[
-for.inc136.loopexit.exitStub:0 %ret_ln0 = ret
+for.inc140.loopexit.exitStub:0 %ret_ln0 = ret
 
 ]]></Node>
 <StgValue><ssdm name="ret_ln0"/></StgValue>
@@ -1804,7 +1804,7 @@ for.inc136.loopexit.exitStub:0 %ret_ln0 = ret
 
 <Node id="87" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-VITIS_LOOP_82_3.split:0 %specloopname_ln79 = specloopname void @_ssdm_op_SpecLoopName, void @empty_5
+VITIS_LOOP_82_3.split:0 %specloopname_ln79 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln79"/></StgValue>
@@ -1910,7 +1910,7 @@ VITIS_LOOP_82_3.split:46 %add_ln88_2 = add i32 %add_ln88_1, i32 %add_ln88
 
 <Node id="136" bw="4" op_0_bw="4" op_1_bw="2" op_2_bw="2">
 <![CDATA[
-if.then106:0 %add_ln87_3 = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i2.i2, i2 %i_cast_read, i2 %com_1
+if.then110:0 %add_ln87_3 = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i2.i2, i2 %i_cast_read, i2 %com_1
 
 ]]></Node>
 <StgValue><ssdm name="add_ln87_3"/></StgValue>
@@ -1926,7 +1926,7 @@ if.then106:0 %add_ln87_3 = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i2.i2, 
 
 <Node id="137" bw="64" op_0_bw="4">
 <![CDATA[
-if.then106:1 %zext_ln87 = zext i4 %add_ln87_3
+if.then110:1 %zext_ln87 = zext i4 %add_ln87_3
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln87"/></StgValue>
@@ -1942,7 +1942,7 @@ if.then106:1 %zext_ln87 = zext i4 %add_ln87_3
 
 <Node id="138" bw="4" op_0_bw="32" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-if.then106:2 %buffer_2_addr = getelementptr i32 %buffer_2, i64 0, i64 %zext_ln87
+if.then110:2 %buffer_2_addr = getelementptr i32 %buffer_2, i64 0, i64 %zext_ln87
 
 ]]></Node>
 <StgValue><ssdm name="buffer_2_addr"/></StgValue>
@@ -1958,7 +1958,7 @@ if.then106:2 %buffer_2_addr = getelementptr i32 %buffer_2, i64 0, i64 %zext_ln87
 
 <Node id="139" bw="0" op_0_bw="32" op_1_bw="4">
 <![CDATA[
-if.then106:3 %store_ln87 = store i32 %add_ln87_2, i4 %buffer_2_addr
+if.then110:3 %store_ln87 = store i32 %add_ln87_2, i4 %buffer_2_addr
 
 ]]></Node>
 <StgValue><ssdm name="store_ln87"/></StgValue>
@@ -1974,7 +1974,7 @@ if.then106:3 %store_ln87 = store i32 %add_ln87_2, i4 %buffer_2_addr
 
 <Node id="140" bw="4" op_0_bw="4" op_1_bw="2" op_2_bw="2">
 <![CDATA[
-if.then106:4 %add_ln88_3 = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i2.i2, i2 %com_1, i2 %i_cast_read
+if.then110:4 %add_ln88_3 = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i2.i2, i2 %com_1, i2 %i_cast_read
 
 ]]></Node>
 <StgValue><ssdm name="add_ln88_3"/></StgValue>
@@ -1990,7 +1990,7 @@ if.then106:4 %add_ln88_3 = bitconcatenate i4 @_ssdm_op_BitConcatenate.i4.i2.i2, 
 
 <Node id="141" bw="64" op_0_bw="4">
 <![CDATA[
-if.then106:5 %zext_ln88 = zext i4 %add_ln88_3
+if.then110:5 %zext_ln88 = zext i4 %add_ln88_3
 
 ]]></Node>
 <StgValue><ssdm name="zext_ln88"/></StgValue>
@@ -2006,7 +2006,7 @@ if.then106:5 %zext_ln88 = zext i4 %add_ln88_3
 
 <Node id="142" bw="4" op_0_bw="32" op_1_bw="64" op_2_bw="64">
 <![CDATA[
-if.then106:6 %buffer_2_addr_1 = getelementptr i32 %buffer_2, i64 0, i64 %zext_ln88
+if.then110:6 %buffer_2_addr_1 = getelementptr i32 %buffer_2, i64 0, i64 %zext_ln88
 
 ]]></Node>
 <StgValue><ssdm name="buffer_2_addr_1"/></StgValue>
@@ -2022,7 +2022,7 @@ if.then106:6 %buffer_2_addr_1 = getelementptr i32 %buffer_2, i64 0, i64 %zext_ln
 
 <Node id="143" bw="0" op_0_bw="32" op_1_bw="4">
 <![CDATA[
-if.then106:7 %store_ln88 = store i32 %add_ln88_2, i4 %buffer_2_addr_1
+if.then110:7 %store_ln88 = store i32 %add_ln88_2, i4 %buffer_2_addr_1
 
 ]]></Node>
 <StgValue><ssdm name="store_ln88"/></StgValue>
@@ -2038,7 +2038,7 @@ if.then106:7 %store_ln88 = store i32 %add_ln88_2, i4 %buffer_2_addr_1
 
 <Node id="144" bw="0" op_0_bw="0">
 <![CDATA[
-if.then106:8 %br_ln88 = br void %for.inc133
+if.then110:8 %br_ln88 = br void %for.inc137
 
 ]]></Node>
 <StgValue><ssdm name="br_ln88"/></StgValue>

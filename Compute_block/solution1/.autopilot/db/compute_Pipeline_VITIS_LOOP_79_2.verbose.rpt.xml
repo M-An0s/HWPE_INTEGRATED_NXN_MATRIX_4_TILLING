@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'compute_Pipeline_VITIS_LOOP_79_2'" level="0">
-<item name = "Date">Thu Sep 10 02:53:44 2026
+<item name = "Date">Thu Sep 10 14:52:42 2026
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Compute_block</item>
@@ -62,34 +62,34 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="mux_32_16_1_1_U73">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
-<column name="mux_32_16_1_1_U74">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
-<column name="mux_32_16_1_1_U77">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
-<column name="mux_32_16_1_1_U78">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
-<column name="mux_32_16_1_1_U81">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
-<column name="mux_32_16_1_1_U82">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
-<column name="mux_32_16_1_1_U85">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
-<column name="mux_32_16_1_1_U86">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
-<column name="mux_42_16_1_1_U72">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="mux_42_16_1_1_U75">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="mux_42_16_1_1_U76">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="mux_42_16_1_1_U79">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="mux_42_16_1_1_U80">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="mux_42_16_1_1_U83">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="mux_42_16_1_1_U84">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
-<column name="mux_42_16_1_1_U87">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_32_16_1_1_U75">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="mux_32_16_1_1_U76">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="mux_32_16_1_1_U79">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="mux_32_16_1_1_U80">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="mux_32_16_1_1_U83">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="mux_32_16_1_1_U84">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="mux_32_16_1_1_U87">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="mux_32_16_1_1_U88">mux_32_16_1_1, 0, 0, 0, 14, 0</column>
+<column name="mux_42_16_1_1_U74">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_42_16_1_1_U77">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_42_16_1_1_U78">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_42_16_1_1_U81">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_42_16_1_1_U82">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_42_16_1_1_U85">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_42_16_1_1_U86">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_42_16_1_1_U89">mux_42_16_1_1, 0, 0, 0, 20, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
 <keys size="3">Instance, Module, Expression</keys>
-<column name="mac_muladd_16ns_16ns_32ns_32_4_1_U92">mac_muladd_16ns_16ns_32ns_32_4_1, i0 + i1 * i2</column>
-<column name="mac_muladd_16ns_16ns_32ns_32_4_1_U93">mac_muladd_16ns_16ns_32ns_32_4_1, i0 + i1 * i2</column>
 <column name="mac_muladd_16ns_16ns_32ns_32_4_1_U94">mac_muladd_16ns_16ns_32ns_32_4_1, i0 + i1 * i2</column>
 <column name="mac_muladd_16ns_16ns_32ns_32_4_1_U95">mac_muladd_16ns_16ns_32ns_32_4_1, i0 + i1 * i2</column>
-<column name="mul_mul_16ns_16ns_32_4_1_U88">mul_mul_16ns_16ns_32_4_1, i0 * i1</column>
-<column name="mul_mul_16ns_16ns_32_4_1_U89">mul_mul_16ns_16ns_32_4_1, i0 * i1</column>
+<column name="mac_muladd_16ns_16ns_32ns_32_4_1_U96">mac_muladd_16ns_16ns_32ns_32_4_1, i0 + i1 * i2</column>
+<column name="mac_muladd_16ns_16ns_32ns_32_4_1_U97">mac_muladd_16ns_16ns_32ns_32_4_1, i0 + i1 * i2</column>
 <column name="mul_mul_16ns_16ns_32_4_1_U90">mul_mul_16ns_16ns_32_4_1, i0 * i1</column>
 <column name="mul_mul_16ns_16ns_32_4_1_U91">mul_mul_16ns_16ns_32_4_1, i0 * i1</column>
+<column name="mul_mul_16ns_16ns_32_4_1_U92">mul_mul_16ns_16ns_32_4_1, i0 * i1</column>
+<column name="mul_mul_16ns_16ns_32_4_1_U93">mul_mul_16ns_16ns_32_4_1, i0 * i1</column>
 </table>
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
@@ -151,7 +151,7 @@
 <column name="REG_V_40_reload">in, 16, ap_none, REG_V_40_reload, scalar</column>
 <column name="REG_V_48_reload">in, 16, ap_none, REG_V_48_reload, scalar</column>
 <column name="REG_V_56_reload">in, 16, ap_none, REG_V_56_reload, scalar</column>
-<column name="indvars_iv397">in, 2, ap_none, indvars_iv397, scalar</column>
+<column name="indvars_iv1">in, 2, ap_none, indvars_iv1, scalar</column>
 <column name="REG_V_36_reload">in, 16, ap_none, REG_V_36_reload, scalar</column>
 <column name="REG_V_44_reload">in, 16, ap_none, REG_V_44_reload, scalar</column>
 <column name="REG_V_52_reload">in, 16, ap_none, REG_V_52_reload, scalar</column>

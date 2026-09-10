@@ -99,6 +99,14 @@ module mac_top
     // --- slave handshakes (from cont) ---
   logic slave_start1, slave_done1;
   logic slave_start2, slave_done2;
+
+  // ---- MASTER-side forward-out signals (write side of each FIFO) ----
+  // master 1
+  logic [31:0] m1_fwd1_din;   logic m1_fwd1_write;   logic m1_fwd1_full_n;
+  logic [31:0] m1_fwd2_din;   logic m1_fwd2_write;   logic m1_fwd2_full_n;
+  // master 2
+  logic [31:0] m2_fwd1_din;   logic m2_fwd1_write;   logic m2_fwd1_full_n;
+  logic [31:0] m2_fwd2_din;   logic m2_fwd2_write;   logic m2_fwd2_full_n;
  
   // --- SLAVE 1 forward-in streams (FIFO read side) ---
   logic [31:0] s1_fwd1_dout;   logic s1_fwd1_empty_n;  logic s1_fwd1_read;
@@ -185,13 +193,13 @@ module mac_top
     .compute_start1           (compute_start ),
     .compute_done1            (compute_done ),
     .compute_start2           (compute_start2),
-    .compute_done2            ( compute_done2 )
+    .compute_done2            ( compute_done2 ),
 
     //slaves:
-  //  .slave_start1 ( slave_start1 ),
- //   .slave_done1  ( slave_done1  ),
-  //  .slave_start2 ( slave_start2 ),
-  //  .slave_done2  ( slave_done2  )
+    .slave_start1 ( slave_start1 ),
+    .slave_done1  ( slave_done1  ),
+    .slave_start2 ( slave_start2 ),
+    .slave_done2  ( slave_done2  )
   );
 
 
@@ -274,6 +282,24 @@ module mac_top
     .b_q(  )
   );
 
+  slave_res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_slave1_res (
+    .clk_i ( clk_i       ),
+    .addr  ( s1_res_addr ),
+    .ce    ( s1_res_ce   ),
+    .we    ( s1_res_we   ),
+    .d     ( s1_res_d    ),
+    .q     (             )
+    );
+ 
+  slave_res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_slave2_res (
+    .clk_i ( clk_i       ),
+    .addr  ( s2_res_addr ),
+    .ce    ( s2_res_ce   ),
+    .we    ( s2_res_we   ),
+    .d     ( s2_res_d    ),
+    .q     (             )
+    );
+
    compute i_compute (     
     .ap_clk           ( clk_i         ),     
     .ap_rst           ( ~rst_ni        ),   // match cont's polarity (both use rst_ni)     
@@ -293,12 +319,12 @@ module mac_top
     .buffer_2_ce1       ( comp_b2_ce1   ),
     .buffer_2_we1       ( comp_b2_we1   ),
     .buffer_2_d1        ( comp_b2_d1    ),
-  //  .fwd_out1_din       (s1_fwd1_dout),
-  //  .fwd_out1_full_n    (s1_fwd1_empty_n),
-  //  .fwd_out1_write     (s1_fwd1_read),
-  //  .fwd_out2_din       (s2_fwd1_dout),
-   // .fwd_out2_full_n    (s2_fwd1_empty_n),
-   // .fwd_out2_write     ( s2_fwd1_read ),
+    .fwd_out1_din       (m1_fwd1_din),
+    .fwd_out1_full_n    (m1_fwd1_full_n ),
+    .fwd_out1_write     (m1_fwd1_write),
+    .fwd_out2_din       (m1_fwd2_din ),
+    .fwd_out2_full_n    (m1_fwd2_full_n),
+    .fwd_out2_write     (m1_fwd2_write ),
     .phase              (1'b1));
 
      compute i_mpe2 (
@@ -319,15 +345,104 @@ module mac_top
     .buffer_2_ce1     ( mpe2_res_ce1   ),
     .buffer_2_we1     ( mpe2_res_we1   ),
     .buffer_2_d1      ( mpe2_res_d1    ),
-   // .fwd_out1_din       (s2_fwd1_dout),
-   // .fwd_out1_full_n    (s2_fwd1_empty_n),
-    //.fwd_out1_write     (s2_fwd1_read),
-   // .fwd_out2_din       (s1_fwd1_dout),
-   // .fwd_out2_full_n    (s1_fwd1_empty_n),
-   // .fwd_out2_write     (s1_fwd1_read),
+    .fwd_out1_din     (m2_fwd2_din     ),
+    .fwd_out1_full_n   (m2_fwd2_full_n),
+    .fwd_out1_write    (m2_fwd2_write  ),
+    .fwd_out2_din       ( m2_fwd1_din  ),
+    .fwd_out2_full_n    ( m2_fwd1_full_n),
+    .fwd_out2_write     (m2_fwd1_write ),
     .phase              (1'b1)
   );
 
+  compute_slave i_slave1 (
+    .ap_clk              ( clk_i          ),
+    .ap_rst              ( ~rst_ni         ),   // MATCH master polarity
+    .ap_start            ( slave_start1   ),
+    .ap_done             ( slave_done1    ),
+    .ap_idle             (                ),
+    .ap_ready            (                ),
+    // fwd_in1 <- FIFO fed by master1
+    .fwd_in1_dout        ( s1_fwd1_dout    ),
+    .fwd_in1_empty_n     ( s1_fwd1_empty_n ),
+    .fwd_in1_read        ( s1_fwd1_read    ),
+    // fwd_in2 <- FIFO fed by master2
+    .fwd_in2_dout        ( s1_fwd2_dout    ),
+    .fwd_in2_empty_n     ( s1_fwd2_empty_n ),
+    .fwd_in2_read        ( s1_fwd2_read    ),
+    // result -> slave1 result memory
+    .result_out_address0 ( s1_res_addr    ),
+    .result_out_ce0      ( s1_res_ce      ),
+    .result_out_we0      ( s1_res_we      ),
+    .result_out_d0       ( s1_res_d       )
+  );
+
+   compute_slave i_slave2 (
+    .ap_clk              ( clk_i          ),
+    .ap_rst              ( ~rst_ni         ),
+    .ap_start            ( slave_start2   ),
+    .ap_done             ( slave_done2    ),
+    .ap_idle             (                ),
+    .ap_ready            (                ),
+    .fwd_in1_dout        ( s2_fwd2_dout    ),
+    .fwd_in1_empty_n     ( s2_fwd2_empty_n ),
+    .fwd_in1_read        ( s2_fwd2_read    ),
+    .fwd_in2_dout        ( s2_fwd1_dout    ),
+    .fwd_in2_empty_n     ( s2_fwd1_empty_n ),
+    .fwd_in2_read        ( s2_fwd1_read    ),
+    .result_out_address0 ( s2_res_addr    ),
+    .result_out_ce0      ( s2_res_ce      ),
+    .result_out_we0      ( s2_res_we      ),
+    .result_out_d0       ( s2_res_d       )
+  );
+
+
+  // ---- master1 -> slave1 (slave1's fwd_in1) ----
+  stream_fifo #(.DW(32), .DEPTH(16), .AW(4)) i_fifo_m1s1 (
+    .clk_i   ( clk_i          ),
+    .rst_ni  ( rst_ni         ),
+    .wr_data ( m1_fwd1_din    ),
+    .wr_en   ( m1_fwd1_write  ),
+    .full_n  ( m1_fwd1_full_n ),
+    .rd_data ( s1_fwd1_dout   ),
+    .empty_n ( s1_fwd1_empty_n),
+    .rd_en   ( s1_fwd1_read   )
+  );
+ 
+  // ---- master1 -> slave2 (slave2's fwd_in1) ----
+  stream_fifo #(.DW(32), .DEPTH(16), .AW(4)) i_fifo_m1s2 (
+    .clk_i   ( clk_i          ),
+    .rst_ni  ( rst_ni         ),
+    .wr_data ( m1_fwd2_din    ),
+    .wr_en   ( m1_fwd2_write  ),
+    .full_n  ( m1_fwd2_full_n ),
+    .rd_data ( s2_fwd1_dout   ),
+    .empty_n ( s2_fwd1_empty_n),
+    .rd_en   ( s2_fwd1_read   )
+  );
+ 
+  // ---- master2 -> slave1 (slave1's fwd_in2) ----
+  stream_fifo #(.DW(32), .DEPTH(16), .AW(4)) i_fifo_m2s1 (
+    .clk_i   ( clk_i          ),
+    .rst_ni  ( rst_ni         ),
+    .wr_data ( m2_fwd1_din    ),
+    .wr_en   ( m2_fwd1_write  ),
+    .full_n  ( m2_fwd1_full_n ),
+    .rd_data ( s1_fwd2_dout   ),
+    .empty_n ( s1_fwd2_empty_n),
+    .rd_en   ( s1_fwd2_read   )
+  );
+ 
+  // ---- master2 -> slave2 (slave2's fwd_in2) ----
+  stream_fifo #(.DW(32), .DEPTH(16), .AW(4)) i_fifo_m2s2 (
+    .clk_i   ( clk_i          ),
+    .rst_ni  ( rst_ni         ),
+    .wr_data ( m2_fwd2_din    ),
+    .wr_en   ( m2_fwd2_write  ),
+    .full_n  ( m2_fwd2_full_n ),
+    .rd_data ( s2_fwd2_dout   ),
+    .empty_n ( s2_fwd2_empty_n),
+    .rd_en   ( s2_fwd2_read   )
+  );
 
 
   mac_streamer #(

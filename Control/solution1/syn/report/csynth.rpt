@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'cont'
 ================================================================
 + General Information: 
-    * Date:           Thu Sep 10 02:55:33 2026
+    * Date:           Thu Sep 10 14:39:04 2026
     * Version:        2022.2 (Build 3670227 on Oct 13 2022)
     * Project:        Control
     * Solution:       solution1 (Vivado IP Flow Target)
@@ -19,7 +19,7 @@
     | Modules| Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |           |           |     |
     | & Loops| Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
     +--------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
-    |+ cont  |     -|  2.03|        0|   0.000|         -|        1|     -|        no|     -|   -|  191 (~0%)|  788 (~0%)|    -|
+    |+ cont  |     -|  1.98|        0|   0.000|         -|        1|     -|        no|     -|   -|  192 (~0%)|  818 (~0%)|    -|
     +--------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
 
 
@@ -183,13 +183,13 @@
 | Name                        | DSP | Pragma | Variable       | Op  | Impl   | Latency |
 +-----------------------------+-----+--------+----------------+-----+--------+---------+
 | + cont                      | 0   |        |                |     |        |         |
-|   add_ln231_fu_1028_p2      | -   |        | add_ln231      | add | fabric | 0       |
-|   add_ln186_fu_1047_p2      | -   |        | add_ln186      | add | fabric | 0       |
-|   add_ln186_cast_fu_1054_p2 | -   |        | add_ln186_cast | add | fabric | 0       |
-|   add_ln155_fu_1217_p2      | -   |        | add_ln155      | add | fabric | 0       |
-|   grp_fu_873_p2             | -   |        | add_ln840_1    | add | fabric | 0       |
-|   add_ln139_fu_1299_p2      | -   |        | add_ln139      | add | fabric | 0       |
-|   grp_fu_873_p2             | -   |        | add_ln840      | add | fabric | 0       |
+|   add_ln155_fu_1158_p2      | -   |        | add_ln155      | add | fabric | 0       |
+|   grp_fu_918_p2             | -   |        | add_ln840_1    | add | fabric | 0       |
+|   add_ln139_fu_1240_p2      | -   |        | add_ln139      | add | fabric | 0       |
+|   grp_fu_918_p2             | -   |        | add_ln840      | add | fabric | 0       |
+|   add_ln230_fu_1345_p2      | -   |        | add_ln230      | add | fabric | 0       |
+|   add_ln186_fu_1364_p2      | -   |        | add_ln186      | add | fabric | 0       |
+|   add_ln186_cast_fu_1371_p2 | -   |        | add_ln186_cast | add | fabric | 0       |
 +-----------------------------+-----+--------+----------------+-----+--------+---------+
 
 

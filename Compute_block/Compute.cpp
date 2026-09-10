@@ -33,12 +33,12 @@ A MXN   | a11 a12|  B NXK | b11 b12 b13|    RES MXK
 
 
 // THIS WILL BE A MASTER PE MODULE
-void compute(res_t buffer_1[Size2],dat_t buffer_2[Size],bool phase){ //hls::stream<ap_uint<32>> &fwd_out1,hls::stream<ap_uint<32>> &fwd_out2) {
+void compute(res_t buffer_1[Size2],dat_t buffer_2[Size],bool phase,hls::stream<ap_uint<32>> &fwd_out1,hls::stream<ap_uint<32>> &fwd_out2) {
 #pragma HLS INTERFACE ap_ctrl_hs port=return
 #pragma HLS INTERFACE ap_memory port=buffer_1
 #pragma HLS INTERFACE ap_memory port=buffer_2
-//#pragma HLS INTERFACE ap_fifo   port=fwd_out1
-//#pragma HLS INTERFACE ap_fifo   port=fwd_out2 
+#pragma HLS INTERFACE ap_fifo   port=fwd_out1
+#pragma HLS INTERFACE ap_fifo   port=fwd_out2 
 
 /*fill: 
     for (int k = 1; k < Size; k++) {
@@ -68,8 +68,8 @@ read_and_write_back:
                 REG[i][N+2*fe] = v2;
                 REG[i][N+2*fe+1] = v3;
                 self_sum += v0*v2+v1*v3;
-               // fwd_out1.write((v0,v1));
-                //fwd_out2.write((v2,v3));
+                fwd_out1.write((v0,v1));
+                fwd_out2.write((v2,v3));
             } 
             if(phase == 1){
             buffer_2[(N+1)*i] =self_sum;}//self_sum;} //diagonal fill

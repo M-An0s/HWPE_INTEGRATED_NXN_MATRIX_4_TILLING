@@ -1,0 +1,11 @@
+hwpe-tb/hw/ips/common_verification
+hwpe-tb/hw/ips/hwpe-ctrl
+hwpe-tb/hw/ips/hwpe-stream
+hwpe-tb/hw/ips/scm
+hwpe-tb/hw/ips/tech_cells_generic
+hwpe-tb/hw/ips/zeroriscy
+hwpe-tb_corrupted
+work/
+*.wlf
+transcript
+vopt_*

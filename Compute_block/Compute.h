@@ -50,7 +50,7 @@ struct hs_is_t{
 #define Size2 8 
 
 
-void compute(res_t buffer_1[Size2],dat_t buffer_2[Size],bool phase);//,hls::stream<ap_uint<32>> &fwd_out1,hls::stream<ap_uint<32>> &fwd_out2);
+void compute(res_t buffer_1[Size2],dat_t buffer_2[Size],bool phase,hls::stream<ap_uint<32>> &fwd_out1,hls::stream<ap_uint<32>> &fwd_out2);
 
 
 #endif

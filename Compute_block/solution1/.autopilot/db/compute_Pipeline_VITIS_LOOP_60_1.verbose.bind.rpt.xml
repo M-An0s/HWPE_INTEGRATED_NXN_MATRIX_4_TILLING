@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'compute_Pipeline_VITIS_LOOP_60_1'" level="0">
-<item name = "Date">Thu Sep 10 02:53:42 2026
+<item name = "Date">Thu Sep 10 14:52:41 2026
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Compute_block</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 2.092 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 2.313 ns, 2.70 ns</column>
 </table>
 </item>
 </section>

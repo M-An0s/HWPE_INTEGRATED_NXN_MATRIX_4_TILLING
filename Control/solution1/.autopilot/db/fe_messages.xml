@@ -1,7 +1,4 @@
 <xilinx:hls_fe_msgs>
-    <msg msg_groups="" msg_id="207-4973" msg_severity="WARNING" msg_loc="Control/control.cpp:101:12" msg_body="enumeration value 'START_SLAVES' not handled in switch">
-        <args ClangWarningOption="switch"/>
-    </msg>
     <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="Control/control.cpp:22:41" msg_body="unused parameter 'function'">
         <args ClangWarningOption="unused-parameter"/>
     </msg>

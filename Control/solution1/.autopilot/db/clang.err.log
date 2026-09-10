@@ -1,4 +1,0 @@
-Control/control.cpp:101:12: warning: enumeration value 'START_SLAVES' not handled in switch [-Wswitch]
-    switch(state){
-           ^
-1 warning generated.

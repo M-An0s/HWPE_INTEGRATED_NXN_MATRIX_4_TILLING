@@ -52,7 +52,7 @@ Diagnostics:
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1684430
+        Offset:          1684657
         Length:          0
         ReplacementText: 'VITIS_LOOP_60_1: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -61,7 +61,7 @@ Diagnostics:
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1685094
+        Offset:          1685401
         Length:          0
         ReplacementText: 'VITIS_LOOP_79_2: '
   - DiagnosticName:  xilinx-label-all-loops
@@ -70,7 +70,7 @@ Diagnostics:
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1685215
+        Offset:          1685522
         Length:          0
         ReplacementText: 'VITIS_LOOP_82_3: '
 ...

@@ -36370,10 +36370,10 @@ struct hs_is_t{
 
 
 
-__attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8],dat_t buffer_2[16],bool phase);
+__attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8],dat_t buffer_2[16],bool phase,hls::stream<ap_uint<32>> &fwd_out1,hls::stream<ap_uint<32>> &fwd_out2);
 # 2 "Compute_block/Compute.cpp" 2
 # 36 "Compute_block/Compute.cpp"
-__attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8],dat_t buffer_2[16],bool phase){
+__attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8],dat_t buffer_2[16],bool phase,hls::stream<ap_uint<32>> &fwd_out1,hls::stream<ap_uint<32>> &fwd_out2) {
 #line 10 "/home/pulp1/HLS_corrected/script.ctl"
 #pragma HLSDIRECTIVE TOP name=compute
 # 36 "Compute_block/Compute.cpp"
@@ -36381,8 +36381,8 @@ __attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8],dat_t b
 #pragma HLS INTERFACE ap_ctrl_hs port=return
 #pragma HLS INTERFACE ap_memory port=buffer_1
 #pragma HLS INTERFACE ap_memory port=buffer_2
-
-
+#pragma HLS INTERFACE ap_fifo port=fwd_out1
+#pragma HLS INTERFACE ap_fifo port=fwd_out2
 
 
 
@@ -36412,8 +36412,8 @@ read_and_write_back:
                 REG[i][4 +2*fe] = v2;
                 REG[i][4 +2*fe+1] = v3;
                 self_sum += v0*v2+v1*v3;
-
-
+                fwd_out1.write((v0,v1));
+                fwd_out2.write((v2,v3));
             }
             if(phase == 1){
             buffer_2[(4 +1)*i] =self_sum;}

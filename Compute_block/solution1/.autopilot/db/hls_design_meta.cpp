@@ -18,5 +18,11 @@ const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("buffer_2_we1", 1, hls_out, 1, "ap_memory", "MemPortWE2", 1),
 	Port_Property("buffer_2_d1", 32, hls_out, 1, "ap_memory", "MemPortDIN2", 1),
 	Port_Property("phase", 1, hls_in, 2, "ap_none", "in_data", 1),
+	Port_Property("fwd_out1_din", 32, hls_out, 3, "ap_fifo", "fifo_port_we", 4),
+	Port_Property("fwd_out1_full_n", 1, hls_in, 3, "ap_fifo", "fifo_status", 4),
+	Port_Property("fwd_out1_write", 1, hls_out, 3, "ap_fifo", "fifo_data", 4),
+	Port_Property("fwd_out2_din", 32, hls_out, 4, "ap_fifo", "fifo_port_we", 4),
+	Port_Property("fwd_out2_full_n", 1, hls_in, 4, "ap_fifo", "fifo_status", 4),
+	Port_Property("fwd_out2_write", 1, hls_out, 4, "ap_fifo", "fifo_data", 4),
 };
 const char* HLS_Design_Meta::dut_name = "compute";
