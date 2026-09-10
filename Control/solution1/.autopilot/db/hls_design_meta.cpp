@@ -50,5 +50,7 @@ const Port_Property HLS_Design_Meta::port_props[]={
 	Port_Property("slave_done1", 1, hls_in, 33, "ap_none", "in_data", 1),
 	Port_Property("slave_start2", 1, hls_out, 34, "ap_none", "out_data", 1),
 	Port_Property("slave_done2", 1, hls_in, 35, "ap_none", "in_data", 1),
+	Port_Property("phase", 1, hls_out, 36, "ap_vld", "out_data", 1),
+	Port_Property("phase_ap_vld", 1, hls_out, 36, "ap_vld", "out_vld", 1),
 };
 const char* HLS_Design_Meta::dut_name = "cont";

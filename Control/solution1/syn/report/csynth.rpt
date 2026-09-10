@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'cont'
 ================================================================
 + General Information: 
-    * Date:           Thu Sep 10 14:39:04 2026
+    * Date:           Thu Sep 10 22:11:11 2026
     * Version:        2022.2 (Build 3670227 on Oct 13 2022)
     * Project:        Control
     * Solution:       solution1 (Vivado IP Flow Target)
@@ -19,7 +19,7 @@
     | Modules| Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |           |           |     |
     | & Loops| Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF    |    LUT    | URAM|
     +--------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
-    |+ cont  |     -|  1.98|        0|   0.000|         -|        1|     -|        no|     -|   -|  192 (~0%)|  818 (~0%)|    -|
+    |+ cont  |     -|  1.98|        0|   0.000|         -|        1|     -|        no|     -|   -|  195 (~0%)|  832 (~0%)|    -|
     +--------+------+------+---------+--------+----------+---------+------+----------+------+----+-----------+-----------+-----+
 
 
@@ -74,6 +74,7 @@
 | f_valid        | ap_vld  | 1        |
 | function_r     | ap_none | 1        |
 | len            | ap_none | 11       |
+| phase          | ap_vld  | 1        |
 | shift          | ap_none | 5        |
 | slave_done1    | ap_none | 1        |
 | slave_done2    | ap_none | 1        |
@@ -123,6 +124,7 @@
 | slave_done1    | in        | bool                    |
 | slave_start2   | out       | bool*                   |
 | slave_done2    | in        | bool                    |
+| phase          | out       | bool*                   |
 +----------------+-----------+-------------------------+
 
 * SW-to-HW Mapping
@@ -173,6 +175,8 @@
 | slave_done1    | slave_done1           | port      |          |
 | slave_start2   | slave_start2          | port      |          |
 | slave_done2    | slave_done2           | port      |          |
+| phase          | phase                 | port      |          |
+| phase          | phase_ap_vld          | port      |          |
 +----------------+-----------------------+-----------+----------+
 
 
@@ -183,13 +187,13 @@
 | Name                        | DSP | Pragma | Variable       | Op  | Impl   | Latency |
 +-----------------------------+-----+--------+----------------+-----+--------+---------+
 | + cont                      | 0   |        |                |     |        |         |
-|   add_ln155_fu_1158_p2      | -   |        | add_ln155      | add | fabric | 0       |
-|   grp_fu_918_p2             | -   |        | add_ln840_1    | add | fabric | 0       |
-|   add_ln139_fu_1240_p2      | -   |        | add_ln139      | add | fabric | 0       |
-|   grp_fu_918_p2             | -   |        | add_ln840      | add | fabric | 0       |
-|   add_ln230_fu_1345_p2      | -   |        | add_ln230      | add | fabric | 0       |
-|   add_ln186_fu_1364_p2      | -   |        | add_ln186      | add | fabric | 0       |
-|   add_ln186_cast_fu_1371_p2 | -   |        | add_ln186_cast | add | fabric | 0       |
+|   add_ln157_fu_1345_p2      | -   |        | add_ln157      | add | fabric | 0       |
+|   grp_fu_1041_p2            | -   |        | add_ln840_1    | add | fabric | 0       |
+|   add_ln141_fu_1427_p2      | -   |        | add_ln141      | add | fabric | 0       |
+|   grp_fu_1041_p2            | -   |        | add_ln840      | add | fabric | 0       |
+|   add_ln252_fu_1532_p2      | -   |        | add_ln252      | add | fabric | 0       |
+|   add_ln186_fu_1551_p2      | -   |        | add_ln186      | add | fabric | 0       |
+|   add_ln186_cast_fu_1558_p2 | -   |        | add_ln186_cast | add | fabric | 0       |
 +-----------------------------+-----+--------+----------------+-----+--------+---------+
 
 

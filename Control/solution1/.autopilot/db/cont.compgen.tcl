@@ -410,6 +410,21 @@ eval "cg_default_interface_gen_dc { \
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
     id 27 \
+    name slave_done1 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_slave_done1 \
+    op interface \
+    ports { slave_done1 { I 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 28 \
     name slave_start2 \
     type other \
     dir O \
@@ -418,6 +433,36 @@ eval "cg_default_interface_gen_dc { \
     corename dc_slave_start2 \
     op interface \
     ports { slave_start2 { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 29 \
+    name slave_done2 \
+    type other \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_slave_done2 \
+    op interface \
+    ports { slave_done2 { I 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 30 \
+    name phase \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_phase \
+    op interface \
+    ports { phase { O 1 bit } phase_ap_vld { O 1 bit } } \
 } "
 }
 

@@ -46,9 +46,10 @@ set C_modelArgList {
 	{ compute_start2 int 1 regular {pointer 1}  }
 	{ compute_done2 uint 1 regular  }
 	{ slave_start1 int 1 regular {pointer 1}  }
-	{ slave_done1 uint 1 unused  }
+	{ slave_done1 uint 1 regular  }
 	{ slave_start2 int 1 regular {pointer 1}  }
-	{ slave_done2 uint 1 unused  }
+	{ slave_done2 uint 1 regular  }
+	{ phase int 1 regular {pointer 1}  }
 }
 set C_modelArgMapList {[ 
 	{ "Name" : "a_i_valid", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
@@ -86,9 +87,10 @@ set C_modelArgMapList {[
  	{ "Name" : "slave_start1", "interface" : "wire", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
  	{ "Name" : "slave_done1", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
  	{ "Name" : "slave_start2", "interface" : "wire", "bitwidth" : 1, "direction" : "WRITEONLY"} , 
- 	{ "Name" : "slave_done2", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} ]}
+ 	{ "Name" : "slave_done2", "interface" : "wire", "bitwidth" : 1, "direction" : "READONLY"} , 
+ 	{ "Name" : "phase", "interface" : "wire", "bitwidth" : 1, "direction" : "WRITEONLY"} ]}
 # RTL Port declarations: 
-set portNum 50
+set portNum 52
 set portList { 
 	{ ap_clk sc_in sc_logic 1 clock -1 } 
 	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
@@ -140,6 +142,8 @@ set portList {
 	{ slave_done1 sc_in sc_logic 1 signal 33 } 
 	{ slave_start2 sc_out sc_logic 1 signal 34 } 
 	{ slave_done2 sc_in sc_logic 1 signal 35 } 
+	{ phase sc_out sc_logic 1 signal 36 } 
+	{ phase_ap_vld sc_out sc_logic 1 outvld 36 } 
 }
 set NewPortList {[ 
 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
@@ -191,7 +195,9 @@ set NewPortList {[
  	{ "name": "slave_start1", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "slave_start1", "role": "default" }} , 
  	{ "name": "slave_done1", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "slave_done1", "role": "default" }} , 
  	{ "name": "slave_start2", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "slave_start2", "role": "default" }} , 
- 	{ "name": "slave_done2", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "slave_done2", "role": "default" }}  ]}
+ 	{ "name": "slave_done2", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "slave_done2", "role": "default" }} , 
+ 	{ "name": "phase", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "phase", "role": "default" }} , 
+ 	{ "name": "phase_ap_vld", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "outvld", "bundle":{"name": "phase", "role": "ap_vld" }}  ]}
 
 set RtlHierarchyInfo {[
 	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "",
@@ -249,6 +255,7 @@ set RtlHierarchyInfo {[
 			{"Name" : "slave_done1", "Type" : "None", "Direction" : "I"},
 			{"Name" : "slave_start2", "Type" : "None", "Direction" : "O"},
 			{"Name" : "slave_done2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "phase", "Type" : "Vld", "Direction" : "O"},
 			{"Name" : "buffer_ok", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "r_acc_valid", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "state", "Type" : "OVld", "Direction" : "IO"},
@@ -257,6 +264,9 @@ set RtlHierarchyInfo {[
 			{"Name" : "i", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "done1_seen", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "done2_seen", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "slave_done1_seen", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "slave_done2_seen", "Type" : "OVld", "Direction" : "IO"},
+			{"Name" : "i_phase", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "j_a", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "j_b", "Type" : "OVld", "Direction" : "IO"},
 			{"Name" : "r_acc_V", "Type" : "OVld", "Direction" : "IO"},
@@ -303,9 +313,10 @@ set ArgLastReadFirstWriteLatency {
 		compute_start2 {Type O LastRead -1 FirstWrite 0}
 		compute_done2 {Type I LastRead 0 FirstWrite -1}
 		slave_start1 {Type O LastRead -1 FirstWrite 0}
-		slave_done1 {Type I LastRead -1 FirstWrite -1}
+		slave_done1 {Type I LastRead 0 FirstWrite -1}
 		slave_start2 {Type O LastRead -1 FirstWrite 0}
-		slave_done2 {Type I LastRead -1 FirstWrite -1}
+		slave_done2 {Type I LastRead 0 FirstWrite -1}
+		phase {Type O LastRead -1 FirstWrite 0}
 		buffer_ok {Type IO LastRead -1 FirstWrite -1}
 		r_acc_valid {Type IO LastRead -1 FirstWrite -1}
 		state {Type IO LastRead -1 FirstWrite -1}
@@ -314,6 +325,9 @@ set ArgLastReadFirstWriteLatency {
 		i {Type IO LastRead -1 FirstWrite -1}
 		done1_seen {Type IO LastRead -1 FirstWrite -1}
 		done2_seen {Type IO LastRead -1 FirstWrite -1}
+		slave_done1_seen {Type IO LastRead -1 FirstWrite -1}
+		slave_done2_seen {Type IO LastRead -1 FirstWrite -1}
+		i_phase {Type IO LastRead -1 FirstWrite -1}
 		j_a {Type IO LastRead -1 FirstWrite -1}
 		j_b {Type IO LastRead -1 FirstWrite -1}
 		r_acc_V {Type IO LastRead -1 FirstWrite -1}
@@ -371,6 +385,7 @@ set Spec2ImplPortList {
 	slave_done1 { ap_none {  { slave_done1 in_data 0 1 } } }
 	slave_start2 { ap_none {  { slave_start2 out_data 1 1 } } }
 	slave_done2 { ap_none {  { slave_done2 in_data 0 1 } } }
+	phase { ap_vld {  { phase out_data 1 1 }  { phase_ap_vld out_vld 1 1 } } }
 }
 
 set maxi_interface_dict [dict create]

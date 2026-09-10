@@ -52,25 +52,34 @@ Diagnostics:
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1684657
+        Offset:          1684645
         Length:          0
         ReplacementText: 'VITIS_LOOP_60_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_79_2:  '
-    FileOffset:      79
+    Message:         'Added loop label VITIS_LOOP_62_2:  '
+    FileOffset:      62
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1685401
+        Offset:          1684711
         Length:          0
-        ReplacementText: 'VITIS_LOOP_79_2: '
+        ReplacementText: 'VITIS_LOOP_62_2: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_82_3:  '
-    FileOffset:      82
+    Message:         'Added loop label VITIS_LOOP_81_3:  '
+    FileOffset:      81
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1685522
+        Offset:          1685482
         Length:          0
-        ReplacementText: 'VITIS_LOOP_82_3: '
+        ReplacementText: 'VITIS_LOOP_81_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_84_4:  '
+    FileOffset:      84
+    FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
+    Replacements:    
+      - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
+        Offset:          1685603
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_84_4: '
 ...

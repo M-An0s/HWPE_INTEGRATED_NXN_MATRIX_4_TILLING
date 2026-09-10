@@ -56,7 +56,8 @@ void cont(hs_is_t *a_i,hs_is_t *b_i,hs_is_t *c_i,hs_is_t *d_o,
              bool compute_done,bool *compute_start2,
              bool compute_done2,
              bool *slave_start1, bool slave_done1,
-             bool *slave_start2, bool slave_done2
+             bool *slave_start2, bool slave_done2,
+             bool *phase
              );
 
 

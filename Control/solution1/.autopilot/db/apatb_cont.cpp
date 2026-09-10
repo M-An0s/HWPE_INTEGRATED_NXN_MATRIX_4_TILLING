@@ -92,6 +92,8 @@ using namespace std;
 #define AUTOTB_TVOUT_slave_start2 "../tv/cdatafile/c.cont.autotvout_slave_start2.dat"
 #define AUTOTB_TVIN_slave_done2 "../tv/cdatafile/c.cont.autotvin_slave_done2.dat"
 #define AUTOTB_TVOUT_slave_done2 "../tv/cdatafile/c.cont.autotvout_slave_done2.dat"
+#define AUTOTB_TVIN_phase "../tv/cdatafile/c.cont.autotvin_phase.dat"
+#define AUTOTB_TVOUT_phase "../tv/cdatafile/c.cont.autotvout_phase.dat"
 
 
 // tvout file define:
@@ -109,6 +111,7 @@ using namespace std;
 #define AUTOTB_TVOUT_PC_compute_start2 "../tv/rtldatafile/rtl.cont.autotvout_compute_start2.dat"
 #define AUTOTB_TVOUT_PC_slave_start1 "../tv/rtldatafile/rtl.cont.autotvout_slave_start1.dat"
 #define AUTOTB_TVOUT_PC_slave_start2 "../tv/rtldatafile/rtl.cont.autotvout_slave_start2.dat"
+#define AUTOTB_TVOUT_PC_phase "../tv/rtldatafile/rtl.cont.autotvout_phase.dat"
 
 
 namespace hls::sim
@@ -1033,10 +1036,10 @@ namespace hls::sim
 
 
 extern "C"
-void cont_hw_stub_wrapper(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, hls::sim::Byte<1>, hls::sim::Byte<1>, hls::sim::Byte<1>, hls::sim::Byte<1>, hls::sim::Byte<1>*, hls::sim::Byte<2>*, void*, void*, void*, void*, void*, void*, void*, hls::sim::Byte<1>, void*, hls::sim::Byte<1>, void*, hls::sim::Byte<1>, void*, hls::sim::Byte<1>);
+void cont_hw_stub_wrapper(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, hls::sim::Byte<1>, hls::sim::Byte<1>, hls::sim::Byte<1>, hls::sim::Byte<1>, hls::sim::Byte<1>*, hls::sim::Byte<2>*, void*, void*, void*, void*, void*, void*, void*, hls::sim::Byte<1>, void*, hls::sim::Byte<1>, void*, hls::sim::Byte<1>, void*, hls::sim::Byte<1>, void*);
 
 extern "C"
-void apatb_cont_hw(void* __xlx_apatb_param_a_i_valid, void* __xlx_apatb_param_a_i_ready, void* __xlx_apatb_param_a_i_data, void* __xlx_apatb_param_a_i_strb, void* __xlx_apatb_param_b_i_valid, void* __xlx_apatb_param_b_i_ready, void* __xlx_apatb_param_b_i_data, void* __xlx_apatb_param_b_i_strb, void* __xlx_apatb_param_c_i_valid, void* __xlx_apatb_param_c_i_ready, void* __xlx_apatb_param_c_i_data, void* __xlx_apatb_param_c_i_strb, void* __xlx_apatb_param_d_o_valid, void* __xlx_apatb_param_d_o_ready, void* __xlx_apatb_param_d_o_data, void* __xlx_apatb_param_d_o_strb, hls::sim::Byte<1> __xlx_apatb_param_clear, hls::sim::Byte<1> __xlx_apatb_param_enable, hls::sim::Byte<1> __xlx_apatb_param_function_r, hls::sim::Byte<1> __xlx_apatb_param_start_r, hls::sim::Byte<1>* __xlx_apatb_param_shift, hls::sim::Byte<2>* __xlx_apatb_param_len, void* __xlx_apatb_param_f_cnt, void* __xlx_apatb_param_f_valid, void* __xlx_apatb_param_buffer_1_rd, void* __xlx_apatb_param_buffer_1_rd1, void* __xlx_apatb_param_buffer_1_wr, void* __xlx_apatb_param_buffer_1_wr1, void* __xlx_apatb_param_compute_start1, hls::sim::Byte<1> __xlx_apatb_param_compute_done1, void* __xlx_apatb_param_compute_start2, hls::sim::Byte<1> __xlx_apatb_param_compute_done2, void* __xlx_apatb_param_slave_start1, hls::sim::Byte<1> __xlx_apatb_param_slave_done1, void* __xlx_apatb_param_slave_start2, hls::sim::Byte<1> __xlx_apatb_param_slave_done2)
+void apatb_cont_hw(void* __xlx_apatb_param_a_i_valid, void* __xlx_apatb_param_a_i_ready, void* __xlx_apatb_param_a_i_data, void* __xlx_apatb_param_a_i_strb, void* __xlx_apatb_param_b_i_valid, void* __xlx_apatb_param_b_i_ready, void* __xlx_apatb_param_b_i_data, void* __xlx_apatb_param_b_i_strb, void* __xlx_apatb_param_c_i_valid, void* __xlx_apatb_param_c_i_ready, void* __xlx_apatb_param_c_i_data, void* __xlx_apatb_param_c_i_strb, void* __xlx_apatb_param_d_o_valid, void* __xlx_apatb_param_d_o_ready, void* __xlx_apatb_param_d_o_data, void* __xlx_apatb_param_d_o_strb, hls::sim::Byte<1> __xlx_apatb_param_clear, hls::sim::Byte<1> __xlx_apatb_param_enable, hls::sim::Byte<1> __xlx_apatb_param_function_r, hls::sim::Byte<1> __xlx_apatb_param_start_r, hls::sim::Byte<1>* __xlx_apatb_param_shift, hls::sim::Byte<2>* __xlx_apatb_param_len, void* __xlx_apatb_param_f_cnt, void* __xlx_apatb_param_f_valid, void* __xlx_apatb_param_buffer_1_rd, void* __xlx_apatb_param_buffer_1_rd1, void* __xlx_apatb_param_buffer_1_wr, void* __xlx_apatb_param_buffer_1_wr1, void* __xlx_apatb_param_compute_start1, hls::sim::Byte<1> __xlx_apatb_param_compute_done1, void* __xlx_apatb_param_compute_start2, hls::sim::Byte<1> __xlx_apatb_param_compute_done2, void* __xlx_apatb_param_slave_start1, hls::sim::Byte<1> __xlx_apatb_param_slave_done1, void* __xlx_apatb_param_slave_start2, hls::sim::Byte<1> __xlx_apatb_param_slave_done2, void* __xlx_apatb_param_phase)
 {
   static hls::sim::Register port0 {
     .name = "a_i_valid",
@@ -1430,10 +1433,22 @@ void apatb_cont_hw(void* __xlx_apatb_param_a_i_valid, void* __xlx_apatb_param_a_
   };
   port33.param = &__xlx_apatb_param_slave_done2;
 
-#ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port34 {
+  static hls::sim::Register port34 {
+    .name = "phase",
+    .width = 1,
+#ifdef POST_CHECK
+    .reader = new hls::sim::Reader(AUTOTB_TVOUT_PC_phase),
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port34 {
+    .owriter = new hls::sim::Writer(AUTOTB_TVOUT_phase),
+    .iwriter = new hls::sim::Writer(AUTOTB_TVIN_phase),
+#endif
+  };
+  port34.param = __xlx_apatb_param_phase;
+
+#ifdef USE_BINARY_TV_FILE
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port35 {
+#else
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port35 {
 #endif
     .width = 64,
     .asize = 8,
@@ -1458,15 +1473,15 @@ void apatb_cont_hw(void* __xlx_apatb_param_a_i_valid, void* __xlx_apatb_param_a_
 #endif
 #endif
   };
-  port34.param = { __xlx_apatb_param_buffer_1_wr };
-  port34.depth = { 20 };
-  port34.offset = {  };
-  port34.hasWrite = { true };
+  port35.param = { __xlx_apatb_param_buffer_1_wr };
+  port35.depth = { 20 };
+  port35.offset = {  };
+  port35.hasWrite = { true };
 
 #ifdef USE_BINARY_TV_FILE
-  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port35 {
+  static hls::sim::Memory<hls::sim::Input, hls::sim::Output> port36 {
 #else
-  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port35 {
+  static hls::sim::Memory<hls::sim::Reader, hls::sim::Writer> port36 {
 #endif
     .width = 64,
     .asize = 8,
@@ -1491,10 +1506,10 @@ void apatb_cont_hw(void* __xlx_apatb_param_a_i_valid, void* __xlx_apatb_param_a_
 #endif
 #endif
   };
-  port35.param = { __xlx_apatb_param_buffer_1_wr1 };
-  port35.depth = { 20 };
-  port35.offset = {  };
-  port35.hasWrite = { true };
+  port36.param = { __xlx_apatb_param_buffer_1_wr1 };
+  port36.depth = { 20 };
+  port36.offset = {  };
+  port36.hasWrite = { true };
 
   refine_signal_handler();
   try {
@@ -1514,6 +1529,7 @@ void apatb_cont_hw(void* __xlx_apatb_param_a_i_valid, void* __xlx_apatb_param_a_
     check(port32);
     check(port34);
     check(port35);
+    check(port36);
     check(port24);
     check(port25);
 #else
@@ -1553,6 +1569,7 @@ void apatb_cont_hw(void* __xlx_apatb_param_a_i_valid, void* __xlx_apatb_param_a_
     dump(port33, port33.iwriter, tcl.AESL_transaction);
     dump(port34, port34.iwriter, tcl.AESL_transaction);
     dump(port35, port35.iwriter, tcl.AESL_transaction);
+    dump(port36, port36.iwriter, tcl.AESL_transaction);
     port0.doTCL(tcl);
     port1.doTCL(tcl);
     port2.doTCL(tcl);
@@ -1587,12 +1604,13 @@ void apatb_cont_hw(void* __xlx_apatb_param_a_i_valid, void* __xlx_apatb_param_a_
     port33.doTCL(tcl);
     port34.doTCL(tcl);
     port35.doTCL(tcl);
+    port36.doTCL(tcl);
     port24.markSize();
     port25.markSize();
     port24.buffer();
     port25.buffer();
     CodeState = CALL_C_DUT;
-    cont_hw_stub_wrapper(__xlx_apatb_param_a_i_valid, __xlx_apatb_param_a_i_ready, __xlx_apatb_param_a_i_data, __xlx_apatb_param_a_i_strb, __xlx_apatb_param_b_i_valid, __xlx_apatb_param_b_i_ready, __xlx_apatb_param_b_i_data, __xlx_apatb_param_b_i_strb, __xlx_apatb_param_c_i_valid, __xlx_apatb_param_c_i_ready, __xlx_apatb_param_c_i_data, __xlx_apatb_param_c_i_strb, __xlx_apatb_param_d_o_valid, __xlx_apatb_param_d_o_ready, __xlx_apatb_param_d_o_data, __xlx_apatb_param_d_o_strb, __xlx_apatb_param_clear, __xlx_apatb_param_enable, __xlx_apatb_param_function_r, __xlx_apatb_param_start_r, __xlx_apatb_param_shift, __xlx_apatb_param_len, __xlx_apatb_param_f_cnt, __xlx_apatb_param_f_valid, __xlx_apatb_param_buffer_1_rd, __xlx_apatb_param_buffer_1_rd1, __xlx_apatb_param_buffer_1_wr, __xlx_apatb_param_buffer_1_wr1, __xlx_apatb_param_compute_start1, __xlx_apatb_param_compute_done1, __xlx_apatb_param_compute_start2, __xlx_apatb_param_compute_done2, __xlx_apatb_param_slave_start1, __xlx_apatb_param_slave_done1, __xlx_apatb_param_slave_start2, __xlx_apatb_param_slave_done2);
+    cont_hw_stub_wrapper(__xlx_apatb_param_a_i_valid, __xlx_apatb_param_a_i_ready, __xlx_apatb_param_a_i_data, __xlx_apatb_param_a_i_strb, __xlx_apatb_param_b_i_valid, __xlx_apatb_param_b_i_ready, __xlx_apatb_param_b_i_data, __xlx_apatb_param_b_i_strb, __xlx_apatb_param_c_i_valid, __xlx_apatb_param_c_i_ready, __xlx_apatb_param_c_i_data, __xlx_apatb_param_c_i_strb, __xlx_apatb_param_d_o_valid, __xlx_apatb_param_d_o_ready, __xlx_apatb_param_d_o_data, __xlx_apatb_param_d_o_strb, __xlx_apatb_param_clear, __xlx_apatb_param_enable, __xlx_apatb_param_function_r, __xlx_apatb_param_start_r, __xlx_apatb_param_shift, __xlx_apatb_param_len, __xlx_apatb_param_f_cnt, __xlx_apatb_param_f_valid, __xlx_apatb_param_buffer_1_rd, __xlx_apatb_param_buffer_1_rd1, __xlx_apatb_param_buffer_1_wr, __xlx_apatb_param_buffer_1_wr1, __xlx_apatb_param_compute_start1, __xlx_apatb_param_compute_done1, __xlx_apatb_param_compute_start2, __xlx_apatb_param_compute_done2, __xlx_apatb_param_slave_start1, __xlx_apatb_param_slave_done1, __xlx_apatb_param_slave_start2, __xlx_apatb_param_slave_done2, __xlx_apatb_param_phase);
     dump(port24, tcl.AESL_transaction);
     dump(port25, tcl.AESL_transaction);
     port24.doTCL(tcl);
@@ -1612,6 +1630,7 @@ void apatb_cont_hw(void* __xlx_apatb_param_a_i_valid, void* __xlx_apatb_param_a_
     dump(port32, port32.owriter, tcl.AESL_transaction);
     dump(port34, port34.owriter, tcl.AESL_transaction);
     dump(port35, port35.owriter, tcl.AESL_transaction);
+    dump(port36, port36.owriter, tcl.AESL_transaction);
     tcl.AESL_transaction++;
 #endif
   } catch (const hls::sim::SimException &e) {

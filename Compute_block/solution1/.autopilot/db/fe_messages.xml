@@ -26,11 +26,14 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Compute_block/Compute.cpp:41:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="compute" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_fifo port=fwd_out2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Compute_block/Compute.cpp:50:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Compute_block/Compute.cpp:51:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="compute" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=REG complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Compute_block/Compute.cpp:51:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Compute_block/Compute.cpp:52:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="compute" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=REG1 complete dim=0" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="Compute_block/Compute.cpp:49:0" msg_body="Applying array_partition to '_ZZ7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_E4REG1': Complete partitioning on dimension 1.">
+        <args Dim="1" Mode="Complete" UOName="_ZZ7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_E4REG1"/>
     </msg>
     <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="Compute_block/Compute.cpp:47:13" msg_body="Applying array_partition to 'REG': Complete partitioning on dimension 1. Complete partitioning on dimension 2.">
         <args Dim="islist 1 2" Mode="islist Complete Complete" UOName="REG"/>

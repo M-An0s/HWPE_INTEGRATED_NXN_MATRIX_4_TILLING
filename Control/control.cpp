@@ -31,7 +31,7 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
           bool *compute_start2,
           bool compute_done2,
         bool *slave_start1, bool slave_done1,
-        bool *slave_start2, bool slave_done2){                      // <- compute ap_done
+        bool *slave_start2, bool slave_done2, bool *phase){           
 
     #pragma HLS INTERFACE ap_ctrl_none port=return
 
@@ -56,6 +56,9 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
     #pragma HLS INTERFACE ap_none port=slave_done1
     #pragma HLS INTERFACE ap_none port=slave_start2
     #pragma HLS INTERFACE ap_none port=slave_done2
+    
+    //phase control
+    static bool i_phase;
 
     // --- control / handshake state ---
     static bool     compute_launched;
@@ -65,7 +68,6 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
     static bool     done2_seen;
     static bool     slave_done1_seen;
     static bool     slave_done2_seen;
-    static bool     phase;
 
     static count_t  r_cnt;
     static res_t    r_acc;
@@ -121,12 +123,12 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
                 *slave_start1 =0;
                 *slave_start2 =0;
 
-                state = START_SLAVES;
+                state = LOAD_MEM_1;
                 done1_seen=0;
                 done2_seen=0;
                 slave_done1_seen =0;
                 slave_done2_seen = 0;
-                phase = 0;
+                i_phase = 0;
             }
             break;}
 
@@ -165,31 +167,34 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
         
         case START_SLAVES:{
             if(slave_launched == 0){
+                *phase = i_phase;
                 *slave_start1 = 1;
                 *slave_start2 = 1;
                 slave_launched = 1;
                 }else {
                     *slave_start1 = 0;
                     *slave_start2 = 0;
-                    state = LOAD_MEM_1;
+                    state = LOAD_MEM_2;
+                    buffer_ok = 0;
                 }
             break;}  
 
         case START_MPE1:{
             if(compute_launched == 0){ //STARTS ONLY ONCE
+                *phase = i_phase;
                 *compute_start1 = 1;
                 compute_launched = 1;
             } else {
                 *compute_start1 = 0;
                 //reset the count
                 b_count =0;
-                buffer_ok = 0;
-                state = LOAD_MEM_2;
+                state = START_SLAVES;
             }
             break;}
 
         case START_MPE2:{
             if(compute_launched2 == 0){
+                *phase = i_phase;
                 *compute_start2 = 1;
                 compute_launched2 = 1;
             } else {
@@ -202,8 +207,25 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
 
        
         case WAIT_ALL:{ //fix to include the slave modules as well
-        if(done1_seen && done2_seen){
-            state = READ;
+        if(done1_seen && done2_seen && slave_done1_seen &&slave_done2_seen){
+            //STATE_TRANSITION
+            if(i_phase == 0){
+                i_phase =1;
+                b_count =0;
+                buffer_ok = 0;
+                compute_launched = 0;
+                compute_launched2 = 0;
+                slave_launched = 0;
+                done1_seen = 0;
+                done2_seen = 0;
+                slave_done1_seen = 0;
+                slave_done2_seen = 0;
+                j_a = 0;
+                j_b = 0;
+                state = LOAD_MEM_1;
+            }
+            else if(i_phase ==1){
+                state = READ;}
         }
         break;}
 

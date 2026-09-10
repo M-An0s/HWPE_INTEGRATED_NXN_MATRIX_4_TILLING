@@ -436,6 +436,18 @@ set Interface "wire"
 set DataType "char"
 set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
 lappend PortList $Port
+set PortName "phase"
+set BitWidth "1"
+set ArrayOpt ""
+set Const "0"
+set Volatile "1"
+set Pointer "1"
+set Reference "0"
+set Dims [list 0]
+set Interface "wire"
+set DataType "void"
+set Port [list $PortName $Interface $DataType $Pointer $Dims $Const    $Volatile $ArrayOpt]
+lappend PortList $Port
 set globalAPint "" 
 set returnAPInt "" 
 set hasCPPAPInt 0 

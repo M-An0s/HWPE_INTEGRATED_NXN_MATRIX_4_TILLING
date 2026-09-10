@@ -31,8 +31,8 @@
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <FF>192</FF>
-            <LUT>818</LUT>
+            <FF>195</FF>
+            <LUT>832</LUT>
             <BRAM_18K>0</BRAM_18K>
             <DSP>0</DSP>
             <URAM>0</URAM>
@@ -644,11 +644,35 @@
             <Attribute>data</Attribute>
             <CType>bool</CType>
         </RtlPorts>
+        <RtlPorts>
+            <name>phase</name>
+            <Object>phase</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>data</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
+        <RtlPorts>
+            <name>phase_ap_vld</name>
+            <Object>phase</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>ap_vld</IOProtocol>
+            <IOConfig/>
+            <Dir>out</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>bool</CType>
+        </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
         <TopModule MAX_DEPTH="2">
             <ModuleName>cont</ModuleName>
-            <BindInstances>add_ln155_fu_1158_p2 grp_fu_918_p2 add_ln139_fu_1240_p2 grp_fu_918_p2 add_ln230_fu_1345_p2 add_ln186_fu_1364_p2 add_ln186_cast_fu_1371_p2</BindInstances>
+            <BindInstances>add_ln157_fu_1345_p2 grp_fu_1041_p2 add_ln141_fu_1427_p2 grp_fu_1041_p2 add_ln252_fu_1532_p2 add_ln186_fu_1551_p2 add_ln186_cast_fu_1558_p2</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
@@ -673,10 +697,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>192</FF>
+                    <FF>195</FF>
                     <AVAIL_FF>460800</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>818</LUT>
+                    <LUT>832</LUT>
                     <AVAIL_LUT>230400</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -691,13 +715,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln155_fu_1158_p2" SOURCE="Control/control.cpp:155" URAM="0" VARIABLE="add_ln155"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_918_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:840" URAM="0" VARIABLE="add_ln840_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln139_fu_1240_p2" SOURCE="Control/control.cpp:139" URAM="0" VARIABLE="add_ln139"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_918_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:840" URAM="0" VARIABLE="add_ln840"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln230_fu_1345_p2" SOURCE="Control/control.cpp:230" URAM="0" VARIABLE="add_ln230"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln186_fu_1364_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:186" URAM="0" VARIABLE="add_ln186"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln186_cast_fu_1371_p2" SOURCE="Control/control.cpp:227" URAM="0" VARIABLE="add_ln186_cast"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln157_fu_1345_p2" SOURCE="Control/control.cpp:157" URAM="0" VARIABLE="add_ln157"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_1041_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:840" URAM="0" VARIABLE="add_ln840_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln141_fu_1427_p2" SOURCE="Control/control.cpp:141" URAM="0" VARIABLE="add_ln141"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_1041_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:840" URAM="0" VARIABLE="add_ln840"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln252_fu_1532_p2" SOURCE="Control/control.cpp:252" URAM="0" VARIABLE="add_ln252"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln186_fu_1551_p2" SOURCE="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h:186" URAM="0" VARIABLE="add_ln186"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="add" PRAGMA="" RTLNAME="add_ln186_cast_fu_1558_p2" SOURCE="Control/control.cpp:249" URAM="0" VARIABLE="add_ln186_cast"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -842,6 +866,12 @@
         <Arg ArgName="slave_done2" index="23" direction="in" srcType="bool" srcSize="1">
             <hwRefs>
                 <hwRef type="port" interface="slave_done2" name="slave_done2" usage="data" direction="in"/>
+            </hwRefs>
+        </Arg>
+        <Arg ArgName="phase" index="24" direction="out" srcType="bool*" srcSize="1">
+            <hwRefs>
+                <hwRef type="port" interface="phase" name="phase" usage="data" direction="out"/>
+                <hwRef type="port" interface="phase_ap_vld" name="phase_ap_vld" usage="control" direction="out"/>
             </hwRefs>
         </Arg>
     </Args>
@@ -1294,6 +1324,17 @@
                 <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="slave_done2"/>
             </constraints>
         </Interface>
+        <Interface InterfaceName="phase" type="data" busTypeName="data" protocol="ap_vld" mode="master" dataWidth="1">
+            <portMaps>
+                <portMap portMapName="phase">DATA</portMap>
+            </portMaps>
+            <ports>
+                <port>phase</port>
+            </ports>
+            <constraints>
+                <constraint constraint_type="pragma interface" mode="ap_none" register_option="0" argName="phase"/>
+            </constraints>
+        </Interface>
     </Interfaces>
     <ReportHWInterface>
         <section name="HW Interfaces" level="0">
@@ -1342,6 +1383,7 @@
                     <column name="f_valid">ap_vld, 1, , </column>
                     <column name="function_r">ap_none, 1, , </column>
                     <column name="len">ap_none, 11, , </column>
+                    <column name="phase">ap_vld, 1, , </column>
                     <column name="shift">ap_none, 5, , </column>
                     <column name="slave_done1">ap_none, 1, , </column>
                     <column name="slave_done2">ap_none, 1, , </column>
@@ -1389,6 +1431,7 @@
                     <column name="slave_done1">in, bool</column>
                     <column name="slave_start2">out, bool*</column>
                     <column name="slave_done2">in, bool</column>
+                    <column name="phase">out, bool*</column>
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
@@ -1438,6 +1481,8 @@
                     <column name="slave_done1">slave_done1, port, , </column>
                     <column name="slave_start2">slave_start2, port, , </column>
                     <column name="slave_done2">slave_done2, port, , </column>
+                    <column name="phase">phase, port, , </column>
+                    <column name="phase">phase_ap_vld, port, , </column>
                 </table>
             </item>
         </section>

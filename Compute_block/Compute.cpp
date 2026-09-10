@@ -46,7 +46,8 @@ void compute(res_t buffer_1[Size2],dat_t buffer_2[Size],bool phase,hls::stream<a
     }*/
 ap_uint<16> REG[N][8];
 //for partial storing
-ap_uint<32> REG1[16];
+static ap_uint<32> REG1[16];
+bool phase_local;
 #pragma HLS ARRAY_PARTITION variable=REG complete dim=0
 #pragma HLS ARRAY_PARTITION variable=REG1 complete dim=0
 volatile int dummy =0;
@@ -55,7 +56,8 @@ delay: for (int k = 0; k < 1; k++) {
 }
 
 read_and_write_back:
-        for(int i=0;i<N;i++){
+        phase_local = phase;
+        for(int i=0;i<N;i++){  
             res_t self_sum = 0; //diag
             for(int fe=0;fe<2;fe++){ //this has to do with 2 fetches needed for a full row and col combination
                 ap_uint<64> word = buffer_1[2*i+fe];
@@ -71,9 +73,9 @@ read_and_write_back:
                 fwd_out1.write((v0,v1));
                 fwd_out2.write((v2,v3));
             } 
-            if(phase == 1){
-            buffer_2[(N+1)*i] =self_sum;}//self_sum;} //diagonal fill
-            else if(phase ==0){
+            if(phase_local == 1){
+            buffer_2[(N+1)*i] =self_sum+REG1[(N+1)*i];}//self_sum;} //diagonal fill
+            else if(phase_local ==0){
                 REG1[(N+1)*i] = self_sum;
             }
             for(int com =0;com<i;com++){
@@ -83,10 +85,10 @@ read_and_write_back:
                     com_sum_rc += REG[i][ptr]*REG[com][ptr+N];
                     com_sum_cr += REG[com][ptr]*REG[i][ptr+N];}
 
-                if(phase ==1){
-                buffer_2[4*i+com] = com_sum_rc;
-                buffer_2[4*com+i] = com_sum_cr;}
-                else if(phase ==0){
+                if(phase_local ==1){
+                buffer_2[4*i+com] = com_sum_rc +REG1[4*i+com];
+                buffer_2[4*com+i] = com_sum_cr +REG1[4*com+i];}
+                else if(phase_local ==0){
                     REG1[4*i+com] = com_sum_rc;
                     REG1[4*com+i] = com_sum_cr;
                 }

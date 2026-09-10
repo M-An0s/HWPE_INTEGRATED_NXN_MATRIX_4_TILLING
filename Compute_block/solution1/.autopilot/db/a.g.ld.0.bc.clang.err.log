@@ -1,6 +1,7 @@
+remark: Compute_block/Compute.cpp:49:0: Applying array_partition to '_ZZ7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_E4REG1': Complete partitioning on dimension 1.
 remark: Compute_block/Compute.cpp:47:13: Applying array_partition to 'REG': Complete partitioning on dimension 1. Complete partitioning on dimension 2.
 remark: Compute_block/Compute.cpp:36:0: Aggregating fifo (hls::stream) variable 'fwd_out2' with compact=bit mode in 32-bits
 remark: Compute_block/Compute.cpp:36:0: Aggregating fifo (hls::stream) variable 'fwd_out1' with compact=bit mode in 32-bits
-remark: Compute_block/Compute.cpp:52:14: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.12 dummy  compute(ap_int<64>*, ap_int<32>*, bool, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) 
-remark: Compute_block/Compute.cpp:54:13: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.load.15 dummy  compute(ap_int<64>*, ap_int<32>*, bool, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) 
-remark: Compute_block/Compute.cpp:54:11: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.16 dummy  compute(ap_int<64>*, ap_int<32>*, bool, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) 
+remark: Compute_block/Compute.cpp:53:14: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.12 dummy  compute(ap_int<64>*, ap_int<32>*, bool, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) 
+remark: Compute_block/Compute.cpp:55:13: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.load.15 dummy  compute(ap_int<64>*, ap_int<32>*, bool, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) 
+remark: Compute_block/Compute.cpp:55:11: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.16 dummy  compute(ap_int<64>*, ap_int<32>*, bool, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&) 

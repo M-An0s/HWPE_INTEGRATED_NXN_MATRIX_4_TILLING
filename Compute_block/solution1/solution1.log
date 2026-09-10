@@ -14,79 +14,72 @@ INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
-INFO: [HLS 200-111] Finished Command csim_design CPU user time: 3.16 seconds. CPU system time: 0.64 seconds. Elapsed time: 3.81 seconds; current allocated memory: 0.000 MB.
+INFO: [HLS 200-111] Finished Command csim_design CPU user time: 3.2 seconds. CPU system time: 0.55 seconds. Elapsed time: 3.76 seconds; current allocated memory: 0.000 MB.
 INFO: [HLS 200-1510] Running: csynth_design 
-INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 742.430 MB.
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.01 seconds; current allocated memory: 742.430 MB.
 INFO: [HLS 200-10] Analyzing design file 'Compute_block/Compute.cpp' ... 
-INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 4.85 seconds. CPU system time: 0.81 seconds. Elapsed time: 5.68 seconds; current allocated memory: 744.406 MB.
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 5.02 seconds. CPU system time: 0.68 seconds. Elapsed time: 5.74 seconds; current allocated memory: 744.406 MB.
 INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-248] Applying array_partition to '_ZZ7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_E4REG1': Complete partitioning on dimension 1. (Compute_block/Compute.cpp:49:0)
 INFO: [HLS 214-248] Applying array_partition to 'REG': Complete partitioning on dimension 1. Complete partitioning on dimension 2. (Compute_block/Compute.cpp:47:13)
 INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fwd_out2' with compact=bit mode in 32-bits (Compute_block/Compute.cpp:36:0)
 INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 'fwd_out1' with compact=bit mode in 32-bits (Compute_block/Compute.cpp:36:0)
-INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.69 seconds. CPU system time: 0.55 seconds. Elapsed time: 4.25 seconds; current allocated memory: 744.996 MB.
-INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 744.996 MB.
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 3.78 seconds. CPU system time: 0.47 seconds. Elapsed time: 4.25 seconds; current allocated memory: 744.984 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 744.984 MB.
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.04 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.05 seconds; current allocated memory: 750.660 MB.
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 751.023 MB.
 INFO: [HLS 200-10] Checking synthesizability ...
-INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 756.996 MB.
-INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_79_2' (Compute_block/Compute.cpp:79) in function 'compute' automatically.
-INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_60_1' (Compute_block/Compute.cpp:47) in function 'compute' automatically.
-INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_79_2' (Compute_block/Compute.cpp:79) in function 'compute' for pipelining.
-INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_82_3' (Compute_block/Compute.cpp:80) in function 'compute' completely with a factor of 4.
-INFO: [XFORM 203-11] Balancing expressions in function 'compute' (Compute_block/Compute.cpp:36:30)...6 expression(s) balanced.
-INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.14 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.15 seconds; current allocated memory: 786.441 MB.
-WARNING: [HLS 200-960] Cannot flatten loop 'read_and_write_back' (Compute_block/Compute.cpp:47:13) in function 'compute' more than one sub loop.
-INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 801.645 MB.
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 757.324 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_81_3' (Compute_block/Compute.cpp:81) in function 'compute' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_62_2' (Compute_block/Compute.cpp:47) in function 'compute' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_81_3' (Compute_block/Compute.cpp:81) in function 'compute' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'VITIS_LOOP_84_4' (Compute_block/Compute.cpp:82) in function 'compute' completely with a factor of 4.
+INFO: [XFORM 203-11] Balancing expressions in function 'compute' (Compute_block/Compute.cpp:36:35)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.21 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.21 seconds; current allocated memory: 787.832 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_60_1' (Compute_block/Compute.cpp:47:13) in function 'compute' more than one sub loop.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 792.672 MB.
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'compute' ...
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_Pipeline_VITIS_LOOP_60_1' 
+INFO: [HLS 200-42] -- Implementing module 'compute_Pipeline_VITIS_LOOP_62_2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [HLS 200-486] Changing DSP latency (root=ret_V_3) to 3 in order to utilize available DSP registers.
 INFO: [HLS 200-486] Changing DSP latency (root=ret_V_4) to 3 in order to utilize available DSP registers.
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_60_1'.
-INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 6, loop 'VITIS_LOOP_60_1'
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_62_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 6, loop 'VITIS_LOOP_62_2'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.2 seconds. CPU system time: 0.04 seconds. Elapsed time: 0.24 seconds; current allocated memory: 803.719 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.2 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.23 seconds; current allocated memory: 795.805 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 803.719 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 795.805 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [HLS 200-42] -- Implementing module 'compute_Pipeline_VITIS_LOOP_79_2' 
+INFO: [HLS 200-42] -- Implementing module 'compute_Pipeline_VITIS_LOOP_81_3' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494_7) to 3 in order to utilize available DSP registers.
 INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494_1) to 3 in order to utilize available DSP registers.
-INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494_6) to 3 in order to utilize available DSP registers.
-INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494) to 3 in order to utilize available DSP registers.
 INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494_5) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494_7) to 3 in order to utilize available DSP registers.
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494_6) to 3 in order to utilize available DSP registers.
 INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494_4) to 3 in order to utilize available DSP registers.
 INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494_3) to 3 in order to utilize available DSP registers.
 INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494_2) to 3 in order to utilize available DSP registers.
-INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_79_2'.
-INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 5, loop 'VITIS_LOOP_79_2'
+INFO: [HLS 200-486] Changing DSP latency (root=mul_ln1494) to 3 in order to utilize available DSP registers.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_81_3'.
+WARNING: [HLS 200-880] The II Violation in module 'compute_Pipeline_VITIS_LOOP_81_3' (loop 'VITIS_LOOP_81_3'): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'store' operation ('buffer_2_addr_1_write_ln90', Compute_block/Compute.cpp:90) of variable 'add_ln90', Compute_block/Compute.cpp:90 on array 'buffer_2' and 'store' operation ('buffer_2_addr_write_ln89', Compute_block/Compute.cpp:89) of variable 'add_ln89', Compute_block/Compute.cpp:89 on array 'buffer_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 2, Depth = 7, loop 'VITIS_LOOP_81_3'
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.2 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 804.434 MB.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.23 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.24 seconds; current allocated memory: 798.453 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 804.434 MB.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 798.453 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'compute' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
-INFO: [SCHED 204-11] Starting scheduling ...
-INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 806.070 MB.
-INFO: [BIND 205-100] Starting micro-architecture generation ...
-INFO: [BIND 205-101] Performing variable lifetime analysis.
-INFO: [BIND 205-101] Exploring resource sharing.
-INFO: [BIND 205-101] Binding ...
-INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 806.070 MB.
-INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11]

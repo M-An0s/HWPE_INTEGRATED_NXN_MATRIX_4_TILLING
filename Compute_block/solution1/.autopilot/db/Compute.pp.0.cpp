@@ -36390,7 +36390,8 @@ __attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8],dat_t b
 
 ap_uint<16> REG[4][8];
 
-ap_uint<32> REG1[16];
+static ap_uint<32> REG1[16];
+bool phase_local;
 #pragma HLS ARRAY_PARTITION variable=REG complete dim=0
 #pragma HLS ARRAY_PARTITION variable=REG1 complete dim=0
 volatile int dummy =0;
@@ -36399,9 +36400,10 @@ delay: for (int k = 0; k < 1; k++) {
 }
 
 read_and_write_back:
-        for(int i=0;i<4;i++){
+        phase_local = phase;
+        VITIS_LOOP_60_1: for(int i=0;i<4;i++){
             res_t self_sum = 0;
-            VITIS_LOOP_60_1: for(int fe=0;fe<2;fe++){
+            VITIS_LOOP_62_2: for(int fe=0;fe<2;fe++){
                 ap_uint<64> word = buffer_1[2*i+fe];
                 ap_uint<16> v0 = word.range(15,0);
                 ap_uint<16> v1 = word.range(31,16);
@@ -36415,22 +36417,22 @@ read_and_write_back:
                 fwd_out1.write((v0,v1));
                 fwd_out2.write((v2,v3));
             }
-            if(phase == 1){
-            buffer_2[(4 +1)*i] =self_sum;}
-            else if(phase ==0){
+            if(phase_local == 1){
+            buffer_2[(4 +1)*i] =self_sum+REG1[(4 +1)*i];}
+            else if(phase_local ==0){
                 REG1[(4 +1)*i] = self_sum;
             }
-            VITIS_LOOP_79_2: for(int com =0;com<i;com++){
+            VITIS_LOOP_81_3: for(int com =0;com<i;com++){
                 res_t com_sum_rc = 0;
                 res_t com_sum_cr = 0;
-                VITIS_LOOP_82_3: for(int ptr=0;ptr<4;ptr++){
+                VITIS_LOOP_84_4: for(int ptr=0;ptr<4;ptr++){
                     com_sum_rc += REG[i][ptr]*REG[com][ptr+4];
                     com_sum_cr += REG[com][ptr]*REG[i][ptr+4];}
 
-                if(phase ==1){
-                buffer_2[4*i+com] = com_sum_rc;
-                buffer_2[4*com+i] = com_sum_cr;}
-                else if(phase ==0){
+                if(phase_local ==1){
+                buffer_2[4*i+com] = com_sum_rc +REG1[4*i+com];
+                buffer_2[4*com+i] = com_sum_cr +REG1[4*com+i];}
+                else if(phase_local ==0){
                     REG1[4*i+com] = com_sum_rc;
                     REG1[4*com+i] = com_sum_cr;
                 }

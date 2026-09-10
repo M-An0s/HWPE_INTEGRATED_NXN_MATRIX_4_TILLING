@@ -36,10 +36,10 @@ entry:
 ; Function Attrs: argmemonly noinline
 define internal fastcc void @copy_in([8 x %"struct.ap_int<64>"]* noalias readonly "unpacked"="0", [8 x i64]* noalias nocapture align 512 "unpacked"="1.0.0.0", [16 x %"struct.ap_int<32>"]* noalias readonly "unpacked"="2", [16 x i32]* noalias nocapture align 512 "unpacked"="3.0.0.0", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="4", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="5", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="6", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="7") unnamed_addr #2 {
 entry:
-  call fastcc void @"onebyonecpy_hls.p0a8struct.ap_int<64>.29"([8 x i64]* align 512 %1, [8 x %"struct.ap_int<64>"]* %0)
+  call fastcc void @"onebyonecpy_hls.p0a8struct.ap_int<64>.32"([8 x i64]* align 512 %1, [8 x %"struct.ap_int<64>"]* %0)
   call fastcc void @"onebyonecpy_hls.p0a16struct.ap_int<32>"([16 x i32]* align 512 %3, [16 x %"struct.ap_int<32>"]* %2)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.62"(i32* align 512 %5, %"class.hls::stream<ap_uint<32>, 0>"* %4)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.62"(i32* align 512 %7, %"class.hls::stream<ap_uint<32>, 0>"* %6)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.65"(i32* align 512 %5, %"class.hls::stream<ap_uint<32>, 0>"* %4)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.65"(i32* align 512 %7, %"class.hls::stream<ap_uint<32>, 0>"* %6)
   ret void
 }
 
@@ -47,14 +47,14 @@ entry:
 define internal fastcc void @copy_out([8 x %"struct.ap_int<64>"]* noalias "unpacked"="0", [8 x i64]* noalias nocapture readonly align 512 "unpacked"="1.0.0.0", [16 x %"struct.ap_int<32>"]* noalias "unpacked"="2", [16 x i32]* noalias nocapture readonly align 512 "unpacked"="3.0.0.0", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="4", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="5", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="6", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="7") unnamed_addr #3 {
 entry:
   call fastcc void @"onebyonecpy_hls.p0a8struct.ap_int<64>"([8 x %"struct.ap_int<64>"]* %0, [8 x i64]* align 512 %1)
-  call fastcc void @"onebyonecpy_hls.p0a16struct.ap_int<32>.5"([16 x %"struct.ap_int<32>"]* %2, [16 x i32]* align 512 %3)
+  call fastcc void @"onebyonecpy_hls.p0a16struct.ap_int<32>.8"([16 x %"struct.ap_int<32>"]* %2, [16 x i32]* align 512 %3)
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>"(%"class.hls::stream<ap_uint<32>, 0>"* %4, i32* align 512 %5)
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>"(%"class.hls::stream<ap_uint<32>, 0>"* %6, i32* align 512 %7)
   ret void
 }
 
 ; Function Attrs: argmemonly noinline norecurse
-define internal fastcc void @"onebyonecpy_hls.p0a16struct.ap_int<32>.5"([16 x %"struct.ap_int<32>"]* noalias "unpacked"="0", [16 x i32]* noalias nocapture readonly align 512 "unpacked"="1.0.0.0") unnamed_addr #4 {
+define internal fastcc void @"onebyonecpy_hls.p0a16struct.ap_int<32>.8"([16 x %"struct.ap_int<32>"]* noalias "unpacked"="0", [16 x i32]* noalias nocapture readonly align 512 "unpacked"="1.0.0.0") unnamed_addr #4 {
 entry:
   %2 = icmp eq [16 x %"struct.ap_int<32>"]* %0, null
   br i1 %2, label %ret, label %copy
@@ -100,7 +100,7 @@ ret:                                              ; preds = %for.loop, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse
-define internal fastcc void @"onebyonecpy_hls.p0a8struct.ap_int<64>.29"([8 x i64]* noalias nocapture align 512 "unpacked"="0.0.0.0", [8 x %"struct.ap_int<64>"]* noalias readonly "unpacked"="1") unnamed_addr #4 {
+define internal fastcc void @"onebyonecpy_hls.p0a8struct.ap_int<64>.32"([8 x i64]* noalias nocapture align 512 "unpacked"="0.0.0.0", [8 x %"struct.ap_int<64>"]* noalias readonly "unpacked"="1") unnamed_addr #4 {
 entry:
   %2 = icmp eq [8 x %"struct.ap_int<64>"]* %1, null
   br i1 %2, label %ret, label %copy
@@ -154,7 +154,7 @@ entry:
   br i1 %4, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.58"(%"class.hls::stream<ap_uint<32>, 0>"* nonnull %0, i32* nonnull align 512 %1)
+  call fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.61"(%"class.hls::stream<ap_uint<32>, 0>"* nonnull %0, i32* nonnull align 512 %1)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -162,7 +162,7 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.58"(%"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture "fpga.caller.interfaces"="layout_transformed", i32* noalias nocapture align 512 "fpga.caller.interfaces"="layout_transformed") unnamed_addr #6 {
+define internal fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.61"(%"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture "fpga.caller.interfaces"="layout_transformed", i32* noalias nocapture align 512 "fpga.caller.interfaces"="layout_transformed") unnamed_addr #6 {
 entry:
   %2 = alloca i32
   %3 = alloca %"class.hls::stream<ap_uint<32>, 0>"
@@ -201,7 +201,7 @@ define internal %"struct.ssdm_int<32, true>" @"_llvm.fpga.unpack.bits.s_class.hl
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.62"(i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed", %"class.hls::stream<ap_uint<32>, 0>"* noalias "fpga.caller.interfaces"="layout_transformed") unnamed_addr #5 {
+define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.65"(i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed", %"class.hls::stream<ap_uint<32>, 0>"* noalias "fpga.caller.interfaces"="layout_transformed") unnamed_addr #5 {
 entry:
   %2 = icmp eq i32* %0, null
   %3 = icmp eq %"class.hls::stream<ap_uint<32>, 0>"* %1, null
@@ -209,7 +209,7 @@ entry:
   br i1 %4, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.65"(i32* nonnull align 512 %0, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %1)
+  call fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.68"(i32* nonnull align 512 %0, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %1)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -217,7 +217,7 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.65"(i32* noalias nocapture align 512 "fpga.caller.interfaces"="layout_transformed", %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture "fpga.caller.interfaces"="layout_transformed") unnamed_addr #6 {
+define internal fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.68"(i32* noalias nocapture align 512 "fpga.caller.interfaces"="layout_transformed", %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture "fpga.caller.interfaces"="layout_transformed") unnamed_addr #6 {
 entry:
   %2 = alloca %"class.hls::stream<ap_uint<32>, 0>"
   %3 = alloca i32
@@ -258,7 +258,7 @@ declare void @apatb_compute_hw(i64*, i32*, i1, i32*, i32*)
 ; Function Attrs: argmemonly noinline
 define internal fastcc void @copy_back([8 x %"struct.ap_int<64>"]* noalias "unpacked"="0", [8 x i64]* noalias nocapture readonly align 512 "unpacked"="1.0.0.0", [16 x %"struct.ap_int<32>"]* noalias "unpacked"="2", [16 x i32]* noalias nocapture readonly align 512 "unpacked"="3.0.0.0", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="4", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="5", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="6", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="7") unnamed_addr #3 {
 entry:
-  call fastcc void @"onebyonecpy_hls.p0a16struct.ap_int<32>.5"([16 x %"struct.ap_int<32>"]* %2, [16 x i32]* align 512 %3)
+  call fastcc void @"onebyonecpy_hls.p0a16struct.ap_int<32>.8"([16 x %"struct.ap_int<32>"]* %2, [16 x i32]* align 512 %3)
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>"(%"class.hls::stream<ap_uint<32>, 0>"* %4, i32* align 512 %5)
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>"(%"class.hls::stream<ap_uint<32>, 0>"* %6, i32* align 512 %7)
   ret void

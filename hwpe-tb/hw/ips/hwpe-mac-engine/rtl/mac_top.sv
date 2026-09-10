@@ -120,6 +120,8 @@ module mac_top
   // --- SLAVE 2 result memory write ---
   logic [3:0]  s2_res_addr;    logic s2_res_ce;  logic s2_res_we;  logic [31:0] s2_res_d;
 
+  //phase of computations 
+  logic phase_c;
 
   hwpe_stream_intf_stream #(
     .DATA_WIDTH(32)
@@ -199,7 +201,8 @@ module mac_top
     .slave_start1 ( slave_start1 ),
     .slave_done1  ( slave_done1  ),
     .slave_start2 ( slave_start2 ),
-    .slave_done2  ( slave_done2  )
+    .slave_done2  ( slave_done2  ),
+    .phase        (phase_c)
   );
 
 
@@ -315,17 +318,17 @@ module mac_top
     .buffer_2_ce0      ( comp_b2_ce0   ),
     .buffer_2_we0      ( comp_b2_we0   ),
     .buffer_2_d0       ( comp_b2_d0    ),
-    .buffer_2_address1  ( comp_b2_addr1 ),
-    .buffer_2_ce1       ( comp_b2_ce1   ),
-    .buffer_2_we1       ( comp_b2_we1   ),
-    .buffer_2_d1        ( comp_b2_d1    ),
+    //.buffer_2_address1  ( comp_b2_addr1 ),
+   // .buffer_2_ce1       ( comp_b2_ce1   ),
+   // .buffer_2_we1       ( comp_b2_we1   ),
+    //.buffer_2_d1        ( comp_b2_d1    ),
     .fwd_out1_din       (m1_fwd1_din),
     .fwd_out1_full_n    (m1_fwd1_full_n ),
     .fwd_out1_write     (m1_fwd1_write),
     .fwd_out2_din       (m1_fwd2_din ),
     .fwd_out2_full_n    (m1_fwd2_full_n),
     .fwd_out2_write     (m1_fwd2_write ),
-    .phase              (1'b1));
+    .phase              (phase_c));
 
      compute i_mpe2 (
     .ap_clk           ( clk_i          ),
@@ -341,17 +344,17 @@ module mac_top
     .buffer_2_ce0     ( mpe2_res_ce0   ),
     .buffer_2_we0     ( mpe2_res_we0   ),
     .buffer_2_d0      ( mpe2_res_d0    ),
-    .buffer_2_address1( mpe2_res_addr1 ),
-    .buffer_2_ce1     ( mpe2_res_ce1   ),
-    .buffer_2_we1     ( mpe2_res_we1   ),
-    .buffer_2_d1      ( mpe2_res_d1    ),
+    //.buffer_2_address1( mpe2_res_addr1 ),
+   // .buffer_2_ce1     ( mpe2_res_ce1   ),
+   // .buffer_2_we1     ( mpe2_res_we1   ),
+   // .buffer_2_d1      ( mpe2_res_d1    ),
     .fwd_out1_din     (m2_fwd2_din     ),
     .fwd_out1_full_n   (m2_fwd2_full_n),
     .fwd_out1_write    (m2_fwd2_write  ),
     .fwd_out2_din       ( m2_fwd1_din  ),
     .fwd_out2_full_n    ( m2_fwd1_full_n),
     .fwd_out2_write     (m2_fwd1_write ),
-    .phase              (1'b1)
+    .phase              (phase_c)
   );
 
   compute_slave i_slave1 (

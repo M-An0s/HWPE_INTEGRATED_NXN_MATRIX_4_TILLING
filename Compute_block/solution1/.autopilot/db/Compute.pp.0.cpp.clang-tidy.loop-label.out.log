@@ -23,18 +23,23 @@
       ^~~
       VITIS_LOOP_1245_1: 
 /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:34566:7: note: FIX-IT applied suggested code changes
-/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36404:13: warning: Added loop label VITIS_LOOP_60_1:   [xilinx-label-all-loops]
+/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36404:9: warning: Added loop label VITIS_LOOP_60_1:   [xilinx-label-all-loops]
+        for(int i=0;i<4;i++){
+        ^~~
+        VITIS_LOOP_60_1: 
+/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36404:9: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36406:13: warning: Added loop label VITIS_LOOP_62_2:   [xilinx-label-all-loops]
             for(int fe=0;fe<2;fe++){
             ^~~
-            VITIS_LOOP_60_1: 
-/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36404:13: note: FIX-IT applied suggested code changes
-/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36423:13: warning: Added loop label VITIS_LOOP_79_2:   [xilinx-label-all-loops]
+            VITIS_LOOP_62_2: 
+/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36406:13: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36425:13: warning: Added loop label VITIS_LOOP_81_3:   [xilinx-label-all-loops]
             for(int com =0;com<i;com++){
             ^~~
-            VITIS_LOOP_79_2: 
-/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36423:13: note: FIX-IT applied suggested code changes
-/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36426:17: warning: Added loop label VITIS_LOOP_82_3:   [xilinx-label-all-loops]
+            VITIS_LOOP_81_3: 
+/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36425:13: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36428:17: warning: Added loop label VITIS_LOOP_84_4:   [xilinx-label-all-loops]
                 for(int ptr=0;ptr<4;ptr++){
                 ^~~
-                VITIS_LOOP_82_3: 
-/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36426:17: note: FIX-IT applied suggested code changes
+                VITIS_LOOP_84_4: 
+/home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp:36428:17: note: FIX-IT applied suggested code changes

@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'compute'" level="0">
-<item name = "Date">Thu Sep 10 14:52:42 2026
+<item name = "Date">Thu Sep 10 22:43:38 2026
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">Compute_block</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00 ns, 2.338 ns, 2.70 ns</column>
+<column name="ap_clk">10.00 ns, 2.313 ns, 2.70 ns</column>
 </table>
 </item>
 </section>
@@ -24,20 +24,20 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">65, 89, 0.650 us, 0.890 us, 66, 90, no</column>
+<column name="">65, 105, 0.650 us, 1.050 us, 66, 106, no</column>
 </table>
 </item>
 <item name = "Detail">
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_compute_Pipeline_VITIS_LOOP_60_1_fu_359">compute_Pipeline_VITIS_LOOP_60_1, 9, 9, 90.000 ns, 90.000 ns, 9, 9, no</column>
-<column name="grp_compute_Pipeline_VITIS_LOOP_79_2_fu_435">compute_Pipeline_VITIS_LOOP_79_2, 2, 8, 20.000 ns, 80.000 ns, 2, 8, no</column>
+<column name="grp_compute_Pipeline_VITIS_LOOP_62_2_fu_395">compute_Pipeline_VITIS_LOOP_62_2, 9, 9, 90.000 ns, 90.000 ns, 9, 9, no</column>
+<column name="grp_compute_Pipeline_VITIS_LOOP_81_3_fu_471">compute_Pipeline_VITIS_LOOP_81_3, 2, 12, 20.000 ns, 0.120 us, 2, 12, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- read_and_write_back">64, 88, 16 ~ 22, -, -, 4, no</column>
+<column name="- VITIS_LOOP_60_1">64, 104, 16 ~ 26, -, -, 4, no</column>
 </table>
 </item>
 </section>
@@ -50,12 +50,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 28, -</column>
+<column name="Expression">-, -, 0, 67, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, 10, 735, 1404, -</column>
+<column name="Instance">-, 10, 1660, 1878, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 165, -</column>
-<column name="Register">-, -, 567, -, -</column>
+<column name="Multiplexer">-, -, -, 174, -</column>
+<column name="Register">-, -, 695, -, -</column>
 <specialColumn name="Available">624, 1728, 460800, 230400, 96</specialColumn>
 <specialColumn name="Utilization (%)">0, ~0, ~0, ~0, 0</specialColumn>
 </table>
@@ -64,8 +64,9 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_compute_Pipeline_VITIS_LOOP_60_1_fu_359">compute_Pipeline_VITIS_LOOP_60_1, 0, 2, 658, 967, 0</column>
-<column name="grp_compute_Pipeline_VITIS_LOOP_79_2_fu_435">compute_Pipeline_VITIS_LOOP_79_2, 0, 8, 77, 437, 0</column>
+<column name="grp_compute_Pipeline_VITIS_LOOP_62_2_fu_395">compute_Pipeline_VITIS_LOOP_62_2, 0, 2, 658, 967, 0</column>
+<column name="grp_compute_Pipeline_VITIS_LOOP_81_3_fu_471">compute_Pipeline_VITIS_LOOP_81_3, 0, 8, 1002, 891, 0</column>
+<column name="mux_42_32_1_1_U146">mux_42_32_1_1, 0, 0, 0, 20, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -82,9 +83,10 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln58_1_fu_512_p2">+, 0, 0, 9, 2, 1</column>
-<column name="add_ln58_fu_762_p2">+, 0, 0, 10, 3, 1</column>
-<column name="icmp_ln58_fu_506_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="add_ln60_1_fu_579_p2">+, 0, 0, 9, 2, 1</column>
+<column name="add_ln60_fu_888_p2">+, 0, 0, 10, 3, 1</column>
+<column name="add_ln77_fu_870_p2">+, 0, 0, 39, 32, 32</column>
+<column name="icmp_ln60_fu_573_p2">icmp, 0, 0, 9, 3, 4</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -93,62 +95,67 @@
 <column name="ap_sig_allocacmp_dummy_1">9, 2, 1, 2</column>
 <column name="buffer_2_address0">14, 3, 4, 12</column>
 <column name="buffer_2_ce0">14, 3, 1, 3</column>
-<column name="buffer_2_ce1">9, 2, 1, 2</column>
 <column name="buffer_2_d0">14, 3, 32, 96</column>
 <column name="buffer_2_we0">14, 3, 1, 3</column>
-<column name="buffer_2_we1">9, 2, 1, 2</column>
-<column name="dummy_fu_336">9, 2, 1, 2</column>
+<column name="compute_ap_int_64_ap_int_32_bool_hls_stream_ap_uint_32_0_hls_stream_ap_uint_32_0_REG_s">9, 2, 32, 64</column>
+<column name="compute_ap_int_ap_int_bool_stream_stream_ap_uint_32_0_REG1_4">9, 2, 32, 64</column>
+<column name="compute_ap_int_ap_int_bool_stream_stream_ap_uint_32_0_REG1_9">9, 2, 32, 64</column>
+<column name="dummy_fu_372">9, 2, 1, 2</column>
 <column name="fwd_out1_write">9, 2, 1, 2</column>
 <column name="fwd_out2_write">9, 2, 1, 2</column>
-<column name="i_fu_68">9, 2, 3, 6</column>
-<column name="indvars_iv1_fu_200">9, 2, 2, 4</column>
+<column name="i_fu_104">9, 2, 3, 6</column>
+<column name="indvars_iv1_fu_236">9, 2, 2, 4</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="REG_V_10_fu_112">16, 0, 16, 0</column>
-<column name="REG_V_11_fu_116">16, 0, 16, 0</column>
-<column name="REG_V_12_fu_120">16, 0, 16, 0</column>
-<column name="REG_V_13_fu_124">16, 0, 16, 0</column>
-<column name="REG_V_14_fu_128">16, 0, 16, 0</column>
-<column name="REG_V_15_fu_132">16, 0, 16, 0</column>
-<column name="REG_V_16_fu_136">16, 0, 16, 0</column>
-<column name="REG_V_17_fu_140">16, 0, 16, 0</column>
-<column name="REG_V_18_fu_144">16, 0, 16, 0</column>
-<column name="REG_V_19_fu_148">16, 0, 16, 0</column>
-<column name="REG_V_1_fu_76">16, 0, 16, 0</column>
-<column name="REG_V_20_fu_152">16, 0, 16, 0</column>
-<column name="REG_V_21_fu_156">16, 0, 16, 0</column>
-<column name="REG_V_22_fu_160">16, 0, 16, 0</column>
-<column name="REG_V_23_fu_164">16, 0, 16, 0</column>
-<column name="REG_V_24_fu_168">16, 0, 16, 0</column>
-<column name="REG_V_25_fu_172">16, 0, 16, 0</column>
-<column name="REG_V_26_fu_176">16, 0, 16, 0</column>
-<column name="REG_V_27_fu_180">16, 0, 16, 0</column>
-<column name="REG_V_28_fu_184">16, 0, 16, 0</column>
-<column name="REG_V_29_fu_188">16, 0, 16, 0</column>
-<column name="REG_V_2_fu_80">16, 0, 16, 0</column>
-<column name="REG_V_30_fu_192">16, 0, 16, 0</column>
-<column name="REG_V_31_fu_196">16, 0, 16, 0</column>
-<column name="REG_V_3_fu_84">16, 0, 16, 0</column>
-<column name="REG_V_4_fu_88">16, 0, 16, 0</column>
-<column name="REG_V_5_fu_92">16, 0, 16, 0</column>
-<column name="REG_V_6_fu_96">16, 0, 16, 0</column>
-<column name="REG_V_7_fu_100">16, 0, 16, 0</column>
-<column name="REG_V_8_fu_104">16, 0, 16, 0</column>
-<column name="REG_V_9_fu_108">16, 0, 16, 0</column>
-<column name="REG_V_fu_72">16, 0, 16, 0</column>
-<column name="add_ln58_1_reg_1365">2, 0, 2, 0</column>
+<column name="REG_V_10_fu_148">16, 0, 16, 0</column>
+<column name="REG_V_11_fu_152">16, 0, 16, 0</column>
+<column name="REG_V_12_fu_156">16, 0, 16, 0</column>
+<column name="REG_V_13_fu_160">16, 0, 16, 0</column>
+<column name="REG_V_14_fu_164">16, 0, 16, 0</column>
+<column name="REG_V_15_fu_168">16, 0, 16, 0</column>
+<column name="REG_V_16_fu_172">16, 0, 16, 0</column>
+<column name="REG_V_17_fu_176">16, 0, 16, 0</column>
+<column name="REG_V_18_fu_180">16, 0, 16, 0</column>
+<column name="REG_V_19_fu_184">16, 0, 16, 0</column>
+<column name="REG_V_1_fu_112">16, 0, 16, 0</column>
+<column name="REG_V_20_fu_188">16, 0, 16, 0</column>
+<column name="REG_V_21_fu_192">16, 0, 16, 0</column>
+<column name="REG_V_22_fu_196">16, 0, 16, 0</column>
+<column name="REG_V_23_fu_200">16, 0, 16, 0</column>
+<column name="REG_V_24_fu_204">16, 0, 16, 0</column>
+<column name="REG_V_25_fu_208">16, 0, 16, 0</column>
+<column name="REG_V_26_fu_212">16, 0, 16, 0</column>
+<column name="REG_V_27_fu_216">16, 0, 16, 0</column>
+<column name="REG_V_28_fu_220">16, 0, 16, 0</column>
+<column name="REG_V_29_fu_224">16, 0, 16, 0</column>
+<column name="REG_V_2_fu_116">16, 0, 16, 0</column>
+<column name="REG_V_30_fu_228">16, 0, 16, 0</column>
+<column name="REG_V_31_fu_232">16, 0, 16, 0</column>
+<column name="REG_V_3_fu_120">16, 0, 16, 0</column>
+<column name="REG_V_4_fu_124">16, 0, 16, 0</column>
+<column name="REG_V_5_fu_128">16, 0, 16, 0</column>
+<column name="REG_V_6_fu_132">16, 0, 16, 0</column>
+<column name="REG_V_7_fu_136">16, 0, 16, 0</column>
+<column name="REG_V_8_fu_140">16, 0, 16, 0</column>
+<column name="REG_V_9_fu_144">16, 0, 16, 0</column>
+<column name="REG_V_fu_108">16, 0, 16, 0</column>
+<column name="add_ln60_1_reg_1492">2, 0, 2, 0</column>
 <column name="ap_CS_fsm">6, 0, 6, 0</column>
-<column name="dummy_fu_336">1, 0, 1, 0</column>
-<column name="empty_15_reg_1466">2, 0, 2, 0</column>
-<column name="grp_compute_Pipeline_VITIS_LOOP_60_1_fu_359_ap_start_reg">1, 0, 1, 0</column>
-<column name="grp_compute_Pipeline_VITIS_LOOP_79_2_fu_435_ap_start_reg">1, 0, 1, 0</column>
-<column name="i_1_reg_1352">3, 0, 3, 0</column>
-<column name="i_fu_68">3, 0, 3, 0</column>
-<column name="indvars_iv1_fu_200">2, 0, 2, 0</column>
-<column name="indvars_iv1_load_reg_1357">2, 0, 2, 0</column>
-<column name="self_sum_V_loc_fu_204">32, 0, 32, 0</column>
+<column name="compute_ap_int_64_ap_int_32_bool_hls_stream_ap_uint_32_0_hls_stream_ap_uint_32_0_REG_s">32, 0, 32, 0</column>
+<column name="compute_ap_int_ap_int_bool_stream_stream_ap_uint_32_0_REG1_4">32, 0, 32, 0</column>
+<column name="compute_ap_int_ap_int_bool_stream_stream_ap_uint_32_0_REG1_9">32, 0, 32, 0</column>
+<column name="dummy_fu_372">1, 0, 1, 0</column>
+<column name="empty_23_reg_1593">2, 0, 2, 0</column>
+<column name="grp_compute_Pipeline_VITIS_LOOP_62_2_fu_395_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_compute_Pipeline_VITIS_LOOP_81_3_fu_471_ap_start_reg">1, 0, 1, 0</column>
+<column name="i_1_reg_1478">3, 0, 3, 0</column>
+<column name="i_fu_104">3, 0, 3, 0</column>
+<column name="indvars_iv1_fu_236">2, 0, 2, 0</column>
+<column name="indvars_iv1_load_reg_1484">2, 0, 2, 0</column>
+<column name="p_ZZ7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_E4REG">32, 0, 32, 0</column>
+<column name="self_sum_V_loc_fu_240">32, 0, 32, 0</column>
 </table>
 </item>
 </section>
@@ -171,10 +178,6 @@
 <column name="buffer_2_ce0">out, 1, ap_memory, buffer_2, array</column>
 <column name="buffer_2_we0">out, 1, ap_memory, buffer_2, array</column>
 <column name="buffer_2_d0">out, 32, ap_memory, buffer_2, array</column>
-<column name="buffer_2_address1">out, 4, ap_memory, buffer_2, array</column>
-<column name="buffer_2_ce1">out, 1, ap_memory, buffer_2, array</column>
-<column name="buffer_2_we1">out, 1, ap_memory, buffer_2, array</column>
-<column name="buffer_2_d1">out, 32, ap_memory, buffer_2, array</column>
 <column name="phase">in, 1, ap_none, phase, scalar</column>
 <column name="fwd_out1_din">out, 32, ap_fifo, fwd_out1, pointer</column>
 <column name="fwd_out1_full_n">in, 1, ap_fifo, fwd_out1, pointer</column>
