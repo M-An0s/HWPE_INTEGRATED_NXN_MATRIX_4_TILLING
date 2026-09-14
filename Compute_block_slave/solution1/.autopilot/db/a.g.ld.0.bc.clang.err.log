@@ -1,7 +1,0 @@
-remark: Compute_block_slave/Compute_slave.cpp:43:13: Applying array_partition to 'REG1': Complete partitioning on dimension 1. Complete partitioning on dimension 2.
-remark: Compute_block_slave/Compute_slave.cpp:45:13: Applying array_partition to 'REG2': Complete partitioning on dimension 1. Complete partitioning on dimension 2.
-remark: Compute_block_slave/Compute_slave.cpp:36:0: Aggregating fifo (hls::stream) variable 'fwd_in2' with compact=bit mode in 32-bits
-remark: Compute_block_slave/Compute_slave.cpp:36:0: Aggregating fifo (hls::stream) variable 'fwd_in1' with compact=bit mode in 32-bits
-remark: Compute_block_slave/Compute_slave.cpp:48:14: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.9 dummy  compute_slave(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, ap_int<32>*) 
-remark: Compute_block_slave/Compute_slave.cpp:50:13: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.load.12 dummy  compute_slave(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, ap_int<32>*) 
-remark: Compute_block_slave/Compute_slave.cpp:50:11: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.13 dummy  compute_slave(hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&, ap_int<32>*) 
