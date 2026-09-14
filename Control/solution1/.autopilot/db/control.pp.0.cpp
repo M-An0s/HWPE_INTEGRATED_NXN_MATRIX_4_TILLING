@@ -36369,15 +36369,21 @@ struct hs_is_t{
 
 
 
-__attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i,hs_is_t *b_i,hs_is_t *c_i,hs_is_t *d_o,
+void cont(hs_is_t *a_i,hs_is_t *b_i,hs_is_t *c_i,hs_is_t *d_o,
              bool clear,bool enable,bool function,bool start,shift_t shift,len_t len,
-             len_t *f_cnt,bool *f_valid,hls::stream<ap_uint<32>>& buffer_1_rd,hls::stream<ap_uint<32>>& buffer_1_rd1,res_t buffer_1_wr[20], res_t buffer_1_wr1[20],
+             len_t *f_cnt,bool *f_valid,hls::stream<ap_uint<32>>& buffer_1_rd,hls::stream<ap_uint<32>>& buffer_1_rd1,
+             hls::stream<ap_uint<32>>& buffer_1_rd2,
+             hls::stream<ap_uint<32>>& buffer_1_rd3,
+             res_t buffer_1_wr[20], res_t buffer_1_wr1[20],
+             dat_t buffer_1_wr2a[20],dat_t buffer_1_wr2b[20],
+             dat_t buffer_1_wr3a[20],dat_t buffer_1_wr3b[20],
              bool *compute_start,
              bool compute_done,bool *compute_start2,
              bool compute_done2,
              bool *slave_start1, bool slave_done1,
              bool *slave_start2, bool slave_done2,
-             bool *phase
+             bool *phase,hls::stream<ap_uint<32>> &a,
+             hls::stream<ap_uint<32>> &b
              );
 # 2 "Control/control.cpp" 2
 # 1 "/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int.h" 1
@@ -36393,11 +36399,14 @@ enum State{
     LOAD_MEM_2,
     START_MPE1,
     START_MPE2,
-    START_SLAVES,
+    WAIT_MPE1,
+    WAIT_MPE2,
     WAIT_ALL,
-    READ,
+    PIP_1,
     UNLOAD
 };
+
+
 
 
 __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
@@ -36406,17 +36415,21 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
           len_t *f_cnt, bool *f_valid,
           hls::stream<ap_uint<32>> &buffer_1_rd,
           hls::stream<ap_uint<32>>& buffer_1_rd1,
+          hls::stream<ap_uint<32>>& buffer_1_rd2,
+          hls::stream<ap_uint<32>>& buffer_1_rd3,
           res_t buffer_1_wr[20],
           res_t buffer_1_wr1[20],
+          dat_t buffer_1_wr2a[20],dat_t buffer_1_wr2b[20],
+          dat_t buffer_1_wr3a[20],dat_t buffer_1_wr3b[20],
           bool *compute_start1,
           bool compute_done1,
           bool *compute_start2,
           bool compute_done2,
         bool *slave_start1, bool slave_done1,
-        bool *slave_start2, bool slave_done2, bool *phase){
-#line 10 "/home/pulp1/HLS_corrected/script.ctl"
+        bool *slave_start2, bool slave_done2, bool *phase1,bool *phase2){
+#line 692 "/tools/Xilinx/Vitis_HLS/2022.2/scripts/builtin.tcl"
 #pragma HLSDIRECTIVE TOP name=cont
-# 34 "Control/control.cpp"
+# 41 "Control/control.cpp"
 
 
 #pragma HLS INTERFACE ap_ctrl_none port=return
@@ -36432,6 +36445,8 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
 
 #pragma HLS INTERFACE ap_fifo port=buffer_1_rd
 #pragma HLS INTERFACE ap_fifo port=buffer_1_rd1
+#pragma HLS INTERFACE ap_fifo port=buffer_1_rd2
+#pragma HLS INTERFACE ap_fifo port=buffer_1_rd3
 #pragma HLS INTERFACE ap_memory port=buffer_1_wr
 #pragma HLS INTERFACE ap_memory port=buffer_1_wr1
 #pragma HLS INTERFACE ap_none port=compute_start1
@@ -36444,7 +36459,8 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
 #pragma HLS INTERFACE ap_none port=slave_done2
 
 
- static bool i_phase;
+ static bool i_phase1;
+    static bool i_phase2;
 
 
     static bool compute_launched;
@@ -36469,6 +36485,7 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
     static int i;
     static int j_a;
     static int j_b;
+    static int j2a,j2b,j3a,j3b;
     static bool buffer_ok;
 
 
@@ -36492,6 +36509,10 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
             if(clear){
                 j_a = 0;
                 j_b = 0;
+                j2a = 0;
+                j2b = 0;
+                j3a = 0;
+                j3b = 0;
                 b_count = 0;
                 buffer_ok = 0;
                 r_cnt = 0;
@@ -36514,7 +36535,8 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
                 done2_seen=0;
                 slave_done1_seen =0;
                 slave_done2_seen = 0;
-                i_phase = 0;
+                i_phase1 = 0;
+                i_phase2 = 0;
             }
             break;}
 
@@ -36525,6 +36547,8 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
                     tmp_a = a_i->data;
                     tmp_b = b_i->data;
                     buffer_1_wr[j_a++] = (tmp_b,tmp_a);
+                    buffer_1_wr2a[j2a++] = tmp_a;
+                    buffer_1_wr3b[j3b++] = tmp_b;
                     b_count++;
                 }
             }
@@ -36541,6 +36565,8 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
                     tmp_a = a_i->data;
                     tmp_b = b_i->data;
                     buffer_1_wr1[j_b++] = (tmp_b,tmp_a);
+                    buffer_1_wr2b[j2b++] = tmp_b;
+                    buffer_1_wr3a[j3a++] = tmp_a;
                     b_count++;
                 }
             }
@@ -36551,99 +36577,108 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
             break;}
 
 
-        case START_SLAVES:{
-            if(slave_launched == 0){
-                *phase = i_phase;
-                *slave_start1 = 1;
-                *slave_start2 = 1;
-                slave_launched = 1;
-                }else {
-                    *slave_start1 = 0;
-                    *slave_start2 = 0;
-                    state = LOAD_MEM_2;
-                    buffer_ok = 0;
-                }
-            break;}
 
         case START_MPE1:{
             if(compute_launched == 0){
-                *phase = i_phase;
+                *phase1 = i_phase1;
                 *compute_start1 = 1;
                 compute_launched = 1;
             } else {
                 *compute_start1 = 0;
 
                 b_count =0;
-                state = START_SLAVES;
+                state = LOAD_MEM_2;
+                buffer_ok =0;
+
             }
             break;}
 
+
         case START_MPE2:{
             if(compute_launched2 == 0){
-                *phase = i_phase;
+                *phase2 = i_phase2;
                 *compute_start2 = 1;
+                *slave_start1 =1;
+                *slave_start2 = 1;
                 compute_launched2 = 1;
             } else {
                 *compute_start2 = 0;
+                *slave_start1 = 0;
+                *slave_start2 = 0;
 
-                state = WAIT_ALL;
-            }
-
+                state = WAIT_ALL;}
             break;}
 
 
         case WAIT_ALL:{
-        if(done1_seen && done2_seen && slave_done1_seen &&slave_done2_seen){
+            if(done1_seen&&done2_seen&& slave_done1_seen&&slave_done2_seen){
 
-            if(i_phase == 0){
-                i_phase =1;
+            if(i_phase1 == 0){
+                i_phase1 =1;
+                i_phase2 =1;
                 b_count =0;
                 buffer_ok = 0;
                 compute_launched = 0;
                 compute_launched2 = 0;
-                slave_launched = 0;
                 done1_seen = 0;
                 done2_seen = 0;
                 slave_done1_seen = 0;
                 slave_done2_seen = 0;
                 j_a = 0;
+                j2a =0;
+                j3b =0;
                 j_b = 0;
-                state = LOAD_MEM_1;
+                j3a =0;
+                j2b =0;
+                state = LOAD_MEM_1;}
+
+            else if (i_phase2 ==1){
+                state = UNLOAD;
+                }
             }
-            else if(i_phase ==1){
-                state = READ;}
+
+            break;
         }
-        break;}
-
-        case READ:{
-            if (!buffer_1_rd.empty()&&(i<16)){
-                buffer= buffer_1_rd.read();
-                state = UNLOAD;
-            }
-            else if(!buffer_1_rd1.empty()&&(i>=16)){
-                buffer = buffer_1_rd1.read();
-                state = UNLOAD;
-            }
-
-            break;}
 
         case UNLOAD:{
+            res_t tmp;
+
+            if (!buffer_1_rd.empty()&&(i<16)){
+                tmp = buffer_1_rd.read();
+                r_acc_valid = 1;
+                r_cnt++;
+                i++;
+            }
+
+            else if(!buffer_1_rd1.empty()&&(i<32)){
+                 tmp = buffer_1_rd1.read();
+                 r_acc_valid = 1;
+                 r_cnt++;
+                 i++;
+            }
+
+            else if(!buffer_1_rd2.empty()&&(i<48)){
+                 tmp = buffer_1_rd2.read();
+                 r_acc_valid = 1;
+                 r_cnt++;
+                 i++;
+            }
+
+            else{
+                 tmp = buffer_1_rd3.read();
+                 r_acc_valid = 1;
+                 r_cnt++;
+                 i++;
+            }
+
             if ((r_cnt < len) && store_result_ready){
-                r_acc = buffer;
-                if(r_cnt < 1){ r_cnt = r_cnt + 1; }
+                r_acc = tmp;
+
             }
-            if(r_acc_valid == 0){
-                if(r_cnt >= 1){
-                    r_acc_valid = 1;
-                    i = i + 1;
-                }
-            } else {
-                r_acc_valid = 0;
-                r_cnt = r_cnt + 1;
-                state = READ;
-            }
+
             if(i == len){
                 state = IDLE;
+                r_acc_valid =1;
             }
             break;}
     }
@@ -36657,8 +36692,8 @@ __attribute__((sdx_kernel("cont", 0))) void cont(hs_is_t *a_i, hs_is_t *b_i, hs_
     d_nonshifted_valid = r_acc_valid;
     store_result_ready = r_acc_ready | !store_result_valid;
 
-    d_o->data = d_nonshifted;
-    d_o->valid = enable & d_nonshifted_valid;
+    d_o->data =(ap_int<64>)r_acc;
+    d_o->valid = enable & r_acc_valid;
     d_o->strb = 15;
 
     *f_cnt = r_cnt;

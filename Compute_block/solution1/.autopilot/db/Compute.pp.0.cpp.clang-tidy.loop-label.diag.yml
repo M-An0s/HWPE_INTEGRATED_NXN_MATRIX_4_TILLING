@@ -46,40 +46,45 @@ Diagnostics:
         Offset:          1340023
         Length:          0
         ReplacementText: 'VITIS_LOOP_1245_1: '
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, RAM_1P +  is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      75
+    FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
+    Replacements:    
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_60_1:  '
-    FileOffset:      60
+    Message:         'Added loop label VITIS_LOOP_85_1:  '
+    FileOffset:      85
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1684645
+        Offset:          1684389
         Length:          0
-        ReplacementText: 'VITIS_LOOP_60_1: '
+        ReplacementText: 'VITIS_LOOP_85_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_62_2:  '
-    FileOffset:      62
+    Message:         'Added loop label VITIS_LOOP_88_2:  '
+    FileOffset:      88
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1684711
+        Offset:          1684468
         Length:          0
-        ReplacementText: 'VITIS_LOOP_62_2: '
+        ReplacementText: 'VITIS_LOOP_88_2: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_81_3:  '
-    FileOffset:      81
+    Message:         'Added loop label VITIS_LOOP_107_3:  '
+    FileOffset:      107
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1685482
+        Offset:          1685118
         Length:          0
-        ReplacementText: 'VITIS_LOOP_81_3: '
+        ReplacementText: 'VITIS_LOOP_107_3: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_84_4:  '
-    FileOffset:      84
+    Message:         'Added loop label VITIS_LOOP_111_4:  '
+    FileOffset:      111
     FilePath:        /home/pulp1/HLS_corrected/Compute_block/Compute.cpp
     Replacements:    
       - FilePath:        /home/pulp1/HLS_corrected/Compute_block/solution1/.autopilot/db/Compute.pp.0.cpp
-        Offset:          1685603
+        Offset:          1685236
         Length:          0
-        ReplacementText: 'VITIS_LOOP_84_4: '
+        ReplacementText: 'VITIS_LOOP_111_4: '
 ...

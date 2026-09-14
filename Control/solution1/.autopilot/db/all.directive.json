@@ -1,12 +1,13 @@
 {"sourceFile": [{
       "name": "",
-      "directive": [{
+      "directive": [
+        {
           "functionName": "cont",
           "label": "",
           "functionLabel": "",
           "id": "1",
-          "sourceFile": "\/home\/pulp1\/HLS_corrected\/script.ctl",
-          "sourceLine": "10",
+          "sourceFile": "\/tools\/Xilinx\/Vitis_HLS\/2022.2\/scripts\/builtin.tcl",
+          "sourceLine": "692",
           "pragma": {
             "name": "TOP",
             "option": [{
@@ -14,5 +15,21 @@
                 "value": "cont"
               }]
           }
-        }]
+        },
+        {
+          "functionName": "cont",
+          "label": "",
+          "functionLabel": "",
+          "id": "2",
+          "sourceFile": "\/tools\/Xilinx\/Vitis_HLS\/2022.2\/scripts\/builtin.tcl",
+          "sourceLine": "692",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "cont"
+              }]
+          }
+        }
+      ]
     }]}

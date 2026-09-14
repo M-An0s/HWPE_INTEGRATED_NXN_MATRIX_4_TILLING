@@ -5,6 +5,11 @@
                 <option name="name" value="cont"/>
             </pragma>
         </directive>
+        <directive functionName="cont" label="" functionLabel="">
+            <pragma name="TOP">
+                <option name="name" value="cont"/>
+            </pragma>
+        </directive>
     </sourceFile>
 </AutoPilot:ProjectResources>
 

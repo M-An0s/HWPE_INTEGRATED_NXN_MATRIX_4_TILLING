@@ -17,13 +17,13 @@ end entity;
 architecture behav of compute_mul_mul_16ns_16ns_32_4_1_DSP48_0 is
     signal a_cvt: unsigned(16 - 1 downto 0);
     signal b_cvt: unsigned(16 - 1 downto 0);
-    signal p_cvt: unsigned(32 - 1 downto 0);
+    signal p_cvt: signed(32 - 1 downto 0);
 
-    signal p_reg: unsigned(32 - 1 downto 0);
+    signal p_reg: signed(32 - 1 downto 0);
 
     signal a_reg: unsigned(16 - 1 downto 0) ; 
     signal b_reg: unsigned(16 - 1 downto 0) ; 
-    signal p_reg_tmp: unsigned(32 - 1 downto 0);
+    signal p_reg_tmp: signed(32 - 1 downto 0);
 begin
 
     a_cvt <= unsigned(a);
@@ -41,7 +41,7 @@ begin
         end if;
     end process;
 
-    p_cvt <= unsigned (resize(unsigned (signed ('0' & a_reg) * signed ('0' & b_reg)), 32));
+    p_cvt <= signed (resize(unsigned (signed ('0' & a_reg) * signed ('0' & b_reg)), 32));
     p <= std_logic_vector(p_reg);
 
 end architecture;

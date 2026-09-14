@@ -51,13 +51,19 @@ struct hs_is_t{
 //start the two memories process, buffer_1_wr is in_MEM 1, buffer_1_wr1 is in_MEM 2
 void cont(hs_is_t *a_i,hs_is_t *b_i,hs_is_t *c_i,hs_is_t *d_o,
              bool clear,bool enable,bool function,bool start,shift_t shift,len_t len,
-             len_t *f_cnt,bool *f_valid,hls::stream<ap_uint<32>>& buffer_1_rd,hls::stream<ap_uint<32>>& buffer_1_rd1,res_t buffer_1_wr[Size], res_t buffer_1_wr1[Size], 
+             len_t *f_cnt,bool *f_valid,hls::stream<ap_uint<32>>& buffer_1_rd,hls::stream<ap_uint<32>>& buffer_1_rd1,
+             hls::stream<ap_uint<32>>& buffer_1_rd2,
+             hls::stream<ap_uint<32>>& buffer_1_rd3,
+             res_t buffer_1_wr[Size], res_t buffer_1_wr1[Size],
+             dat_t buffer_1_wr2a[Size],dat_t buffer_1_wr2b[Size],
+             dat_t buffer_1_wr3a[Size],dat_t buffer_1_wr3b[Size],
              bool *compute_start,            
              bool compute_done,bool *compute_start2,
              bool compute_done2,
              bool *slave_start1, bool slave_done1,
              bool *slave_start2, bool slave_done2,
-             bool *phase
+             bool *phase,hls::stream<ap_uint<32>> &a, 
+             hls::stream<ap_uint<32>> &b
              );
 
 

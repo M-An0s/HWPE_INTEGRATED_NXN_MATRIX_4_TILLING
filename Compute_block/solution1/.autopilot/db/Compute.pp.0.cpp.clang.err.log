@@ -13,25 +13,31 @@ In file included from /tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot
 /home/pulp1/HLS_corrected/script.ctl:10:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=name=compute_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLSDIRECTIVE TOP name=compute
         ^
-Compute_block/Compute.cpp:37:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=ap_ctrl_hs port=return_XLX_SEP_ [-Wdump-hls-pragmas]
+Compute_block/Compute.cpp:72:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=ap_ctrl_hs port=return_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE ap_ctrl_hs port=return
         ^
-Compute_block/Compute.cpp:38:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=ap_memory port=buffer_1_XLX_SEP_ [-Wdump-hls-pragmas]
+Compute_block/Compute.cpp:73:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=ap_memory port=buffer_1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE ap_memory port=buffer_1
         ^
-Compute_block/Compute.cpp:39:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=ap_memory port=buffer_2_XLX_SEP_ [-Wdump-hls-pragmas]
+Compute_block/Compute.cpp:74:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=ap_memory port=buffer_2_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS INTERFACE ap_memory port=buffer_2
         ^
-Compute_block/Compute.cpp:40:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=ap_fifo port=fwd_out1_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS INTERFACE ap_fifo port=fwd_out1
+Compute_block/Compute.cpp:75:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=variable=buffer_2 type=RAM_1P_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS bind_storage variable=buffer_2 type=RAM_1P
         ^
-Compute_block/Compute.cpp:41:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=ap_fifo port=fwd_out2_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma HLS INTERFACE ap_fifo port=fwd_out2
-        ^
-Compute_block/Compute.cpp:51:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=variable=REG complete dim=0_XLX_SEP_ [-Wdump-hls-pragmas]
+Compute_block/Compute.cpp:80:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=variable=REG complete dim=0_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS ARRAY_PARTITION variable=REG complete dim=0
         ^
-Compute_block/Compute.cpp:52:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=variable=REG1 complete dim=0_XLX_SEP_ [-Wdump-hls-pragmas]
+Compute_block/Compute.cpp:81:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=variable=REG1 complete dim=0_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS ARRAY_PARTITION variable=REG1 complete dim=0
         ^
-11 warnings generated.
+Compute_block/Compute.cpp:86:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS PIPELINE II=1
+        ^
+Compute_block/Compute.cpp:89:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS unroll
+        ^
+Compute_block/Compute.cpp:108:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=compute_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS unroll
+        ^
+13 warnings generated.

@@ -1,8 +1,11 @@
 <xilinx:hls_fe_msgs>
-    <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="Control/control.cpp:22:41" msg_body="unused parameter 'function'">
+    <msg msg_groups="" msg_id="207-4973" msg_severity="WARNING" msg_loc="Control/control.cpp:114:12" msg_body="enumeration values 'WAIT_MPE1', 'WAIT_MPE2', and 'PIP_1' not handled in switch">
+        <args ClangWarningOption="switch"/>
+    </msg>
+    <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="Control/control.cpp:25:41" msg_body="unused parameter 'function'">
         <args ClangWarningOption="unused-parameter"/>
     </msg>
-    <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="Control/control.cpp:22:56" msg_body="unused parameter 'start'">
+    <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="Control/control.cpp:25:56" msg_body="unused parameter 'start'">
         <args ClangWarningOption="unused-parameter"/>
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h:678:9" msg_body="HLS pragma dump">
@@ -14,88 +17,100 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h:706:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="xor_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/pulp1/HLS_corrected/script.ctl:10:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/tools/Xilinx/Vitis_HLS/2022.2/scripts/builtin.tcl:692:9" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="directive" ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=cont" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:36:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:43:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_ctrl_none port=return" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:38:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:45:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=a_i" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:39:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:46:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=a_i" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:40:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:47:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=b_i" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:41:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:48:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=b_i" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:42:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:49:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=c_i" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:43:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:50:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=c_i" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:44:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:51:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=d_o" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:45:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:52:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=d_o" ARG_PragmaType="disaggregate" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:47:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:54:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_fifo port=buffer_1_rd" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:48:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:55:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_fifo port=buffer_1_rd1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:49:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_memory port=buffer_1_wr" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:50:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_memory port=buffer_1_wr1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:51:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=compute_start1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:52:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=compute_done1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:53:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=compute_start2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:54:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=compute_done2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:55:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=slave_start1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:56:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=slave_done1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_fifo port=buffer_1_rd2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:57:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=slave_start2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_fifo port=buffer_1_rd3" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:58:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_memory port=buffer_1_wr" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:59:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_memory port=buffer_1_wr1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:60:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=compute_start1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:61:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=compute_done1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:62:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=compute_start2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:63:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=compute_done2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:64:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=slave_start1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:65:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=slave_done1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:66:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=slave_start2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="Control/control.cpp:67:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="cont" ARG_PragmaIsValid="1" ARG_PragmaOptions="ap_none port=slave_done2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="Control/control.cpp:34:0" msg_body="Disaggregating variable 'a_i'">
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="Control/control.cpp:41:0" msg_body="Disaggregating variable 'a_i'">
         <args Name="a_i"/>
     </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="Control/control.cpp:34:0" msg_body="Disaggregating variable 'b_i'">
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="Control/control.cpp:41:0" msg_body="Disaggregating variable 'b_i'">
         <args Name="b_i"/>
     </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="Control/control.cpp:34:0" msg_body="Disaggregating variable 'c_i'">
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="Control/control.cpp:41:0" msg_body="Disaggregating variable 'c_i'">
         <args Name="c_i"/>
     </msg>
-    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="Control/control.cpp:34:0" msg_body="Disaggregating variable 'd_o'">
+    <msg msg_groups="PRAGMA_DISAGGREGATE" msg_id="214-210" msg_severity="INFO" msg_loc="Control/control.cpp:41:0" msg_body="Disaggregating variable 'd_o'">
         <args Name="d_o"/>
     </msg>
-    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="Control/control.cpp:34:0" msg_body="Aggregating fifo (hls::stream) variable 'buffer_1_rd1' with compact=bit mode in 32-bits">
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="Control/control.cpp:41:0" msg_body="Aggregating fifo (hls::stream) variable 'buffer_1_rd3' with compact=bit mode in 32-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="32" HwTyName="fifo (hls::stream)" Name="buffer_1_rd3"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="Control/control.cpp:41:0" msg_body="Aggregating fifo (hls::stream) variable 'buffer_1_rd2' with compact=bit mode in 32-bits">
+        <args AggregateTypeName="compact=bit" Bitwidth="32" HwTyName="fifo (hls::stream)" Name="buffer_1_rd2"/>
+    </msg>
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="Control/control.cpp:41:0" msg_body="Aggregating fifo (hls::stream) variable 'buffer_1_rd1' with compact=bit mode in 32-bits">
         <args AggregateTypeName="compact=bit" Bitwidth="32" HwTyName="fifo (hls::stream)" Name="buffer_1_rd1"/>
     </msg>
-    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="Control/control.cpp:34:0" msg_body="Aggregating fifo (hls::stream) variable 'buffer_1_rd' with compact=bit mode in 32-bits">
+    <msg msg_groups="PRAGMA_AGGREGATE" msg_id="214-241" msg_severity="INFO" msg_loc="Control/control.cpp:41:0" msg_body="Aggregating fifo (hls::stream) variable 'buffer_1_rd' with compact=bit mode in 32-bits">
         <args AggregateTypeName="compact=bit" Bitwidth="32" HwTyName="fifo (hls::stream)" Name="buffer_1_rd"/>
     </msg>
 </xilinx:hls_fe_msgs>

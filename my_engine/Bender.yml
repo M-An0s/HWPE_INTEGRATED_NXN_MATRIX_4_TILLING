@@ -1,0 +1,76 @@
+package:
+  name: hwpe-mac-engine
+  authors:
+    - "Francesco Conti <f.conti@unibo.it>"
+
+dependencies:
+  hwpe-stream: { git: "https://github.com/pulp-platform/hwpe-stream.git", version: 1.6.3 }
+  hwpe-ctrl:   { git: "https://github.com/pulp-platform/hwpe-ctrl.git", version: 1.6.1 }
+
+
+sources:
+  - include_dirs:
+      - rtl
+    files:
+      # Source files grouped in levels. Files in level 0 have no dependencies on files in this
+      # package. Files in level 1 only depend on files in level 0, files in level 2 on files in
+      # levels 1 and 0, etc. Files within a level are ordered alphabetically.
+      # Level 0
+      - rtl/mac_package.sv
+      # Level 1
+      - rtl/compute_mac_muladd_16ns_16ns_32ns_32_4_1.v
+      - rtl/compute_mul_mul_16ns_16ns_32_4_1.v
+      - rtl/compute_mux_32_16_1_1.v
+      - rtl/compute_mux_42_32_1_1.v
+      - rtl/compute_mux_124_32_1_1.v
+      - rtl/compute_mux_154_32_1_1.v
+      - rtl/compute.v
+
+        #COMPUTE 2in
+      - rtl/compute2in_mac_muladd_16ns_16ns_32ns_33_4_1.v
+      - rtl/compute2in_ama_addmuladd_16ns_16ns_1ns_17s_32_4_1_DSP48_1.v
+      - rtl/compute2in_ama_addmuladd_16ns_16ns_1ns_17s_32_4_1.v
+      - rtl/compute2in_compute2in_Pipeline_VITIS_LOOP_66_2.v
+      - rtl/compute2in_compute2in_Pipeline_VITIS_LOOP_87_3.v
+      - rtl/compute2in_flow_control_loop_pipe_sequential_init.v
+      - rtl/compute2in_mac_muladd_1ns_16ns_17ns_33_4_1_DSP48_0.v
+      - rtl/compute2in_mac_muladd_1ns_16ns_17ns_33_4_1.v
+      - rtl/compute2in_mac_muladd_16ns_16ns_32ns_32_4_1_DSP48_2.v
+      - rtl/compute2in_mac_muladd_16ns_16ns_32ns_32_4_1.v
+      - rtl/compute2in_mul_1ns_16ns_32_1_1.v
+      - rtl/compute2in_mul_16ns_1ns_32_1_1.v
+      - rtl/compute2in_mul_17ns_1ns_32_1_1.v
+      - rtl/compute2in_mul_mul_16ns_16ns_32_4_1_DSP48_0.v
+      - rtl/compute2in_mul_mul_16ns_16ns_32_4_1_DSP48_1.v
+      - rtl/compute2in_mul_mul_16ns_16ns_32_4_1.v
+      - rtl/compute2in_mux_32_16_1_1.v
+      - rtl/compute2in_mux_42_16_1_1.v
+      - rtl/compute2in_mux_42_32_1_1.v
+      - rtl/compute2in_mux_124_32_1_1.v
+      - rtl/compute2in_mux_154_32_1_1.v
+      - rtl/compute2in_mac_muladd_16ns_16ns_32ns_33_4_1.v
+      - rtl/compute2in.v
+      - rtl/compute.v
+      - rtl/cont.v
+
+
+      #test compute: 
+      
+      - rtl/in_Mem.v
+      - rtl/mac_ctrl.sv
+      - rtl/mac_engine.sv
+      - rtl/mac_fsm.sv
+      - rtl/mac_package.sv
+      - rtl/mac_streamer.sv
+      - rtl/mac_top.sv
+      - rtl/res_Mem.v
+      - rtl/slave_res_Mem.v
+      - rtl/stream_fifo.v
+      - rtl/mac_fsm.sv
+      - rtl/mac_streamer.sv
+      # Level 2
+      - rtl/mac_ctrl.sv
+      # Level 3
+      - rtl/mac_top.sv
+      # Level 4
+      - wrap/mac_top_wrap.sv

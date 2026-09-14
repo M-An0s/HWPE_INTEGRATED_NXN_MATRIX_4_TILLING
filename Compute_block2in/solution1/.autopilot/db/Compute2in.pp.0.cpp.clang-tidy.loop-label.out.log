@@ -1,0 +1,45 @@
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:31953:7: warning: Added loop label VITIS_LOOP_1211_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1211_1: 
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:31953:7: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:32927:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:32927:5: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:32941:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:32941:5: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:32955:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:32955:5: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:34566:7: warning: Added loop label VITIS_LOOP_1245_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1245_1: 
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:34566:7: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:36409:9: warning: Added loop label VITIS_LOOP_63_1:   [xilinx-label-all-loops]
+        for(int i=0;i<4;i++){
+        ^~~
+        VITIS_LOOP_63_1: 
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:36409:9: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:36412:13: warning: Added loop label VITIS_LOOP_66_2:   [xilinx-label-all-loops]
+            for(int fe=0;fe<2;fe++){
+            ^~~
+            VITIS_LOOP_66_2: 
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:36412:13: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:36433:13: warning: Added loop label VITIS_LOOP_87_3:   [xilinx-label-all-loops]
+            for(int com =0;com<i;com++){
+            ^~~
+            VITIS_LOOP_87_3: 
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:36433:13: note: FIX-IT applied suggested code changes
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:36437:17: warning: Added loop label VITIS_LOOP_91_4:   [xilinx-label-all-loops]
+                for(int ptr=0;ptr<4;ptr++){
+                ^~~
+                VITIS_LOOP_91_4: 
+/home/pulp1/HLS_corrected/Compute_block2in/solution1/.autopilot/db/Compute2in.pp.0.cpp:36437:17: note: FIX-IT applied suggested code changes

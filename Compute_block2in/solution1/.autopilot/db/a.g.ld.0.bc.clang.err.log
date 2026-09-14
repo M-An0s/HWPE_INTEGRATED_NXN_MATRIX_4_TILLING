@@ -1,0 +1,5 @@
+remark: Compute_block2in/Compute2in.cpp:52:0: Applying array_partition to '_ZZ10compute2inP6ap_intILi32EES1_S1_bE4REG1': Complete partitioning on dimension 1.
+remark: Compute_block2in/Compute2in.cpp:50:13: Applying array_partition to 'REG': Complete partitioning on dimension 1. Complete partitioning on dimension 2.
+remark: Compute_block2in/Compute2in.cpp:56:14: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.12 dummy  compute2in(ap_int<32>*, ap_int<32>*, ap_int<32>*, bool) 
+remark: Compute_block2in/Compute2in.cpp:58:13: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.load.15 dummy  compute2in(ap_int<32>*, ap_int<32>*, ap_int<32>*, bool) 
+remark: Compute_block2in/Compute2in.cpp:58:11: Volatile or Atomic access cannot be transformed _XLX_SEP_ entry.store.16 dummy  compute2in(ap_int<32>*, ap_int<32>*, ap_int<32>*, bool) 

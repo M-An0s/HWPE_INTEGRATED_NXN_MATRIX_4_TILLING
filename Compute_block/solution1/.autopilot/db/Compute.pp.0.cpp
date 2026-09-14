@@ -36370,73 +36370,65 @@ struct hs_is_t{
 
 
 
-__attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8],dat_t buffer_2[16],bool phase,hls::stream<ap_uint<32>> &fwd_out1,hls::stream<ap_uint<32>> &fwd_out2);
+__attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8], dat_t buffer_2[16], bool phase);
 # 2 "Compute_block/Compute.cpp" 2
-# 36 "Compute_block/Compute.cpp"
-__attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8],dat_t buffer_2[16],bool phase,hls::stream<ap_uint<32>> &fwd_out1,hls::stream<ap_uint<32>> &fwd_out2) {
+# 71 "Compute_block/Compute.cpp"
+__attribute__((sdx_kernel("compute", 0))) void compute(res_t buffer_1[8], dat_t buffer_2[16], bool phase) {
 #line 10 "/home/pulp1/HLS_corrected/script.ctl"
 #pragma HLSDIRECTIVE TOP name=compute
-# 36 "Compute_block/Compute.cpp"
+# 71 "Compute_block/Compute.cpp"
 
 #pragma HLS INTERFACE ap_ctrl_hs port=return
 #pragma HLS INTERFACE ap_memory port=buffer_1
 #pragma HLS INTERFACE ap_memory port=buffer_2
-#pragma HLS INTERFACE ap_fifo port=fwd_out1
-#pragma HLS INTERFACE ap_fifo port=fwd_out2
+#pragma HLS bind_storage variable=buffer_2 type=RAM_1P
 
-
-
-
-
-ap_uint<16> REG[4][8];
-
-static ap_uint<32> REG1[16];
-bool phase_local;
+ ap_uint<16> REG[4][8];
+    static ap_uint<32> REG1[16];
+    bool phase_local;
 #pragma HLS ARRAY_PARTITION variable=REG complete dim=0
 #pragma HLS ARRAY_PARTITION variable=REG1 complete dim=0
-volatile int dummy =0;
-delay: for (int k = 0; k < 1; k++) {
-    dummy = dummy+k;
-}
 
 read_and_write_back:
-        phase_local = phase;
-        VITIS_LOOP_60_1: for(int i=0;i<4;i++){
-            res_t self_sum = 0;
-            VITIS_LOOP_62_2: for(int fe=0;fe<2;fe++){
-                ap_uint<64> word = buffer_1[2*i+fe];
-                ap_uint<16> v0 = word.range(15,0);
-                ap_uint<16> v1 = word.range(31,16);
-                ap_uint<16> v2 = word.range(47,32);
-                ap_uint<16> v3 = word.range(63,48);
-                REG[i][2*fe] = v0;
-                REG[i][2*fe+1] = v1;
-                REG[i][4 +2*fe] = v2;
-                REG[i][4 +2*fe+1] = v3;
-                self_sum += v0*v2+v1*v3;
-                fwd_out1.write((v0,v1));
-                fwd_out2.write((v2,v3));
+    phase_local = phase;
+    VITIS_LOOP_85_1: for(int i=0; i<4; i++){
+#pragma HLS PIPELINE II=1
+ res_t self_sum = 0;
+        VITIS_LOOP_88_2: for(int fe=0; fe<2; fe++){
+#pragma HLS unroll
+ ap_uint<64> word = buffer_1[2*i+fe];
+            ap_uint<16> v0 = word.range(15,0);
+            ap_uint<16> v1 = word.range(31,16);
+            ap_uint<16> v2 = word.range(47,32);
+            ap_uint<16> v3 = word.range(63,48);
+            REG[i][2*fe] = v0;
+            REG[i][2*fe+1] = v1;
+            REG[i][4 +2*fe] = v2;
+            REG[i][4 +2*fe+1] = v3;
+            self_sum += v0*v2 + v1*v3;
+        }
+        if(phase_local == 1){
+            buffer_2[(4 +1)*i] = self_sum + REG1[(4 +1)*i];
+        }
+        else if(phase_local == 0){
+            REG1[(4 +1)*i] = self_sum;
+        }
+        VITIS_LOOP_107_3: for(int com=0; com<i; com++){
+#pragma HLS unroll
+ res_t com_sum_rc = 0;
+            res_t com_sum_cr = 0;
+            VITIS_LOOP_111_4: for(int ptr=0; ptr<4; ptr++){
+                com_sum_rc += REG[i][ptr]*REG[com][ptr+4];
+                com_sum_cr += REG[com][ptr]*REG[i][ptr+4];
             }
             if(phase_local == 1){
-            buffer_2[(4 +1)*i] =self_sum+REG1[(4 +1)*i];}
-            else if(phase_local ==0){
-                REG1[(4 +1)*i] = self_sum;
+                buffer_2[4*i+com] = com_sum_rc + REG1[4*i+com];
+                buffer_2[4*com+i] = com_sum_cr + REG1[4*com+i];
             }
-            VITIS_LOOP_81_3: for(int com =0;com<i;com++){
-                res_t com_sum_rc = 0;
-                res_t com_sum_cr = 0;
-                VITIS_LOOP_84_4: for(int ptr=0;ptr<4;ptr++){
-                    com_sum_rc += REG[i][ptr]*REG[com][ptr+4];
-                    com_sum_cr += REG[com][ptr]*REG[i][ptr+4];}
-
-                if(phase_local ==1){
-                buffer_2[4*i+com] = com_sum_rc +REG1[4*i+com];
-                buffer_2[4*com+i] = com_sum_cr +REG1[4*com+i];}
-                else if(phase_local ==0){
-                    REG1[4*i+com] = com_sum_rc;
-                    REG1[4*com+i] = com_sum_cr;
-                }
+            else if(phase_local == 0){
+                REG1[4*i+com] = com_sum_rc;
+                REG1[4*com+i] = com_sum_cr;
             }
-
         }
+    }
 }

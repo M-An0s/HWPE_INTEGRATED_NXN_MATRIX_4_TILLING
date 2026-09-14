@@ -11,11 +11,14 @@ enum State{
     LOAD_MEM_2,         //2
     START_MPE1,         //3
     START_MPE2,         //4
-    START_SLAVES,       //5
-    WAIT_ALL,           //6
-    READ,               //7
-    UNLOAD              //8
+    WAIT_MPE1,           //5
+    WAIT_MPE2,           //6
+    WAIT_ALL,            //7
+    PIP_1,              //8
+    UNLOAD              //9
 };
+
+// shift/function still selects the mode; kept for the mac_fsm contract.
 
 // shift/function still selects the mode; kept for the mac_fsm contract.
 void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
@@ -23,15 +26,19 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
           shift_t shift, len_t len,
           len_t *f_cnt, bool *f_valid,
           hls::stream<ap_uint<32>> &buffer_1_rd, // compute -> cont (FIFO read)
-          hls::stream<ap_uint<32>>& buffer_1_rd1, //FOR NOW TO SEE IF I HAVE CORRECT MULTIPLICATION ON PE2   
+          hls::stream<ap_uint<32>>& buffer_1_rd1, //FOR NOW TO SEE IF I HAVE CORRECT MULTIPLICATION ON PE2 
+          hls::stream<ap_uint<32>>& buffer_1_rd2,
+          hls::stream<ap_uint<32>>& buffer_1_rd3,
           res_t buffer_1_wr[Size],                 //first shared BRAM
-          res_t buffer_1_wr1[Size],              // cont -> second shared BRAM (write)
+          res_t buffer_1_wr1[Size],
+          dat_t buffer_1_wr2a[Size],dat_t buffer_1_wr2b[Size],
+          dat_t buffer_1_wr3a[Size],dat_t buffer_1_wr3b[Size],              // cont -> second shared BRAM (write)
           bool *compute_start1,                     // -> compute ap_start
           bool compute_done1,
           bool *compute_start2,
           bool compute_done2,
         bool *slave_start1, bool slave_done1,
-        bool *slave_start2, bool slave_done2, bool *phase){           
+        bool *slave_start2, bool slave_done2, bool *phase1,bool *phase2){           
 
     #pragma HLS INTERFACE ap_ctrl_none port=return
 
@@ -46,6 +53,8 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
 
     #pragma HLS INTERFACE ap_fifo   port=buffer_1_rd
     #pragma HLS INTERFACE ap_fifo   port=buffer_1_rd1
+    #pragma HLS INTERFACE ap_fifo   port=buffer_1_rd2
+    #pragma HLS INTERFACE ap_fifo   port=buffer_1_rd3
     #pragma HLS INTERFACE ap_memory port=buffer_1_wr
     #pragma HLS INTERFACE ap_memory port=buffer_1_wr1
     #pragma HLS INTERFACE ap_none   port=compute_start1
@@ -58,7 +67,8 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
     #pragma HLS INTERFACE ap_none port=slave_done2
     
     //phase control
-    static bool i_phase;
+    static bool i_phase1;
+    static bool i_phase2;
 
     // --- control / handshake state ---
     static bool     compute_launched;
@@ -83,6 +93,7 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
     static int      i;
     static int      j_a; // for mem1
     static int      j_b; //for mem2
+    static int      j2a,j2b,j3a,j3b;
     static bool     buffer_ok;
 
     // --- data ---
@@ -106,6 +117,10 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
             if(clear){
                 j_a = 0;
                 j_b = 0;
+                j2a = 0;
+                j2b = 0;
+                j3a = 0;
+                j3b = 0;
                 b_count = 0;
                 buffer_ok = 0;
                 r_cnt = 0;
@@ -128,7 +143,8 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
                 done2_seen=0;
                 slave_done1_seen =0;
                 slave_done2_seen = 0;
-                i_phase = 0;
+                i_phase1 = 0;
+                i_phase2 = 0;
             }
             break;}
 
@@ -139,6 +155,8 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
                     tmp_a = a_i->data;
                     tmp_b = b_i->data;
                     buffer_1_wr[j_a++] = (tmp_b,tmp_a);
+                    buffer_1_wr2a[j2a++] = tmp_a;
+                    buffer_1_wr3b[j3b++] = tmp_b;
                     b_count++;
                 }
             }
@@ -155,6 +173,8 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
                     tmp_a = a_i->data;
                     tmp_b = b_i->data;
                     buffer_1_wr1[j_b++] = (tmp_b,tmp_a);
+                    buffer_1_wr2b[j2b++] = tmp_b;
+                    buffer_1_wr3a[j3a++] = tmp_a;
                     b_count++;
                 }
             }
@@ -164,100 +184,109 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
             }
             break;}
         
-        
-        case START_SLAVES:{
-            if(slave_launched == 0){
-                *phase = i_phase;
-                *slave_start1 = 1;
-                *slave_start2 = 1;
-                slave_launched = 1;
-                }else {
-                    *slave_start1 = 0;
-                    *slave_start2 = 0;
-                    state = LOAD_MEM_2;
-                    buffer_ok = 0;
-                }
-            break;}  
+     
 
         case START_MPE1:{
             if(compute_launched == 0){ //STARTS ONLY ONCE
-                *phase = i_phase;
+                *phase1 = i_phase1;
                 *compute_start1 = 1;
                 compute_launched = 1;
             } else {
                 *compute_start1 = 0;
                 //reset the count
                 b_count =0;
-                state = START_SLAVES;
+                state = LOAD_MEM_2;
+                buffer_ok =0;
+               
             }
             break;}
 
+        //WITH MPE2 Starts all the slave activity as well
         case START_MPE2:{
             if(compute_launched2 == 0){
-                *phase = i_phase;
+                *phase2 = i_phase2;
                 *compute_start2 = 1;
+                *slave_start1 =1;
+                *slave_start2 = 1;
                 compute_launched2 = 1;
             } else {
                 *compute_start2 = 0;
+                *slave_start1 = 0;
+                *slave_start2 = 0;
                 //reset the count
-                state = WAIT_ALL;
-            }
-           
+                state = WAIT_ALL;}
             break;}
 
-       
-        case WAIT_ALL:{ //fix to include the slave modules as well
-        if(done1_seen && done2_seen && slave_done1_seen &&slave_done2_seen){
+
+        case WAIT_ALL:{
+            if(done1_seen&&done2_seen&& slave_done1_seen&&slave_done2_seen){
             //STATE_TRANSITION
-            if(i_phase == 0){
-                i_phase =1;
+            if(i_phase1 == 0){
+                i_phase1 =1;
+                i_phase2 =1;
                 b_count =0;
                 buffer_ok = 0;
                 compute_launched = 0;
                 compute_launched2 = 0;
-                slave_launched = 0;
                 done1_seen = 0;
                 done2_seen = 0;
                 slave_done1_seen = 0;
                 slave_done2_seen = 0;
                 j_a = 0;
+                j2a =0;
+                j3b =0;
                 j_b = 0;
-                state = LOAD_MEM_1;
-            }
-            else if(i_phase ==1){
-                state = READ;}
-        }
-        break;}
+                j3a =0;
+                j2b =0;
+                state = LOAD_MEM_1;}
 
-        case READ:{
-            if (!buffer_1_rd.empty()&&(i<16)){
-                buffer= buffer_1_rd.read();
+            else if (i_phase2 ==1){
                 state = UNLOAD;
-            }
-            else if(!buffer_1_rd1.empty()&&(i>=16)){
-                buffer = buffer_1_rd1.read();
-                state = UNLOAD;
+                }
             }
             
-            break;}
+            break;
+        }
 
         case UNLOAD:{
+            res_t tmp;
+            
+            if (!buffer_1_rd.empty()&&(i<16)){
+                tmp = buffer_1_rd.read();
+                r_acc_valid = 1;
+                r_cnt++;
+                i++;
+            }
+            
+            else if(!buffer_1_rd1.empty()&&(i<32)){
+                 tmp = buffer_1_rd1.read();
+                 r_acc_valid = 1;
+                 r_cnt++;
+                 i++;
+            } 
+            
+            else if(!buffer_1_rd2.empty()&&(i<48)){
+                 tmp = buffer_1_rd2.read();
+                 r_acc_valid = 1;
+                 r_cnt++;
+                 i++;
+            } 
+
+            else{
+                 tmp = buffer_1_rd3.read();
+                 r_acc_valid = 1;
+                 r_cnt++;
+                 i++;
+            }
+            
             if ((r_cnt < len) && store_result_ready){
-                r_acc = buffer;
-                if(r_cnt < 1){ r_cnt = r_cnt + 1; }
+                r_acc = tmp;//tmp;
+                //if(r_cnt < 1){ r_cnt = r_cnt + 1; }
             }
-            if(r_acc_valid == 0){
-                if(r_cnt >= 1){
-                    r_acc_valid = 1;
-                    i = i + 1;
-                }
-            } else {
-                r_acc_valid = 0;
-                r_cnt = r_cnt + 1;
-                state = READ;
-            }
+    
             if(i == len){
                 state = IDLE;
+                r_acc_valid =1;
             }
             break;}
     }
@@ -271,8 +300,8 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
     d_nonshifted_valid = r_acc_valid;
     store_result_ready = r_acc_ready | !store_result_valid;
 
-    d_o->data  = d_nonshifted;
-    d_o->valid = enable & d_nonshifted_valid;
+    d_o->data  =(ap_int<64>)r_acc;
+    d_o->valid = enable & r_acc_valid; //d_nonshifted_valid;
     d_o->strb  = 15;
 
     *f_cnt   = r_cnt;
@@ -294,3 +323,32 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
             break;
         }
 */
+
+  /*
+        case READ:{
+            if (!buffer_1_rd.empty()&&(i<16)){
+                buffer= buffer_1_rd.read();
+                 state = UNLOAD;
+            }
+            
+            else if(!buffer_1_rd1.empty()&&(i<32)){
+                buffer = buffer_1_rd1.read();
+            }
+
+            if((i>=16)&&(!done2_seen)){
+                state = WAIT_MPE2;
+            }
+            else{state =UNLOAD;}
+         
+           // else if(!buffer_1_rd2.empty()&&(i<48)){
+           //     buffer = buffer_1_rd2.read();
+           // }
+           // else if(!buffer_1_rd3.empty()&&(i<64)){
+           //     buffer = buffer_1_rd3.read();
+           // }
+           
+            
+            break;}*/
+
+
+

@@ -25,7 +25,7 @@ target triple = "fpga64-xilinx-none"
 declare void @llvm.sideeffect() #0
 
 ; Function Attrs: noinline
-define void @apatb_cont_ir(%struct.hs_is_t* noalias nocapture nonnull %a_i, %struct.hs_is_t* noalias nocapture nonnull %b_i, %struct.hs_is_t* noalias nocapture nonnull %c_i, %struct.hs_is_t* noalias nocapture nonnull %d_o, i1 zeroext %clear, i1 zeroext %enable, i1 zeroext %function, i1 zeroext %start, %"struct.ap_uint<5>"* nocapture readonly %shift, %"struct.ap_uint<11>"* nocapture readonly %len, %"struct.ap_uint<11>"* noalias nocapture nonnull %f_cnt, i1* noalias nocapture nonnull %f_valid, %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture nonnull dereferenceable(4) %buffer_1_rd, %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture nonnull dereferenceable(4) %buffer_1_rd1, %"struct.ap_int<64>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="20" %buffer_1_wr, %"struct.ap_int<64>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="20" %buffer_1_wr1, i1* noalias nocapture nonnull %compute_start1, i1 zeroext %compute_done1, i1* noalias nocapture nonnull %compute_start2, i1 zeroext %compute_done2, i1* noalias nocapture nonnull %slave_start1, i1 zeroext %slave_done1, i1* noalias nocapture nonnull %slave_start2, i1 zeroext %slave_done2, i1* noalias nocapture nonnull %phase) local_unnamed_addr #1 {
+define void @apatb_cont_ir(%struct.hs_is_t* noalias nocapture nonnull %a_i, %struct.hs_is_t* noalias nocapture nonnull %b_i, %struct.hs_is_t* noalias nocapture nonnull %c_i, %struct.hs_is_t* noalias nocapture nonnull %d_o, i1 zeroext %clear, i1 zeroext %enable, i1 zeroext %function, i1 zeroext %start, %"struct.ap_uint<5>"* nocapture readonly %shift, %"struct.ap_uint<11>"* nocapture readonly %len, %"struct.ap_uint<11>"* noalias nocapture nonnull %f_cnt, i1* noalias nocapture nonnull %f_valid, %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture nonnull dereferenceable(4) %buffer_1_rd, %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture nonnull dereferenceable(4) %buffer_1_rd1, %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture nonnull dereferenceable(4) %buffer_1_rd2, %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture nonnull dereferenceable(4) %buffer_1_rd3, %"struct.ap_int<64>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="20" %buffer_1_wr, %"struct.ap_int<64>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="20" %buffer_1_wr1, %"struct.ap_int<32>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="20" %buffer_1_wr2a, %"struct.ap_int<32>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="20" %buffer_1_wr2b, %"struct.ap_int<32>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="20" %buffer_1_wr3a, %"struct.ap_int<32>"* noalias nocapture nonnull "fpga.decayed.dim.hint"="20" %buffer_1_wr3b, i1* noalias nocapture nonnull %compute_start1, i1 zeroext %compute_done1, i1* noalias nocapture nonnull %compute_start2, i1 zeroext %compute_done2, i1* noalias nocapture nonnull %slave_start1, i1 zeroext %slave_done1, i1* noalias nocapture nonnull %slave_start2, i1 zeroext %slave_done2, i1* noalias nocapture nonnull %phase1, i1* noalias nocapture nonnull %phase2) local_unnamed_addr #1 {
 entry:
   %a_i_copy.0 = alloca i1, align 512
   %a_i_copy.1 = alloca i1, align 512
@@ -49,41 +49,65 @@ entry:
   call void @llvm.sideeffect() #9 [ "stream_interface"(i32* %buffer_1_rd_copy, i32 0) ]
   %buffer_1_rd1_copy = alloca i32, align 512
   call void @llvm.sideeffect() #9 [ "stream_interface"(i32* %buffer_1_rd1_copy, i32 0) ]
+  %buffer_1_rd2_copy = alloca i32, align 512
+  call void @llvm.sideeffect() #9 [ "stream_interface"(i32* %buffer_1_rd2_copy, i32 0) ]
+  %buffer_1_rd3_copy = alloca i32, align 512
+  call void @llvm.sideeffect() #9 [ "stream_interface"(i32* %buffer_1_rd3_copy, i32 0) ]
   %buffer_1_wr_copy = alloca [20 x i64], align 512
   %buffer_1_wr1_copy = alloca [20 x i64], align 512
+  %buffer_1_wr2a_copy = alloca [20 x i32], align 512
+  %buffer_1_wr2b_copy = alloca [20 x i32], align 512
+  %buffer_1_wr3a_copy = alloca [20 x i32], align 512
+  %buffer_1_wr3b_copy = alloca [20 x i32], align 512
   %compute_start1_copy = alloca i1, align 512
   %compute_start2_copy = alloca i1, align 512
   %slave_start1_copy = alloca i1, align 512
   %slave_start2_copy = alloca i1, align 512
-  %phase_copy = alloca i1, align 512
+  %phase1_copy = alloca i1, align 512
+  %phase2_copy = alloca i1, align 512
   %0 = bitcast %"struct.ap_int<64>"* %buffer_1_wr to [20 x %"struct.ap_int<64>"]*
   %1 = bitcast %"struct.ap_int<64>"* %buffer_1_wr1 to [20 x %"struct.ap_int<64>"]*
-  call fastcc void @copy_in(%struct.hs_is_t* nonnull %a_i, i1* nonnull align 512 %a_i_copy.0, i1* nonnull align 512 %a_i_copy.1, i32* nonnull align 512 %a_i_copy.2, i4* nonnull align 512 %a_i_copy.3, %struct.hs_is_t* nonnull %b_i, i1* nonnull align 512 %b_i_copy.0, i1* nonnull align 512 %b_i_copy.1, i32* nonnull align 512 %b_i_copy.2, i4* nonnull align 512 %b_i_copy.3, %struct.hs_is_t* nonnull %c_i, i1* nonnull align 512 %c_i_copy.0, i1* nonnull align 512 %c_i_copy.1, i32* nonnull align 512 %c_i_copy.2, i4* nonnull align 512 %c_i_copy.3, %struct.hs_is_t* nonnull %d_o, i1* nonnull align 512 %d_o_copy.0, i1* nonnull align 512 %d_o_copy.1, i32* nonnull align 512 %d_o_copy.2, i4* nonnull align 512 %d_o_copy.3, %"struct.ap_uint<11>"* nonnull %f_cnt, i11* nonnull align 512 %f_cnt_copy, i1* nonnull %f_valid, i1* nonnull align 512 %f_valid_copy, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %buffer_1_rd, i32* nonnull align 512 %buffer_1_rd_copy, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %buffer_1_rd1, i32* nonnull align 512 %buffer_1_rd1_copy, [20 x %"struct.ap_int<64>"]* nonnull %0, [20 x i64]* nonnull align 512 %buffer_1_wr_copy, [20 x %"struct.ap_int<64>"]* nonnull %1, [20 x i64]* nonnull align 512 %buffer_1_wr1_copy, i1* nonnull %compute_start1, i1* nonnull align 512 %compute_start1_copy, i1* nonnull %compute_start2, i1* nonnull align 512 %compute_start2_copy, i1* nonnull %slave_start1, i1* nonnull align 512 %slave_start1_copy, i1* nonnull %slave_start2, i1* nonnull align 512 %slave_start2_copy, i1* nonnull %phase, i1* nonnull align 512 %phase_copy)
-  %2 = getelementptr [20 x i64], [20 x i64]* %buffer_1_wr_copy, i32 0, i32 0
-  %3 = getelementptr [20 x i64], [20 x i64]* %buffer_1_wr1_copy, i32 0, i32 0
-  call void @apatb_cont_hw(i1* %a_i_copy.0, i1* %a_i_copy.1, i32* %a_i_copy.2, i4* %a_i_copy.3, i1* %b_i_copy.0, i1* %b_i_copy.1, i32* %b_i_copy.2, i4* %b_i_copy.3, i1* %c_i_copy.0, i1* %c_i_copy.1, i32* %c_i_copy.2, i4* %c_i_copy.3, i1* %d_o_copy.0, i1* %d_o_copy.1, i32* %d_o_copy.2, i4* %d_o_copy.3, i1 %clear, i1 %enable, i1 %function, i1 %start, %"struct.ap_uint<5>"* %shift, %"struct.ap_uint<11>"* %len, i11* %f_cnt_copy, i1* %f_valid_copy, i32* %buffer_1_rd_copy, i32* %buffer_1_rd1_copy, i64* %2, i64* %3, i1* %compute_start1_copy, i1 %compute_done1, i1* %compute_start2_copy, i1 %compute_done2, i1* %slave_start1_copy, i1 %slave_done1, i1* %slave_start2_copy, i1 %slave_done2, i1* %phase_copy)
-  call void @copy_back(%struct.hs_is_t* %a_i, i1* %a_i_copy.0, i1* %a_i_copy.1, i32* %a_i_copy.2, i4* %a_i_copy.3, %struct.hs_is_t* %b_i, i1* %b_i_copy.0, i1* %b_i_copy.1, i32* %b_i_copy.2, i4* %b_i_copy.3, %struct.hs_is_t* %c_i, i1* %c_i_copy.0, i1* %c_i_copy.1, i32* %c_i_copy.2, i4* %c_i_copy.3, %struct.hs_is_t* %d_o, i1* %d_o_copy.0, i1* %d_o_copy.1, i32* %d_o_copy.2, i4* %d_o_copy.3, %"struct.ap_uint<11>"* %f_cnt, i11* %f_cnt_copy, i1* %f_valid, i1* %f_valid_copy, %"class.hls::stream<ap_uint<32>, 0>"* %buffer_1_rd, i32* %buffer_1_rd_copy, %"class.hls::stream<ap_uint<32>, 0>"* %buffer_1_rd1, i32* %buffer_1_rd1_copy, [20 x %"struct.ap_int<64>"]* %0, [20 x i64]* %buffer_1_wr_copy, [20 x %"struct.ap_int<64>"]* %1, [20 x i64]* %buffer_1_wr1_copy, i1* %compute_start1, i1* %compute_start1_copy, i1* %compute_start2, i1* %compute_start2_copy, i1* %slave_start1, i1* %slave_start1_copy, i1* %slave_start2, i1* %slave_start2_copy, i1* %phase, i1* %phase_copy)
+  %2 = bitcast %"struct.ap_int<32>"* %buffer_1_wr2a to [20 x %"struct.ap_int<32>"]*
+  %3 = bitcast %"struct.ap_int<32>"* %buffer_1_wr2b to [20 x %"struct.ap_int<32>"]*
+  %4 = bitcast %"struct.ap_int<32>"* %buffer_1_wr3a to [20 x %"struct.ap_int<32>"]*
+  %5 = bitcast %"struct.ap_int<32>"* %buffer_1_wr3b to [20 x %"struct.ap_int<32>"]*
+  call fastcc void @copy_in(%struct.hs_is_t* nonnull %a_i, i1* nonnull align 512 %a_i_copy.0, i1* nonnull align 512 %a_i_copy.1, i32* nonnull align 512 %a_i_copy.2, i4* nonnull align 512 %a_i_copy.3, %struct.hs_is_t* nonnull %b_i, i1* nonnull align 512 %b_i_copy.0, i1* nonnull align 512 %b_i_copy.1, i32* nonnull align 512 %b_i_copy.2, i4* nonnull align 512 %b_i_copy.3, %struct.hs_is_t* nonnull %c_i, i1* nonnull align 512 %c_i_copy.0, i1* nonnull align 512 %c_i_copy.1, i32* nonnull align 512 %c_i_copy.2, i4* nonnull align 512 %c_i_copy.3, %struct.hs_is_t* nonnull %d_o, i1* nonnull align 512 %d_o_copy.0, i1* nonnull align 512 %d_o_copy.1, i32* nonnull align 512 %d_o_copy.2, i4* nonnull align 512 %d_o_copy.3, %"struct.ap_uint<11>"* nonnull %f_cnt, i11* nonnull align 512 %f_cnt_copy, i1* nonnull %f_valid, i1* nonnull align 512 %f_valid_copy, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %buffer_1_rd, i32* nonnull align 512 %buffer_1_rd_copy, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %buffer_1_rd1, i32* nonnull align 512 %buffer_1_rd1_copy, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %buffer_1_rd2, i32* nonnull align 512 %buffer_1_rd2_copy, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %buffer_1_rd3, i32* nonnull align 512 %buffer_1_rd3_copy, [20 x %"struct.ap_int<64>"]* nonnull %0, [20 x i64]* nonnull align 512 %buffer_1_wr_copy, [20 x %"struct.ap_int<64>"]* nonnull %1, [20 x i64]* nonnull align 512 %buffer_1_wr1_copy, [20 x %"struct.ap_int<32>"]* nonnull %2, [20 x i32]* nonnull align 512 %buffer_1_wr2a_copy, [20 x %"struct.ap_int<32>"]* nonnull %3, [20 x i32]* nonnull align 512 %buffer_1_wr2b_copy, [20 x %"struct.ap_int<32>"]* nonnull %4, [20 x i32]* nonnull align 512 %buffer_1_wr3a_copy, [20 x %"struct.ap_int<32>"]* nonnull %5, [20 x i32]* nonnull align 512 %buffer_1_wr3b_copy, i1* nonnull %compute_start1, i1* nonnull align 512 %compute_start1_copy, i1* nonnull %compute_start2, i1* nonnull align 512 %compute_start2_copy, i1* nonnull %slave_start1, i1* nonnull align 512 %slave_start1_copy, i1* nonnull %slave_start2, i1* nonnull align 512 %slave_start2_copy, i1* nonnull %phase1, i1* nonnull align 512 %phase1_copy, i1* nonnull %phase2, i1* nonnull align 512 %phase2_copy)
+  %6 = getelementptr [20 x i64], [20 x i64]* %buffer_1_wr_copy, i32 0, i32 0
+  %7 = getelementptr [20 x i64], [20 x i64]* %buffer_1_wr1_copy, i32 0, i32 0
+  %8 = getelementptr [20 x i32], [20 x i32]* %buffer_1_wr2a_copy, i32 0, i32 0
+  %9 = getelementptr [20 x i32], [20 x i32]* %buffer_1_wr2b_copy, i32 0, i32 0
+  %10 = getelementptr [20 x i32], [20 x i32]* %buffer_1_wr3a_copy, i32 0, i32 0
+  %11 = getelementptr [20 x i32], [20 x i32]* %buffer_1_wr3b_copy, i32 0, i32 0
+  call void @apatb_cont_hw(i1* %a_i_copy.0, i1* %a_i_copy.1, i32* %a_i_copy.2, i4* %a_i_copy.3, i1* %b_i_copy.0, i1* %b_i_copy.1, i32* %b_i_copy.2, i4* %b_i_copy.3, i1* %c_i_copy.0, i1* %c_i_copy.1, i32* %c_i_copy.2, i4* %c_i_copy.3, i1* %d_o_copy.0, i1* %d_o_copy.1, i32* %d_o_copy.2, i4* %d_o_copy.3, i1 %clear, i1 %enable, i1 %function, i1 %start, %"struct.ap_uint<5>"* %shift, %"struct.ap_uint<11>"* %len, i11* %f_cnt_copy, i1* %f_valid_copy, i32* %buffer_1_rd_copy, i32* %buffer_1_rd1_copy, i32* %buffer_1_rd2_copy, i32* %buffer_1_rd3_copy, i64* %6, i64* %7, i32* %8, i32* %9, i32* %10, i32* %11, i1* %compute_start1_copy, i1 %compute_done1, i1* %compute_start2_copy, i1 %compute_done2, i1* %slave_start1_copy, i1 %slave_done1, i1* %slave_start2_copy, i1 %slave_done2, i1* %phase1_copy, i1* %phase2_copy)
+  call void @copy_back(%struct.hs_is_t* %a_i, i1* %a_i_copy.0, i1* %a_i_copy.1, i32* %a_i_copy.2, i4* %a_i_copy.3, %struct.hs_is_t* %b_i, i1* %b_i_copy.0, i1* %b_i_copy.1, i32* %b_i_copy.2, i4* %b_i_copy.3, %struct.hs_is_t* %c_i, i1* %c_i_copy.0, i1* %c_i_copy.1, i32* %c_i_copy.2, i4* %c_i_copy.3, %struct.hs_is_t* %d_o, i1* %d_o_copy.0, i1* %d_o_copy.1, i32* %d_o_copy.2, i4* %d_o_copy.3, %"struct.ap_uint<11>"* %f_cnt, i11* %f_cnt_copy, i1* %f_valid, i1* %f_valid_copy, %"class.hls::stream<ap_uint<32>, 0>"* %buffer_1_rd, i32* %buffer_1_rd_copy, %"class.hls::stream<ap_uint<32>, 0>"* %buffer_1_rd1, i32* %buffer_1_rd1_copy, %"class.hls::stream<ap_uint<32>, 0>"* %buffer_1_rd2, i32* %buffer_1_rd2_copy, %"class.hls::stream<ap_uint<32>, 0>"* %buffer_1_rd3, i32* %buffer_1_rd3_copy, [20 x %"struct.ap_int<64>"]* %0, [20 x i64]* %buffer_1_wr_copy, [20 x %"struct.ap_int<64>"]* %1, [20 x i64]* %buffer_1_wr1_copy, [20 x %"struct.ap_int<32>"]* %2, [20 x i32]* %buffer_1_wr2a_copy, [20 x %"struct.ap_int<32>"]* %3, [20 x i32]* %buffer_1_wr2b_copy, [20 x %"struct.ap_int<32>"]* %4, [20 x i32]* %buffer_1_wr3a_copy, [20 x %"struct.ap_int<32>"]* %5, [20 x i32]* %buffer_1_wr3b_copy, i1* %compute_start1, i1* %compute_start1_copy, i1* %compute_start2, i1* %compute_start2_copy, i1* %slave_start1, i1* %slave_start1_copy, i1* %slave_start2, i1* %slave_start2_copy, i1* %phase1, i1* %phase1_copy, i1* %phase2, i1* %phase2_copy)
   ret void
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @copy_in(%struct.hs_is_t* noalias readonly "unpacked"="0", i1* noalias nocapture align 512 "unpacked"="1.0" %.0, i1* noalias nocapture align 512 "unpacked"="1.1" %.1, i32* noalias nocapture align 512 "unpacked"="1.2.0.0.0" %.2, i4* noalias nocapture align 512 "unpacked"="1.3.0.0.0" %.3, %struct.hs_is_t* noalias readonly "unpacked"="2", i1* noalias nocapture align 512 "unpacked"="3.0" %.01, i1* noalias nocapture align 512 "unpacked"="3.1" %.12, i32* noalias nocapture align 512 "unpacked"="3.2.0.0.0" %.23, i4* noalias nocapture align 512 "unpacked"="3.3.0.0.0" %.34, %struct.hs_is_t* noalias readonly "unpacked"="4", i1* noalias nocapture align 512 "unpacked"="5.0" %.02, i1* noalias nocapture align 512 "unpacked"="5.1" %.13, i32* noalias nocapture align 512 "unpacked"="5.2.0.0.0" %.24, i4* noalias nocapture align 512 "unpacked"="5.3.0.0.0" %.35, %struct.hs_is_t* noalias readonly "unpacked"="6", i1* noalias nocapture align 512 "unpacked"="7.0" %.03, i1* noalias nocapture align 512 "unpacked"="7.1" %.14, i32* noalias nocapture align 512 "unpacked"="7.2.0.0.0" %.25, i4* noalias nocapture align 512 "unpacked"="7.3.0.0.0" %.36, %"struct.ap_uint<11>"* noalias readonly "unpacked"="8", i11* noalias nocapture align 512 "unpacked"="9.0.0.0", i1* noalias readonly "unpacked"="10", i1* noalias align 512 "unpacked"="11", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="12", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="13", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="14", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="15", [20 x %"struct.ap_int<64>"]* noalias readonly "unpacked"="16", [20 x i64]* noalias nocapture align 512 "unpacked"="17.0.0.0", [20 x %"struct.ap_int<64>"]* noalias readonly "unpacked"="18", [20 x i64]* noalias nocapture align 512 "unpacked"="19.0.0.0", i1* noalias readonly "unpacked"="20", i1* noalias align 512 "unpacked"="21", i1* noalias readonly "unpacked"="22", i1* noalias align 512 "unpacked"="23", i1* noalias readonly "unpacked"="24", i1* noalias align 512 "unpacked"="25", i1* noalias readonly "unpacked"="26", i1* noalias align 512 "unpacked"="27", i1* noalias readonly "unpacked"="28", i1* noalias align 512 "unpacked"="29") unnamed_addr #2 {
+define internal fastcc void @copy_in(%struct.hs_is_t* noalias readonly "unpacked"="0", i1* noalias nocapture align 512 "unpacked"="1.0" %.0, i1* noalias nocapture align 512 "unpacked"="1.1" %.1, i32* noalias nocapture align 512 "unpacked"="1.2.0.0.0" %.2, i4* noalias nocapture align 512 "unpacked"="1.3.0.0.0" %.3, %struct.hs_is_t* noalias readonly "unpacked"="2", i1* noalias nocapture align 512 "unpacked"="3.0" %.01, i1* noalias nocapture align 512 "unpacked"="3.1" %.12, i32* noalias nocapture align 512 "unpacked"="3.2.0.0.0" %.23, i4* noalias nocapture align 512 "unpacked"="3.3.0.0.0" %.34, %struct.hs_is_t* noalias readonly "unpacked"="4", i1* noalias nocapture align 512 "unpacked"="5.0" %.02, i1* noalias nocapture align 512 "unpacked"="5.1" %.13, i32* noalias nocapture align 512 "unpacked"="5.2.0.0.0" %.24, i4* noalias nocapture align 512 "unpacked"="5.3.0.0.0" %.35, %struct.hs_is_t* noalias readonly "unpacked"="6", i1* noalias nocapture align 512 "unpacked"="7.0" %.03, i1* noalias nocapture align 512 "unpacked"="7.1" %.14, i32* noalias nocapture align 512 "unpacked"="7.2.0.0.0" %.25, i4* noalias nocapture align 512 "unpacked"="7.3.0.0.0" %.36, %"struct.ap_uint<11>"* noalias readonly "unpacked"="8", i11* noalias nocapture align 512 "unpacked"="9.0.0.0", i1* noalias readonly "unpacked"="10", i1* noalias align 512 "unpacked"="11", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="12", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="13", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="14", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="15", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="16", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="17", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="18", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="19", [20 x %"struct.ap_int<64>"]* noalias readonly "unpacked"="20", [20 x i64]* noalias nocapture align 512 "unpacked"="21.0.0.0", [20 x %"struct.ap_int<64>"]* noalias readonly "unpacked"="22", [20 x i64]* noalias nocapture align 512 "unpacked"="23.0.0.0", [20 x %"struct.ap_int<32>"]* noalias readonly "unpacked"="24", [20 x i32]* noalias nocapture align 512 "unpacked"="25.0.0.0", [20 x %"struct.ap_int<32>"]* noalias readonly "unpacked"="26", [20 x i32]* noalias nocapture align 512 "unpacked"="27.0.0.0", [20 x %"struct.ap_int<32>"]* noalias readonly "unpacked"="28", [20 x i32]* noalias nocapture align 512 "unpacked"="29.0.0.0", [20 x %"struct.ap_int<32>"]* noalias readonly "unpacked"="30", [20 x i32]* noalias nocapture align 512 "unpacked"="31.0.0.0", i1* noalias readonly "unpacked"="32", i1* noalias align 512 "unpacked"="33", i1* noalias readonly "unpacked"="34", i1* noalias align 512 "unpacked"="35", i1* noalias readonly "unpacked"="36", i1* noalias align 512 "unpacked"="37", i1* noalias readonly "unpacked"="38", i1* noalias align 512 "unpacked"="39", i1* noalias readonly "unpacked"="40", i1* noalias align 512 "unpacked"="41", i1* noalias readonly "unpacked"="42", i1* noalias align 512 "unpacked"="43") unnamed_addr #2 {
 entry:
-  call fastcc void @onebyonecpy_hls.p0struct.hs_is_t.24(i1* align 512 %.0, i1* align 512 %.1, i32* align 512 %.2, i4* align 512 %.3, %struct.hs_is_t* %0)
-  call fastcc void @onebyonecpy_hls.p0struct.hs_is_t.24(i1* align 512 %.01, i1* align 512 %.12, i32* align 512 %.23, i4* align 512 %.34, %struct.hs_is_t* %1)
-  call fastcc void @onebyonecpy_hls.p0struct.hs_is_t.24(i1* align 512 %.02, i1* align 512 %.13, i32* align 512 %.24, i4* align 512 %.35, %struct.hs_is_t* %2)
-  call fastcc void @onebyonecpy_hls.p0struct.hs_is_t.24(i1* align 512 %.03, i1* align 512 %.14, i32* align 512 %.25, i4* align 512 %.36, %struct.hs_is_t* %3)
+  call fastcc void @onebyonecpy_hls.p0struct.hs_is_t.18(i1* align 512 %.0, i1* align 512 %.1, i32* align 512 %.2, i4* align 512 %.3, %struct.hs_is_t* %0)
+  call fastcc void @onebyonecpy_hls.p0struct.hs_is_t.18(i1* align 512 %.01, i1* align 512 %.12, i32* align 512 %.23, i4* align 512 %.34, %struct.hs_is_t* %1)
+  call fastcc void @onebyonecpy_hls.p0struct.hs_is_t.18(i1* align 512 %.02, i1* align 512 %.13, i32* align 512 %.24, i4* align 512 %.35, %struct.hs_is_t* %2)
+  call fastcc void @onebyonecpy_hls.p0struct.hs_is_t.18(i1* align 512 %.03, i1* align 512 %.14, i32* align 512 %.25, i4* align 512 %.36, %struct.hs_is_t* %3)
   call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<11>"(i11* align 512 %5, %"struct.ap_uint<11>"* %4)
   call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %7, i1* %6)
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>"(i32* align 512 %9, %"class.hls::stream<ap_uint<32>, 0>"* %8)
   call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>"(i32* align 512 %11, %"class.hls::stream<ap_uint<32>, 0>"* %10)
-  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>.42.48"([20 x i64]* align 512 %13, [20 x %"struct.ap_int<64>"]* %12)
-  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>.42.48"([20 x i64]* align 512 %15, [20 x %"struct.ap_int<64>"]* %14)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %17, i1* %16)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %19, i1* %18)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %21, i1* %20)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %23, i1* %22)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %25, i1* %24)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>"(i32* align 512 %13, %"class.hls::stream<ap_uint<32>, 0>"* %12)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>"(i32* align 512 %15, %"class.hls::stream<ap_uint<32>, 0>"* %14)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>.103.109"([20 x i64]* align 512 %17, [20 x %"struct.ap_int<64>"]* %16)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>.103.109"([20 x i64]* align 512 %19, [20 x %"struct.ap_int<64>"]* %18)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>.36.42.63.74"([20 x i32]* align 512 %21, [20 x %"struct.ap_int<32>"]* %20)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>.36.42.63.74"([20 x i32]* align 512 %23, [20 x %"struct.ap_int<32>"]* %22)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>.36.42.63.74"([20 x i32]* align 512 %25, [20 x %"struct.ap_int<32>"]* %24)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>.36.42.63.74"([20 x i32]* align 512 %27, [20 x %"struct.ap_int<32>"]* %26)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %29, i1* %28)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %31, i1* %30)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %33, i1* %32)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %35, i1* %34)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %37, i1* %36)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* align 512 %39, i1* %38)
   ret void
 }
 
@@ -107,23 +131,76 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @copy_out(%struct.hs_is_t* noalias "unpacked"="0", i1* noalias nocapture readonly align 512 "unpacked"="1.0" %.0, i1* noalias nocapture readonly align 512 "unpacked"="1.1" %.1, i32* noalias nocapture readonly align 512 "unpacked"="1.2.0.0.0" %.2, i4* noalias nocapture readonly align 512 "unpacked"="1.3.0.0.0" %.3, %struct.hs_is_t* noalias "unpacked"="2", i1* noalias nocapture readonly align 512 "unpacked"="3.0" %.01, i1* noalias nocapture readonly align 512 "unpacked"="3.1" %.12, i32* noalias nocapture readonly align 512 "unpacked"="3.2.0.0.0" %.23, i4* noalias nocapture readonly align 512 "unpacked"="3.3.0.0.0" %.34, %struct.hs_is_t* noalias "unpacked"="4", i1* noalias nocapture readonly align 512 "unpacked"="5.0" %.02, i1* noalias nocapture readonly align 512 "unpacked"="5.1" %.13, i32* noalias nocapture readonly align 512 "unpacked"="5.2.0.0.0" %.24, i4* noalias nocapture readonly align 512 "unpacked"="5.3.0.0.0" %.35, %struct.hs_is_t* noalias "unpacked"="6", i1* noalias nocapture readonly align 512 "unpacked"="7.0" %.03, i1* noalias nocapture readonly align 512 "unpacked"="7.1" %.14, i32* noalias nocapture readonly align 512 "unpacked"="7.2.0.0.0" %.25, i4* noalias nocapture readonly align 512 "unpacked"="7.3.0.0.0" %.36, %"struct.ap_uint<11>"* noalias "unpacked"="8", i11* noalias nocapture readonly align 512 "unpacked"="9.0.0.0", i1* noalias "unpacked"="10", i1* noalias readonly align 512 "unpacked"="11", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="12", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="13", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="14", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="15", [20 x %"struct.ap_int<64>"]* noalias "unpacked"="16", [20 x i64]* noalias nocapture readonly align 512 "unpacked"="17.0.0.0", [20 x %"struct.ap_int<64>"]* noalias "unpacked"="18", [20 x i64]* noalias nocapture readonly align 512 "unpacked"="19.0.0.0", i1* noalias "unpacked"="20", i1* noalias readonly align 512 "unpacked"="21", i1* noalias "unpacked"="22", i1* noalias readonly align 512 "unpacked"="23", i1* noalias "unpacked"="24", i1* noalias readonly align 512 "unpacked"="25", i1* noalias "unpacked"="26", i1* noalias readonly align 512 "unpacked"="27", i1* noalias "unpacked"="28", i1* noalias readonly align 512 "unpacked"="29") unnamed_addr #4 {
+define internal fastcc void @copy_out(%struct.hs_is_t* noalias "unpacked"="0", i1* noalias nocapture readonly align 512 "unpacked"="1.0" %.0, i1* noalias nocapture readonly align 512 "unpacked"="1.1" %.1, i32* noalias nocapture readonly align 512 "unpacked"="1.2.0.0.0" %.2, i4* noalias nocapture readonly align 512 "unpacked"="1.3.0.0.0" %.3, %struct.hs_is_t* noalias "unpacked"="2", i1* noalias nocapture readonly align 512 "unpacked"="3.0" %.01, i1* noalias nocapture readonly align 512 "unpacked"="3.1" %.12, i32* noalias nocapture readonly align 512 "unpacked"="3.2.0.0.0" %.23, i4* noalias nocapture readonly align 512 "unpacked"="3.3.0.0.0" %.34, %struct.hs_is_t* noalias "unpacked"="4", i1* noalias nocapture readonly align 512 "unpacked"="5.0" %.02, i1* noalias nocapture readonly align 512 "unpacked"="5.1" %.13, i32* noalias nocapture readonly align 512 "unpacked"="5.2.0.0.0" %.24, i4* noalias nocapture readonly align 512 "unpacked"="5.3.0.0.0" %.35, %struct.hs_is_t* noalias "unpacked"="6", i1* noalias nocapture readonly align 512 "unpacked"="7.0" %.03, i1* noalias nocapture readonly align 512 "unpacked"="7.1" %.14, i32* noalias nocapture readonly align 512 "unpacked"="7.2.0.0.0" %.25, i4* noalias nocapture readonly align 512 "unpacked"="7.3.0.0.0" %.36, %"struct.ap_uint<11>"* noalias "unpacked"="8", i11* noalias nocapture readonly align 512 "unpacked"="9.0.0.0", i1* noalias "unpacked"="10", i1* noalias readonly align 512 "unpacked"="11", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="12", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="13", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="14", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="15", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="16", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="17", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="18", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="19", [20 x %"struct.ap_int<64>"]* noalias "unpacked"="20", [20 x i64]* noalias nocapture readonly align 512 "unpacked"="21.0.0.0", [20 x %"struct.ap_int<64>"]* noalias "unpacked"="22", [20 x i64]* noalias nocapture readonly align 512 "unpacked"="23.0.0.0", [20 x %"struct.ap_int<32>"]* noalias "unpacked"="24", [20 x i32]* noalias nocapture readonly align 512 "unpacked"="25.0.0.0", [20 x %"struct.ap_int<32>"]* noalias "unpacked"="26", [20 x i32]* noalias nocapture readonly align 512 "unpacked"="27.0.0.0", [20 x %"struct.ap_int<32>"]* noalias "unpacked"="28", [20 x i32]* noalias nocapture readonly align 512 "unpacked"="29.0.0.0", [20 x %"struct.ap_int<32>"]* noalias "unpacked"="30", [20 x i32]* noalias nocapture readonly align 512 "unpacked"="31.0.0.0", i1* noalias "unpacked"="32", i1* noalias readonly align 512 "unpacked"="33", i1* noalias "unpacked"="34", i1* noalias readonly align 512 "unpacked"="35", i1* noalias "unpacked"="36", i1* noalias readonly align 512 "unpacked"="37", i1* noalias "unpacked"="38", i1* noalias readonly align 512 "unpacked"="39", i1* noalias "unpacked"="40", i1* noalias readonly align 512 "unpacked"="41", i1* noalias "unpacked"="42", i1* noalias readonly align 512 "unpacked"="43") unnamed_addr #4 {
 entry:
   call fastcc void @onebyonecpy_hls.p0struct.hs_is_t(%struct.hs_is_t* %0, i1* align 512 %.0, i1* align 512 %.1, i32* align 512 %.2, i4* align 512 %.3)
   call fastcc void @onebyonecpy_hls.p0struct.hs_is_t(%struct.hs_is_t* %1, i1* align 512 %.01, i1* align 512 %.12, i32* align 512 %.23, i4* align 512 %.34)
   call fastcc void @onebyonecpy_hls.p0struct.hs_is_t(%struct.hs_is_t* %2, i1* align 512 %.02, i1* align 512 %.13, i32* align 512 %.24, i4* align 512 %.35)
   call fastcc void @onebyonecpy_hls.p0struct.hs_is_t(%struct.hs_is_t* %3, i1* align 512 %.03, i1* align 512 %.14, i32* align 512 %.25, i4* align 512 %.36)
-  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<11>.80"(%"struct.ap_uint<11>"* %4, i11* align 512 %5)
+  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<11>.141"(%"struct.ap_uint<11>"* %4, i11* align 512 %5)
   call fastcc void @onebyonecpy_hls.p0i1(i1* %6, i1* align 512 %7)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.251"(%"class.hls::stream<ap_uint<32>, 0>"* %8, i32* align 512 %9)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.251"(%"class.hls::stream<ap_uint<32>, 0>"* %10, i32* align 512 %11)
-  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>"([20 x %"struct.ap_int<64>"]* %12, [20 x i64]* align 512 %13)
-  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>"([20 x %"struct.ap_int<64>"]* %14, [20 x i64]* align 512 %15)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %16, i1* align 512 %17)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %18, i1* align 512 %19)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %20, i1* align 512 %21)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %22, i1* align 512 %23)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %24, i1* align 512 %25)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.312"(%"class.hls::stream<ap_uint<32>, 0>"* %8, i32* align 512 %9)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.312"(%"class.hls::stream<ap_uint<32>, 0>"* %10, i32* align 512 %11)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.312"(%"class.hls::stream<ap_uint<32>, 0>"* %12, i32* align 512 %13)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.312"(%"class.hls::stream<ap_uint<32>, 0>"* %14, i32* align 512 %15)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>"([20 x %"struct.ap_int<64>"]* %16, [20 x i64]* align 512 %17)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>"([20 x %"struct.ap_int<64>"]* %18, [20 x i64]* align 512 %19)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>"([20 x %"struct.ap_int<32>"]* %20, [20 x i32]* align 512 %21)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>"([20 x %"struct.ap_int<32>"]* %22, [20 x i32]* align 512 %23)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>"([20 x %"struct.ap_int<32>"]* %24, [20 x i32]* align 512 %25)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>"([20 x %"struct.ap_int<32>"]* %26, [20 x i32]* align 512 %27)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %28, i1* align 512 %29)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %30, i1* align 512 %31)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %32, i1* align 512 %33)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %34, i1* align 512 %35)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %36, i1* align 512 %37)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %38, i1* align 512 %39)
+  ret void
+}
+
+; Function Attrs: argmemonly noinline norecurse
+define internal fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>"([20 x %"struct.ap_int<32>"]* noalias "unpacked"="0", [20 x i32]* noalias nocapture readonly align 512 "unpacked"="1.0.0.0") unnamed_addr #3 {
+entry:
+  %2 = icmp eq [20 x %"struct.ap_int<32>"]* %0, null
+  br i1 %2, label %ret, label %copy
+
+copy:                                             ; preds = %entry
+  br label %for.loop
+
+for.loop:                                         ; preds = %for.loop, %copy
+  %for.loop.idx1 = phi i64 [ 0, %copy ], [ %for.loop.idx.next, %for.loop ]
+  %src.addr.0.0.05 = getelementptr [20 x i32], [20 x i32]* %1, i64 0, i64 %for.loop.idx1
+  %dst.addr.0.0.06 = getelementptr [20 x %"struct.ap_int<32>"], [20 x %"struct.ap_int<32>"]* %0, i64 0, i64 %for.loop.idx1, i32 0, i32 0, i32 0
+  %3 = load i32, i32* %src.addr.0.0.05, align 4
+  store i32 %3, i32* %dst.addr.0.0.06, align 4
+  %for.loop.idx.next = add nuw nsw i64 %for.loop.idx1, 1
+  %exitcond = icmp ne i64 %for.loop.idx.next, 20
+  br i1 %exitcond, label %for.loop, label %ret
+
+ret:                                              ; preds = %for.loop, %entry
+  ret void
+}
+
+; Function Attrs: argmemonly noinline norecurse
+define internal fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>.36.42.63.74"([20 x i32]* noalias nocapture align 512 "unpacked"="0.0.0.0", [20 x %"struct.ap_int<32>"]* noalias readonly "unpacked"="1") unnamed_addr #3 {
+entry:
+  %2 = icmp eq [20 x %"struct.ap_int<32>"]* %1, null
+  br i1 %2, label %ret, label %copy
+
+copy:                                             ; preds = %entry
+  br label %for.loop
+
+for.loop:                                         ; preds = %for.loop, %copy
+  %for.loop.idx1 = phi i64 [ 0, %copy ], [ %for.loop.idx.next, %for.loop ]
+  %src.addr.0.0.05 = getelementptr [20 x %"struct.ap_int<32>"], [20 x %"struct.ap_int<32>"]* %1, i64 0, i64 %for.loop.idx1, i32 0, i32 0, i32 0
+  %dst.addr.0.0.06 = getelementptr [20 x i32], [20 x i32]* %0, i64 0, i64 %for.loop.idx1
+  %3 = load i32, i32* %src.addr.0.0.05, align 4
+  store i32 %3, i32* %dst.addr.0.0.06, align 4
+  %for.loop.idx.next = add nuw nsw i64 %for.loop.idx1, 1
+  %exitcond = icmp ne i64 %for.loop.idx.next, 20
+  br i1 %exitcond, label %for.loop, label %ret
+
+ret:                                              ; preds = %for.loop, %entry
   ret void
 }
 
@@ -151,7 +228,7 @@ ret:                                              ; preds = %for.loop, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse
-define internal fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>.42.48"([20 x i64]* noalias nocapture align 512 "unpacked"="0.0.0.0", [20 x %"struct.ap_int<64>"]* noalias readonly "unpacked"="1") unnamed_addr #3 {
+define internal fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>.103.109"([20 x i64]* noalias nocapture align 512 "unpacked"="0.0.0.0", [20 x %"struct.ap_int<64>"]* noalias readonly "unpacked"="1") unnamed_addr #3 {
 entry:
   %2 = icmp eq [20 x %"struct.ap_int<64>"]* %1, null
   br i1 %2, label %ret, label %copy
@@ -174,7 +251,7 @@ ret:                                              ; preds = %for.loop, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse
-define internal fastcc void @"onebyonecpy_hls.p0struct.ap_uint<11>.80"(%"struct.ap_uint<11>"* noalias "unpacked"="0", i11* noalias nocapture readonly align 512 "unpacked"="1.0.0.0") unnamed_addr #3 {
+define internal fastcc void @"onebyonecpy_hls.p0struct.ap_uint<11>.141"(%"struct.ap_uint<11>"* noalias "unpacked"="0", i11* noalias nocapture readonly align 512 "unpacked"="1.0.0.0") unnamed_addr #3 {
 entry:
   %2 = icmp eq %"struct.ap_uint<11>"* %0, null
   br i1 %2, label %ret, label %copy
@@ -241,7 +318,7 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse
-define internal fastcc void @onebyonecpy_hls.p0struct.hs_is_t.24(i1* noalias nocapture align 512 "unpacked"="0.0" %.02, i1* noalias nocapture align 512 "unpacked"="0.1" %.13, i32* noalias nocapture align 512 "unpacked"="0.2.0.0.0" %.2, i4* noalias nocapture align 512 "unpacked"="0.3.0.0.0" %.3, %struct.hs_is_t* noalias readonly "unpacked"="1") unnamed_addr #3 {
+define internal fastcc void @onebyonecpy_hls.p0struct.hs_is_t.18(i1* noalias nocapture align 512 "unpacked"="0.0" %.02, i1* noalias nocapture align 512 "unpacked"="0.1" %.13, i32* noalias nocapture align 512 "unpacked"="0.2.0.0.0" %.2, i4* noalias nocapture align 512 "unpacked"="0.3.0.0.0" %.3, %struct.hs_is_t* noalias readonly "unpacked"="1") unnamed_addr #3 {
 entry:
   %1 = icmp eq %struct.hs_is_t* %0, null
   br i1 %1, label %ret, label %copy
@@ -280,7 +357,7 @@ entry:
   br i1 %4, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.247"(i32* nonnull align 512 %0, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %1)
+  call fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.308"(i32* nonnull align 512 %0, %"class.hls::stream<ap_uint<32>, 0>"* nonnull %1)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -288,7 +365,7 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.247"(i32* noalias nocapture align 512 "fpga.caller.interfaces"="layout_transformed", %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture "fpga.caller.interfaces"="layout_transformed") unnamed_addr #6 {
+define internal fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.308"(i32* noalias nocapture align 512 "fpga.caller.interfaces"="layout_transformed", %"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture "fpga.caller.interfaces"="layout_transformed") unnamed_addr #6 {
 entry:
   %2 = alloca %"class.hls::stream<ap_uint<32>, 0>"
   %3 = alloca i32
@@ -325,7 +402,7 @@ define internal i32 @"_llvm.fpga.pack.bits.i32.s_class.hls::stream<ap_uint<32>, 
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.251"(%"class.hls::stream<ap_uint<32>, 0>"* noalias "fpga.caller.interfaces"="layout_transformed", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed") unnamed_addr #5 {
+define internal fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.312"(%"class.hls::stream<ap_uint<32>, 0>"* noalias "fpga.caller.interfaces"="layout_transformed", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed") unnamed_addr #5 {
 entry:
   %2 = icmp eq %"class.hls::stream<ap_uint<32>, 0>"* %0, null
   %3 = icmp eq i32* %1, null
@@ -333,7 +410,7 @@ entry:
   br i1 %4, label %ret, label %copy
 
 copy:                                             ; preds = %entry
-  call fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.254"(%"class.hls::stream<ap_uint<32>, 0>"* nonnull %0, i32* nonnull align 512 %1)
+  call fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.315"(%"class.hls::stream<ap_uint<32>, 0>"* nonnull %0, i32* nonnull align 512 %1)
   br label %ret
 
 ret:                                              ; preds = %copy, %entry
@@ -341,7 +418,7 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.254"(%"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture "fpga.caller.interfaces"="layout_transformed", i32* noalias nocapture align 512 "fpga.caller.interfaces"="layout_transformed") unnamed_addr #6 {
+define internal fastcc void @"streamcpy_hls.p0class.hls::stream<ap_uint<32>, 0>.315"(%"class.hls::stream<ap_uint<32>, 0>"* noalias nocapture "fpga.caller.interfaces"="layout_transformed", i32* noalias nocapture align 512 "fpga.caller.interfaces"="layout_transformed") unnamed_addr #6 {
 entry:
   %2 = alloca i32
   %3 = alloca %"class.hls::stream<ap_uint<32>, 0>"
@@ -379,51 +456,72 @@ define internal %"struct.ssdm_int<32, true>" @"_llvm.fpga.unpack.bits.s_class.hl
   ret %"struct.ssdm_int<32, true>" %oldret
 }
 
-declare void @apatb_cont_hw(i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1, i1, i1, i1, %"struct.ap_uint<5>"*, %"struct.ap_uint<11>"*, i11*, i1*, i32*, i32*, i64*, i64*, i1*, i1, i1*, i1, i1*, i1, i1*, i1, i1*)
+declare void @apatb_cont_hw(i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1, i1, i1, i1, %"struct.ap_uint<5>"*, %"struct.ap_uint<11>"*, i11*, i1*, i32*, i32*, i32*, i32*, i64*, i64*, i32*, i32*, i32*, i32*, i1*, i1, i1*, i1, i1*, i1, i1*, i1, i1*, i1*)
 
 ; Function Attrs: argmemonly noinline
-define internal fastcc void @copy_back(%struct.hs_is_t* noalias "unpacked"="0", i1* noalias nocapture readonly align 512 "unpacked"="1.0" %.0, i1* noalias nocapture readonly align 512 "unpacked"="1.1" %.1, i32* noalias nocapture readonly align 512 "unpacked"="1.2.0.0.0" %.2, i4* noalias nocapture readonly align 512 "unpacked"="1.3.0.0.0" %.3, %struct.hs_is_t* noalias "unpacked"="2", i1* noalias nocapture readonly align 512 "unpacked"="3.0" %.01, i1* noalias nocapture readonly align 512 "unpacked"="3.1" %.12, i32* noalias nocapture readonly align 512 "unpacked"="3.2.0.0.0" %.23, i4* noalias nocapture readonly align 512 "unpacked"="3.3.0.0.0" %.34, %struct.hs_is_t* noalias "unpacked"="4", i1* noalias nocapture readonly align 512 "unpacked"="5.0" %.02, i1* noalias nocapture readonly align 512 "unpacked"="5.1" %.13, i32* noalias nocapture readonly align 512 "unpacked"="5.2.0.0.0" %.24, i4* noalias nocapture readonly align 512 "unpacked"="5.3.0.0.0" %.35, %struct.hs_is_t* noalias "unpacked"="6", i1* noalias nocapture readonly align 512 "unpacked"="7.0" %.03, i1* noalias nocapture readonly align 512 "unpacked"="7.1" %.14, i32* noalias nocapture readonly align 512 "unpacked"="7.2.0.0.0" %.25, i4* noalias nocapture readonly align 512 "unpacked"="7.3.0.0.0" %.36, %"struct.ap_uint<11>"* noalias "unpacked"="8", i11* noalias nocapture readonly align 512 "unpacked"="9.0.0.0", i1* noalias "unpacked"="10", i1* noalias readonly align 512 "unpacked"="11", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="12", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="13", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="14", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="15", [20 x %"struct.ap_int<64>"]* noalias "unpacked"="16", [20 x i64]* noalias nocapture readonly align 512 "unpacked"="17.0.0.0", [20 x %"struct.ap_int<64>"]* noalias "unpacked"="18", [20 x i64]* noalias nocapture readonly align 512 "unpacked"="19.0.0.0", i1* noalias "unpacked"="20", i1* noalias readonly align 512 "unpacked"="21", i1* noalias "unpacked"="22", i1* noalias readonly align 512 "unpacked"="23", i1* noalias "unpacked"="24", i1* noalias readonly align 512 "unpacked"="25", i1* noalias "unpacked"="26", i1* noalias readonly align 512 "unpacked"="27", i1* noalias "unpacked"="28", i1* noalias readonly align 512 "unpacked"="29") unnamed_addr #4 {
+define internal fastcc void @copy_back(%struct.hs_is_t* noalias "unpacked"="0", i1* noalias nocapture readonly align 512 "unpacked"="1.0" %.0, i1* noalias nocapture readonly align 512 "unpacked"="1.1" %.1, i32* noalias nocapture readonly align 512 "unpacked"="1.2.0.0.0" %.2, i4* noalias nocapture readonly align 512 "unpacked"="1.3.0.0.0" %.3, %struct.hs_is_t* noalias "unpacked"="2", i1* noalias nocapture readonly align 512 "unpacked"="3.0" %.01, i1* noalias nocapture readonly align 512 "unpacked"="3.1" %.12, i32* noalias nocapture readonly align 512 "unpacked"="3.2.0.0.0" %.23, i4* noalias nocapture readonly align 512 "unpacked"="3.3.0.0.0" %.34, %struct.hs_is_t* noalias "unpacked"="4", i1* noalias nocapture readonly align 512 "unpacked"="5.0" %.02, i1* noalias nocapture readonly align 512 "unpacked"="5.1" %.13, i32* noalias nocapture readonly align 512 "unpacked"="5.2.0.0.0" %.24, i4* noalias nocapture readonly align 512 "unpacked"="5.3.0.0.0" %.35, %struct.hs_is_t* noalias "unpacked"="6", i1* noalias nocapture readonly align 512 "unpacked"="7.0" %.03, i1* noalias nocapture readonly align 512 "unpacked"="7.1" %.14, i32* noalias nocapture readonly align 512 "unpacked"="7.2.0.0.0" %.25, i4* noalias nocapture readonly align 512 "unpacked"="7.3.0.0.0" %.36, %"struct.ap_uint<11>"* noalias "unpacked"="8", i11* noalias nocapture readonly align 512 "unpacked"="9.0.0.0", i1* noalias "unpacked"="10", i1* noalias readonly align 512 "unpacked"="11", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="12", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="13", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="14", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="15", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="16", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="17", %"class.hls::stream<ap_uint<32>, 0>"* noalias "unpacked"="18", i32* noalias align 512 "fpga.caller.interfaces"="layout_transformed" "unpacked"="19", [20 x %"struct.ap_int<64>"]* noalias "unpacked"="20", [20 x i64]* noalias nocapture readonly align 512 "unpacked"="21.0.0.0", [20 x %"struct.ap_int<64>"]* noalias "unpacked"="22", [20 x i64]* noalias nocapture readonly align 512 "unpacked"="23.0.0.0", [20 x %"struct.ap_int<32>"]* noalias "unpacked"="24", [20 x i32]* noalias nocapture readonly align 512 "unpacked"="25.0.0.0", [20 x %"struct.ap_int<32>"]* noalias "unpacked"="26", [20 x i32]* noalias nocapture readonly align 512 "unpacked"="27.0.0.0", [20 x %"struct.ap_int<32>"]* noalias "unpacked"="28", [20 x i32]* noalias nocapture readonly align 512 "unpacked"="29.0.0.0", [20 x %"struct.ap_int<32>"]* noalias "unpacked"="30", [20 x i32]* noalias nocapture readonly align 512 "unpacked"="31.0.0.0", i1* noalias "unpacked"="32", i1* noalias readonly align 512 "unpacked"="33", i1* noalias "unpacked"="34", i1* noalias readonly align 512 "unpacked"="35", i1* noalias "unpacked"="36", i1* noalias readonly align 512 "unpacked"="37", i1* noalias "unpacked"="38", i1* noalias readonly align 512 "unpacked"="39", i1* noalias "unpacked"="40", i1* noalias readonly align 512 "unpacked"="41", i1* noalias "unpacked"="42", i1* noalias readonly align 512 "unpacked"="43") unnamed_addr #4 {
 entry:
   call fastcc void @onebyonecpy_hls.p0struct.hs_is_t(%struct.hs_is_t* %0, i1* align 512 %.0, i1* align 512 %.1, i32* align 512 %.2, i4* align 512 %.3)
   call fastcc void @onebyonecpy_hls.p0struct.hs_is_t(%struct.hs_is_t* %1, i1* align 512 %.01, i1* align 512 %.12, i32* align 512 %.23, i4* align 512 %.34)
   call fastcc void @onebyonecpy_hls.p0struct.hs_is_t(%struct.hs_is_t* %2, i1* align 512 %.02, i1* align 512 %.13, i32* align 512 %.24, i4* align 512 %.35)
   call fastcc void @onebyonecpy_hls.p0struct.hs_is_t(%struct.hs_is_t* %3, i1* align 512 %.03, i1* align 512 %.14, i32* align 512 %.25, i4* align 512 %.36)
-  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<11>.80"(%"struct.ap_uint<11>"* %4, i11* align 512 %5)
+  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<11>.141"(%"struct.ap_uint<11>"* %4, i11* align 512 %5)
   call fastcc void @onebyonecpy_hls.p0i1(i1* %6, i1* align 512 %7)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.251"(%"class.hls::stream<ap_uint<32>, 0>"* %8, i32* align 512 %9)
-  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.251"(%"class.hls::stream<ap_uint<32>, 0>"* %10, i32* align 512 %11)
-  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>"([20 x %"struct.ap_int<64>"]* %12, [20 x i64]* align 512 %13)
-  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>"([20 x %"struct.ap_int<64>"]* %14, [20 x i64]* align 512 %15)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %16, i1* align 512 %17)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %18, i1* align 512 %19)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %20, i1* align 512 %21)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %22, i1* align 512 %23)
-  call fastcc void @onebyonecpy_hls.p0i1(i1* %24, i1* align 512 %25)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.312"(%"class.hls::stream<ap_uint<32>, 0>"* %8, i32* align 512 %9)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.312"(%"class.hls::stream<ap_uint<32>, 0>"* %10, i32* align 512 %11)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.312"(%"class.hls::stream<ap_uint<32>, 0>"* %12, i32* align 512 %13)
+  call fastcc void @"onebyonecpy_hls.p0class.hls::stream<ap_uint<32>, 0>.312"(%"class.hls::stream<ap_uint<32>, 0>"* %14, i32* align 512 %15)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>"([20 x %"struct.ap_int<64>"]* %16, [20 x i64]* align 512 %17)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<64>"([20 x %"struct.ap_int<64>"]* %18, [20 x i64]* align 512 %19)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>"([20 x %"struct.ap_int<32>"]* %20, [20 x i32]* align 512 %21)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>"([20 x %"struct.ap_int<32>"]* %22, [20 x i32]* align 512 %23)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>"([20 x %"struct.ap_int<32>"]* %24, [20 x i32]* align 512 %25)
+  call fastcc void @"onebyonecpy_hls.p0a20struct.ap_int<32>"([20 x %"struct.ap_int<32>"]* %26, [20 x i32]* align 512 %27)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %28, i1* align 512 %29)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %30, i1* align 512 %31)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %32, i1* align 512 %33)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %34, i1* align 512 %35)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %36, i1* align 512 %37)
+  call fastcc void @onebyonecpy_hls.p0i1(i1* %38, i1* align 512 %39)
   ret void
 }
 
-define void @cont_hw_stub_wrapper(i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1, i1, i1, i1, %"struct.ap_uint<5>"*, %"struct.ap_uint<11>"*, i11*, i1*, i32*, i32*, i64*, i64*, i1*, i1, i1*, i1, i1*, i1, i1*, i1, i1*) #8 {
+define void @cont_hw_stub_wrapper(i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1*, i1*, i32*, i4*, i1, i1, i1, i1, %"struct.ap_uint<5>"*, %"struct.ap_uint<11>"*, i11*, i1*, i32*, i32*, i32*, i32*, i64*, i64*, i32*, i32*, i32*, i32*, i1*, i1, i1*, i1, i1*, i1, i1*, i1, i1*, i1*) #8 {
 entry:
-  %37 = alloca %struct.hs_is_t
-  %38 = alloca %struct.hs_is_t
-  %39 = alloca %struct.hs_is_t
-  %40 = alloca %struct.hs_is_t
-  %41 = alloca %"struct.ap_uint<11>"
-  %42 = alloca %"class.hls::stream<ap_uint<32>, 0>"
-  %43 = alloca %"class.hls::stream<ap_uint<32>, 0>"
-  %44 = alloca [20 x %"struct.ap_int<64>"]
-  %45 = alloca [20 x %"struct.ap_int<64>"]
-  %46 = bitcast i64* %26 to [20 x i64]*
-  %47 = bitcast i64* %27 to [20 x i64]*
-  call void @copy_out(%struct.hs_is_t* %37, i1* %0, i1* %1, i32* %2, i4* %3, %struct.hs_is_t* %38, i1* %4, i1* %5, i32* %6, i4* %7, %struct.hs_is_t* %39, i1* %8, i1* %9, i32* %10, i4* %11, %struct.hs_is_t* %40, i1* %12, i1* %13, i32* %14, i4* %15, %"struct.ap_uint<11>"* %41, i11* %22, i1* null, i1* %23, %"class.hls::stream<ap_uint<32>, 0>"* %42, i32* %24, %"class.hls::stream<ap_uint<32>, 0>"* %43, i32* %25, [20 x %"struct.ap_int<64>"]* %44, [20 x i64]* %46, [20 x %"struct.ap_int<64>"]* %45, [20 x i64]* %47, i1* null, i1* %28, i1* null, i1* %30, i1* null, i1* %32, i1* null, i1* %34, i1* null, i1* %36)
-  %48 = bitcast [20 x %"struct.ap_int<64>"]* %44 to %"struct.ap_int<64>"*
-  %49 = bitcast [20 x %"struct.ap_int<64>"]* %45 to %"struct.ap_int<64>"*
-  call void @cont_hw_stub(%struct.hs_is_t* %37, %struct.hs_is_t* %38, %struct.hs_is_t* %39, %struct.hs_is_t* %40, i1 %16, i1 %17, i1 %18, i1 %19, %"struct.ap_uint<5>"* %20, %"struct.ap_uint<11>"* %21, %"struct.ap_uint<11>"* %41, i1* %23, %"class.hls::stream<ap_uint<32>, 0>"* %42, %"class.hls::stream<ap_uint<32>, 0>"* %43, %"struct.ap_int<64>"* %48, %"struct.ap_int<64>"* %49, i1* %28, i1 %29, i1* %30, i1 %31, i1* %32, i1 %33, i1* %34, i1 %35, i1* %36)
-  call void @copy_in(%struct.hs_is_t* %37, i1* %0, i1* %1, i32* %2, i4* %3, %struct.hs_is_t* %38, i1* %4, i1* %5, i32* %6, i4* %7, %struct.hs_is_t* %39, i1* %8, i1* %9, i32* %10, i4* %11, %struct.hs_is_t* %40, i1* %12, i1* %13, i32* %14, i4* %15, %"struct.ap_uint<11>"* %41, i11* %22, i1* null, i1* %23, %"class.hls::stream<ap_uint<32>, 0>"* %42, i32* %24, %"class.hls::stream<ap_uint<32>, 0>"* %43, i32* %25, [20 x %"struct.ap_int<64>"]* %44, [20 x i64]* %46, [20 x %"struct.ap_int<64>"]* %45, [20 x i64]* %47, i1* null, i1* %28, i1* null, i1* %30, i1* null, i1* %32, i1* null, i1* %34, i1* null, i1* %36)
+  %44 = alloca %struct.hs_is_t
+  %45 = alloca %struct.hs_is_t
+  %46 = alloca %struct.hs_is_t
+  %47 = alloca %struct.hs_is_t
+  %48 = alloca %"struct.ap_uint<11>"
+  %49 = alloca %"class.hls::stream<ap_uint<32>, 0>"
+  %50 = alloca %"class.hls::stream<ap_uint<32>, 0>"
+  %51 = alloca %"class.hls::stream<ap_uint<32>, 0>"
+  %52 = alloca %"class.hls::stream<ap_uint<32>, 0>"
+  %53 = alloca [20 x %"struct.ap_int<64>"]
+  %54 = alloca [20 x %"struct.ap_int<64>"]
+  %55 = alloca [20 x %"struct.ap_int<32>"]
+  %56 = alloca [20 x %"struct.ap_int<32>"]
+  %57 = alloca [20 x %"struct.ap_int<32>"]
+  %58 = alloca [20 x %"struct.ap_int<32>"]
+  %59 = bitcast i64* %28 to [20 x i64]*
+  %60 = bitcast i64* %29 to [20 x i64]*
+  %61 = bitcast i32* %30 to [20 x i32]*
+  %62 = bitcast i32* %31 to [20 x i32]*
+  %63 = bitcast i32* %32 to [20 x i32]*
+  %64 = bitcast i32* %33 to [20 x i32]*
+  call void @copy_out(%struct.hs_is_t* %44, i1* %0, i1* %1, i32* %2, i4* %3, %struct.hs_is_t* %45, i1* %4, i1* %5, i32* %6, i4* %7, %struct.hs_is_t* %46, i1* %8, i1* %9, i32* %10, i4* %11, %struct.hs_is_t* %47, i1* %12, i1* %13, i32* %14, i4* %15, %"struct.ap_uint<11>"* %48, i11* %22, i1* null, i1* %23, %"class.hls::stream<ap_uint<32>, 0>"* %49, i32* %24, %"class.hls::stream<ap_uint<32>, 0>"* %50, i32* %25, %"class.hls::stream<ap_uint<32>, 0>"* %51, i32* %26, %"class.hls::stream<ap_uint<32>, 0>"* %52, i32* %27, [20 x %"struct.ap_int<64>"]* %53, [20 x i64]* %59, [20 x %"struct.ap_int<64>"]* %54, [20 x i64]* %60, [20 x %"struct.ap_int<32>"]* %55, [20 x i32]* %61, [20 x %"struct.ap_int<32>"]* %56, [20 x i32]* %62, [20 x %"struct.ap_int<32>"]* %57, [20 x i32]* %63, [20 x %"struct.ap_int<32>"]* %58, [20 x i32]* %64, i1* null, i1* %34, i1* null, i1* %36, i1* null, i1* %38, i1* null, i1* %40, i1* null, i1* %42, i1* null, i1* %43)
+  %65 = bitcast [20 x %"struct.ap_int<64>"]* %53 to %"struct.ap_int<64>"*
+  %66 = bitcast [20 x %"struct.ap_int<64>"]* %54 to %"struct.ap_int<64>"*
+  %67 = bitcast [20 x %"struct.ap_int<32>"]* %55 to %"struct.ap_int<32>"*
+  %68 = bitcast [20 x %"struct.ap_int<32>"]* %56 to %"struct.ap_int<32>"*
+  %69 = bitcast [20 x %"struct.ap_int<32>"]* %57 to %"struct.ap_int<32>"*
+  %70 = bitcast [20 x %"struct.ap_int<32>"]* %58 to %"struct.ap_int<32>"*
+  call void @cont_hw_stub(%struct.hs_is_t* %44, %struct.hs_is_t* %45, %struct.hs_is_t* %46, %struct.hs_is_t* %47, i1 %16, i1 %17, i1 %18, i1 %19, %"struct.ap_uint<5>"* %20, %"struct.ap_uint<11>"* %21, %"struct.ap_uint<11>"* %48, i1* %23, %"class.hls::stream<ap_uint<32>, 0>"* %49, %"class.hls::stream<ap_uint<32>, 0>"* %50, %"class.hls::stream<ap_uint<32>, 0>"* %51, %"class.hls::stream<ap_uint<32>, 0>"* %52, %"struct.ap_int<64>"* %65, %"struct.ap_int<64>"* %66, %"struct.ap_int<32>"* %67, %"struct.ap_int<32>"* %68, %"struct.ap_int<32>"* %69, %"struct.ap_int<32>"* %70, i1* %34, i1 %35, i1* %36, i1 %37, i1* %38, i1 %39, i1* %40, i1 %41, i1* %42, i1* %43)
+  call void @copy_in(%struct.hs_is_t* %44, i1* %0, i1* %1, i32* %2, i4* %3, %struct.hs_is_t* %45, i1* %4, i1* %5, i32* %6, i4* %7, %struct.hs_is_t* %46, i1* %8, i1* %9, i32* %10, i4* %11, %struct.hs_is_t* %47, i1* %12, i1* %13, i32* %14, i4* %15, %"struct.ap_uint<11>"* %48, i11* %22, i1* null, i1* %23, %"class.hls::stream<ap_uint<32>, 0>"* %49, i32* %24, %"class.hls::stream<ap_uint<32>, 0>"* %50, i32* %25, %"class.hls::stream<ap_uint<32>, 0>"* %51, i32* %26, %"class.hls::stream<ap_uint<32>, 0>"* %52, i32* %27, [20 x %"struct.ap_int<64>"]* %53, [20 x i64]* %59, [20 x %"struct.ap_int<64>"]* %54, [20 x i64]* %60, [20 x %"struct.ap_int<32>"]* %55, [20 x i32]* %61, [20 x %"struct.ap_int<32>"]* %56, [20 x i32]* %62, [20 x %"struct.ap_int<32>"]* %57, [20 x i32]* %63, [20 x %"struct.ap_int<32>"]* %58, [20 x i32]* %64, i1* null, i1* %34, i1* null, i1* %36, i1* null, i1* %38, i1* null, i1* %40, i1* null, i1* %42, i1* null, i1* %43)
   ret void
 }
 
-declare void @cont_hw_stub(%struct.hs_is_t*, %struct.hs_is_t*, %struct.hs_is_t*, %struct.hs_is_t*, i1, i1, i1, i1, %"struct.ap_uint<5>"*, %"struct.ap_uint<11>"*, %"struct.ap_uint<11>"*, i1*, %"class.hls::stream<ap_uint<32>, 0>"*, %"class.hls::stream<ap_uint<32>, 0>"*, %"struct.ap_int<64>"*, %"struct.ap_int<64>"*, i1*, i1, i1*, i1, i1*, i1, i1*, i1, i1*)
+declare void @cont_hw_stub(%struct.hs_is_t*, %struct.hs_is_t*, %struct.hs_is_t*, %struct.hs_is_t*, i1, i1, i1, i1, %"struct.ap_uint<5>"*, %"struct.ap_uint<11>"*, %"struct.ap_uint<11>"*, i1*, %"class.hls::stream<ap_uint<32>, 0>"*, %"class.hls::stream<ap_uint<32>, 0>"*, %"class.hls::stream<ap_uint<32>, 0>"*, %"class.hls::stream<ap_uint<32>, 0>"*, %"struct.ap_int<64>"*, %"struct.ap_int<64>"*, %"struct.ap_int<32>"*, %"struct.ap_int<32>"*, %"struct.ap_int<32>"*, %"struct.ap_int<32>"*, i1*, i1, i1*, i1, i1*, i1, i1*, i1, i1*, i1*)
 
 declare i1 @fpga_fifo_not_empty_4(i8*)
 

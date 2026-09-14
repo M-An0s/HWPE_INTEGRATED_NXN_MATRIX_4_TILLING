@@ -12,7 +12,7 @@ set axilite_register_dict [dict create]
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 20 \
+    id 22 \
     name buffer_1_wr \
     reset_level 1 \
     sync_rst true \
@@ -31,7 +31,7 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 21 \
+    id 23 \
     name buffer_1_wr1 \
     reset_level 1 \
     sync_rst true \
@@ -42,6 +42,82 @@ eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
 } "
 } else {
 puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'buffer_1_wr1'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 24 \
+    name buffer_1_wr2a \
+    reset_level 1 \
+    sync_rst true \
+    dir O \
+    corename buffer_1_wr2a \
+    op interface \
+    ports { buffer_1_wr2a_address0 { O 5 vector } buffer_1_wr2a_ce0 { O 1 bit } buffer_1_wr2a_we0 { O 1 bit } buffer_1_wr2a_d0 { O 32 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'buffer_1_wr2a'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 25 \
+    name buffer_1_wr2b \
+    reset_level 1 \
+    sync_rst true \
+    dir O \
+    corename buffer_1_wr2b \
+    op interface \
+    ports { buffer_1_wr2b_address0 { O 5 vector } buffer_1_wr2b_ce0 { O 1 bit } buffer_1_wr2b_we0 { O 1 bit } buffer_1_wr2b_d0 { O 32 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'buffer_1_wr2b'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 26 \
+    name buffer_1_wr3a \
+    reset_level 1 \
+    sync_rst true \
+    dir O \
+    corename buffer_1_wr3a \
+    op interface \
+    ports { buffer_1_wr3a_address0 { O 5 vector } buffer_1_wr3a_ce0 { O 1 bit } buffer_1_wr3a_we0 { O 1 bit } buffer_1_wr3a_d0 { O 32 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'buffer_1_wr3a'"
+}
+}
+
+
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 27 \
+    name buffer_1_wr3b \
+    reset_level 1 \
+    sync_rst true \
+    dir O \
+    corename buffer_1_wr3b \
+    op interface \
+    ports { buffer_1_wr3b_address0 { O 5 vector } buffer_1_wr3b_ce0 { O 1 bit } buffer_1_wr3b_we0 { O 1 bit } buffer_1_wr3b_d0 { O 32 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'buffer_1_wr3b'"
 }
 }
 
@@ -334,7 +410,37 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 22 \
+    id 20 \
+    name buffer_1_rd2 \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_buffer_1_rd2 \
+    op interface \
+    ports { buffer_1_rd2_dout { I 32 vector } buffer_1_rd2_empty_n { I 1 bit } buffer_1_rd2_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 21 \
+    name buffer_1_rd3 \
+    type fifo \
+    dir I \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_buffer_1_rd3 \
+    op interface \
+    ports { buffer_1_rd3_dout { I 32 vector } buffer_1_rd3_empty_n { I 1 bit } buffer_1_rd3_read { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 28 \
     name compute_start1 \
     type other \
     dir O \
@@ -349,7 +455,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 23 \
+    id 29 \
     name compute_done1 \
     type other \
     dir I \
@@ -364,7 +470,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 24 \
+    id 30 \
     name compute_start2 \
     type other \
     dir O \
@@ -379,7 +485,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 25 \
+    id 31 \
     name compute_done2 \
     type other \
     dir I \
@@ -394,7 +500,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 26 \
+    id 32 \
     name slave_start1 \
     type other \
     dir O \
@@ -409,7 +515,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 27 \
+    id 33 \
     name slave_done1 \
     type other \
     dir I \
@@ -424,7 +530,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 28 \
+    id 34 \
     name slave_start2 \
     type other \
     dir O \
@@ -439,7 +545,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 29 \
+    id 35 \
     name slave_done2 \
     type other \
     dir I \
@@ -454,15 +560,30 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 30 \
-    name phase \
+    id 36 \
+    name phase1 \
     type other \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_phase \
+    corename dc_phase1 \
     op interface \
-    ports { phase { O 1 bit } phase_ap_vld { O 1 bit } } \
+    ports { phase1 { O 1 bit } phase1_ap_vld { O 1 bit } } \
+} "
+}
+
+# Direct connection:
+if {${::AESL::PGuard_autoexp_gen}} {
+eval "cg_default_interface_gen_dc { \
+    id 37 \
+    name phase2 \
+    type other \
+    dir O \
+    reset_level 1 \
+    sync_rst true \
+    corename dc_phase2 \
+    op interface \
+    ports { phase2 { O 1 bit } phase2_ap_vld { O 1 bit } } \
 } "
 }
 

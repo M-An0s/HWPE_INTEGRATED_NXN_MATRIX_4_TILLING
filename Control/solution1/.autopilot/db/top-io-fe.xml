@@ -107,58 +107,93 @@
           <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
         </hw>
       </arg>
-      <arg id="14" access_type="w" src_name="buffer_1_wr" src_type="ap_int&lt;64&gt;*" src_isptr="1" src_bitwidth="64" src_size_or_depth="20">
+      <arg id="14" access_type="r" src_name="buffer_1_rd2" src_type="stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="FIFO" hw_name="buffer_1_rd2" hw_bitwidth="32" hw_size_or_depth="0" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="15" access_type="r" src_name="buffer_1_rd3" src_type="stream&lt;ap_uint&lt;32&gt;, 0&gt;&amp;" src_isptr="1" src_bitwidth="32" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="FIFO" hw_name="buffer_1_rd3" hw_bitwidth="32" hw_size_or_depth="0" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_fifo" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="16" access_type="w" src_name="buffer_1_wr" src_type="ap_int&lt;64&gt;*" src_isptr="1" src_bitwidth="64" src_size_or_depth="20">
         <hw hw_usage="data" hw_interface="BRAM" hw_name="buffer_1_wr" hw_bitwidth="64" hw_size_or_depth="20" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
       </arg>
-      <arg id="15" access_type="w" src_name="buffer_1_wr1" src_type="ap_int&lt;64&gt;*" src_isptr="1" src_bitwidth="64" src_size_or_depth="20">
+      <arg id="17" access_type="w" src_name="buffer_1_wr1" src_type="ap_int&lt;64&gt;*" src_isptr="1" src_bitwidth="64" src_size_or_depth="20">
         <hw hw_usage="data" hw_interface="BRAM" hw_name="buffer_1_wr1" hw_bitwidth="64" hw_size_or_depth="20" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
         </hw>
       </arg>
-      <arg id="16" access_type="w" src_name="compute_start1" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="18" access_type="w" src_name="buffer_1_wr2a" src_type="ap_int&lt;32&gt;*" src_isptr="1" src_bitwidth="32" src_size_or_depth="20">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="buffer_1_wr2a" hw_bitwidth="32" hw_size_or_depth="20" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="19" access_type="w" src_name="buffer_1_wr2b" src_type="ap_int&lt;32&gt;*" src_isptr="1" src_bitwidth="32" src_size_or_depth="20">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="buffer_1_wr2b" hw_bitwidth="32" hw_size_or_depth="20" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="20" access_type="w" src_name="buffer_1_wr3a" src_type="ap_int&lt;32&gt;*" src_isptr="1" src_bitwidth="32" src_size_or_depth="20">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="buffer_1_wr3a" hw_bitwidth="32" hw_size_or_depth="20" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="21" access_type="w" src_name="buffer_1_wr3b" src_type="ap_int&lt;32&gt;*" src_isptr="1" src_bitwidth="32" src_size_or_depth="20">
+        <hw hw_usage="data" hw_interface="BRAM" hw_name="buffer_1_wr3b" hw_bitwidth="32" hw_size_or_depth="20" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_memory" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="22" access_type="w" src_name="compute_start1" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="compute_start1" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="17" access_type="r" src_name="compute_done1" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="23" access_type="r" src_name="compute_done1" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="compute_done1" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="18" access_type="w" src_name="compute_start2" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="24" access_type="w" src_name="compute_start2" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="compute_start2" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="19" access_type="r" src_name="compute_done2" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="25" access_type="r" src_name="compute_done2" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="compute_done2" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="20" access_type="w" src_name="slave_start1" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="26" access_type="w" src_name="slave_start1" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="slave_start1" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="21" access_type="r" src_name="slave_done1" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="27" access_type="r" src_name="slave_done1" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="slave_done1" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="22" access_type="w" src_name="slave_start2" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="28" access_type="w" src_name="slave_start2" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="slave_start2" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="23" access_type="r" src_name="slave_done2" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
+      <arg id="29" access_type="r" src_name="slave_done2" src_type="bool" src_isptr="0" src_bitwidth="1" src_size_or_depth="1">
         <hw hw_usage="data" hw_interface="Register" hw_name="slave_done2" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>
-      <arg id="24" access_type="w" src_name="phase" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
-        <hw hw_usage="data" hw_interface="Register" hw_name="phase" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+      <arg id="30" access_type="w" src_name="phase1" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="phase1" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
+          <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
+        </hw>
+      </arg>
+      <arg id="31" access_type="w" src_name="phase2" src_type="bool*" src_isptr="1" src_bitwidth="1" src_size_or_depth="1">
+        <hw hw_usage="data" hw_interface="Register" hw_name="phase2" hw_bitwidth="1" hw_size_or_depth="1" hw_kernel_support="false">
           <constraint constraint_type="pragma interface" mode="ap_none" register_option="0"/>
         </hw>
       </arg>

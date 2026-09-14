@@ -1,13 +1,86 @@
 --- !Passed
+Pass:            reflow-pragma-preprocess
+Name:            PragmaResourceTopArg
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 75, Column: 9 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
+Args:            
+  - String:          'The resource pragma (bind_storage) on top-level function argument, in '''
+  - Pragma:          call
+    DebugLoc:        { File: Compute_block/Compute.cpp, Line: 75, Column: 9 }
+  - String:          ''' is unsupported, please use INTERFACE pragma instead'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 88, Column: 26 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_88_2
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 107, Column: 27 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_107_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 111, Column: 31 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
+Args:            
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_111_4
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 71, Column: 0 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_88_2
+  - String:          ''' ('
+  - LoopLoc:         'Compute_block/Compute.cpp:88:26'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '2'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 71, Column: 0 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_111_4
+  - String:          ''' ('
+  - LoopLoc:         'Compute_block/Compute.cpp:111:31'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          compute
+  - String:          ''' completely with a factor of '
+  - Factor:          '4'
+...
+--- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: Compute_block/Compute.cpp, Line: 49, Column: 0 }
-Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 78, Column: 0 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
 Args:            
   - String:          'Applying '
   - String:          array_partition
   - String:          ' to '''
-  - UOName:          _ZZ7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_E4REG1
+  - UOName:          _ZZ7computeP6ap_intILi64EEPS_ILi32EEbE4REG1
   - String:          ''':'
   - String:          ' '
   - Mode:            Complete
@@ -19,8 +92,8 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: Compute_block/Compute.cpp, Line: 47, Column: 13 }
-Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 77, Column: 14 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
 Args:            
   - String:          'Applying '
   - String:          array_partition
@@ -41,88 +114,22 @@ Args:
   - String:          .
 ...
 --- !Passed
-Pass:            reflow-aggr
-Name:            AggrSucc
-DebugLoc:        { File: Compute_block/Compute.cpp, Line: 36, Column: 0 }
-Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 107, Column: 27 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
 Args:            
-  - String:          'Aggregating '
-  - HwTyName:        'fifo (hls::stream)'
-  - String:          ' variable '''
-  - Name:            fwd_out2
-  - String:          ''' with '
-  - AggregateTypeName: 'compact=bit'
-  - String:          ' mode in '
-  - Bitwidth:        '32'
-  - String:          '-bits'
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_107_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
-Pass:            reflow-aggr
-Name:            AggrSucc
-DebugLoc:        { File: Compute_block/Compute.cpp, Line: 36, Column: 0 }
-Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_
+Pass:            reflow-infer-unroll
+Name:            ImplicitUnroll
+DebugLoc:        { File: Compute_block/Compute.cpp, Line: 107, Column: 27 }
+Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEb
 Args:            
-  - String:          'Aggregating '
-  - HwTyName:        'fifo (hls::stream)'
-  - String:          ' variable '''
-  - Name:            fwd_out1
-  - String:          ''' with '
-  - AggregateTypeName: 'compact=bit'
-  - String:          ' mode in '
-  - Bitwidth:        '32'
-  - String:          '-bits'
-...
---- !Missed
-Pass:            reflow-burst-inference
-Name:            NonSimpleMemoryAccess
-DebugLoc:        { File: Compute_block/Compute.cpp, Line: 53, Column: 14 }
-Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_
-Args:            
-  - String:          Volatile or Atomic access cannot be transformed
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        entry.store.12
-  - String:          ' '
-  - ArrayName:       dummy
-  - String:          ' '
-  - BundleName:      ''
-  - String:          ' '
-  - Function:        'compute(ap_int<64>*, ap_int<32>*, bool, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&)'
-    DebugLoc:        { File: Compute_block/Compute.cpp, Line: 36, Column: 0 }
-  - String:          ' '
-...
---- !Missed
-Pass:            reflow-burst-inference
-Name:            NonSimpleMemoryAccess
-DebugLoc:        { File: Compute_block/Compute.cpp, Line: 55, Column: 13 }
-Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_
-Args:            
-  - String:          Volatile or Atomic access cannot be transformed
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        entry.load.15
-  - String:          ' '
-  - ArrayName:       dummy
-  - String:          ' '
-  - BundleName:      ''
-  - String:          ' '
-  - Function:        'compute(ap_int<64>*, ap_int<32>*, bool, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&)'
-    DebugLoc:        { File: Compute_block/Compute.cpp, Line: 36, Column: 0 }
-  - String:          ' '
-...
---- !Missed
-Pass:            reflow-burst-inference
-Name:            NonSimpleMemoryAccess
-DebugLoc:        { File: Compute_block/Compute.cpp, Line: 55, Column: 11 }
-Function:        _Z7computeP6ap_intILi64EEPS_ILi32EEbRN3hls6streamI7ap_uintILi32EELi0EEES9_
-Args:            
-  - String:          Volatile or Atomic access cannot be transformed
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        entry.store.16
-  - String:          ' '
-  - ArrayName:       dummy
-  - String:          ' '
-  - BundleName:      ''
-  - String:          ' '
-  - Function:        'compute(ap_int<64>*, ap_int<32>*, bool, hls::stream<ap_uint<32>, 0>&, hls::stream<ap_uint<32>, 0>&)'
-    DebugLoc:        { File: Compute_block/Compute.cpp, Line: 36, Column: 0 }
-  - String:          ' '
+  - String:          'Loop '''
+  - LoopName:        VITIS_LOOP_107_3
+  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
