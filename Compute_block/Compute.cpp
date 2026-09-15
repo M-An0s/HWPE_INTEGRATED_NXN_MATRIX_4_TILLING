@@ -1,11 +1,3 @@
-#include "Compute.h"
-#include "hls_stream.h"
-
-#define Size 16
-#define Size2 8 
-#define M 4
-#define N 4
-#define K 4
 
 /*                  
 A MXN   | a11 a12|  B NXK | b11 b12 b13|    RES MXK
@@ -32,16 +24,6 @@ A MXN   | a11 a12|  B NXK | b11 b12 b13|    RES MXK
 // BUFFER_2 => OUTPUT MEMORY 16 SLOTS 32 BIT QUICKLY WRITING ORGANIZED OUTPUTS
 
 
-// THIS WILL BE A MASTER PE MODULE
-#include "Compute.h"
-#include "hls_stream.h"
-
-#define Size 16
-#define Size2 8 
-#define M 4
-#define N 4
-#define K 4
-
 /*                  
 A MXN   | a11 a12|  B NXK | b11 b12 b13|    RES MXK
         | a21 a22|        | b21 b22 b23|
@@ -67,15 +49,29 @@ A MXN   | a11 a12|  B NXK | b11 b12 b13|    RES MXK
 // BUFFER_2 => OUTPUT MEMORY 16 SLOTS 32 BIT QUICKLY WRITING ORGANIZED OUTPUTS
 
 
+
 // THIS WILL BE A MASTER PE MODULE
-void compute(res_t buffer_1[Size2], dat_t buffer_2[Size], bool phase) {
+#include "Compute.h"
+#include "hls_stream.h"
+
+#define N 16
+#define N2 (N/2) //N/2 OR HAS TO DO WITH THE INPUT BEING 2 EL???
+#define Size (N*N)
+#define Size2 (N*N/2)
+#define REG_W  (2*N)  
+
+
+
+// THIS WILL BE A MASTER PE MODULE
+void compute(res_t buffer_1[Size2], dat_t buffer_2[Size], 
+    bool phase) {
 #pragma HLS INTERFACE ap_ctrl_hs port=return
 #pragma HLS INTERFACE ap_memory port=buffer_1
 #pragma HLS INTERFACE ap_memory port=buffer_2
 #pragma HLS bind_storage variable=buffer_2 type=RAM_1P
 
-    ap_uint<16> REG[N][8];
-    static ap_uint<32> REG1[16];    // static: holds round-1 partials across phases
+    ap_uint<16> REG[N][REG_W];
+    static ap_uint<32> REG1[Size];    // static: holds round-1 partials across phases
     bool phase_local;
 #pragma HLS ARRAY_PARTITION variable=REG complete dim=0
 #pragma HLS ARRAY_PARTITION variable=REG1 complete dim=0
@@ -83,11 +79,11 @@ void compute(res_t buffer_1[Size2], dat_t buffer_2[Size], bool phase) {
 read_and_write_back:
     phase_local = phase;
     for(int i=0; i<N; i++){
-        #pragma HLS PIPELINE II=1 
+       // #pragma HLS PIPELINE II=1 
         res_t self_sum = 0;                       // diagonal
-        for(int fe=0; fe<2; fe++){
-            #pragma HLS unroll 
-            ap_uint<64> word = buffer_1[2*i+fe];  // <-- MEMORY read (not stream)
+        for(int fe=0; fe<N2; fe++){
+            //#pragma HLS unroll 
+            ap_uint<64> word = buffer_1[N2*i+fe];  // <-- MEMORY read (not stream)
             ap_uint<16> v0 = word.range(15,0);    // a
             ap_uint<16> v1 = word.range(31,16);   // a
             ap_uint<16> v2 = word.range(47,32);   // b
@@ -105,7 +101,7 @@ read_and_write_back:
             REG1[(N+1)*i] = self_sum;                        // diagonal, store
         }
         for(int com=0; com<i; com++){
-            #pragma HLS unroll   
+            //#pragma HLS unroll   
             res_t com_sum_rc = 0;
             res_t com_sum_cr = 0;
             for(int ptr=0; ptr<N; ptr++){
@@ -113,12 +109,12 @@ read_and_write_back:
                 com_sum_cr += REG[com][ptr]*REG[i][ptr+N];
             }
             if(phase_local == 1){
-                buffer_2[4*i+com] = com_sum_rc + REG1[4*i+com];
-                buffer_2[4*com+i] = com_sum_cr + REG1[4*com+i];
+                buffer_2[N*i+com] = com_sum_rc + REG1[N*i+com];
+                buffer_2[N*com+i] = com_sum_cr + REG1[N*com+i];
             }
             else if(phase_local == 0){
-                REG1[4*i+com] = com_sum_rc;
-                REG1[4*com+i] = com_sum_cr;
+                REG1[N*i+com] = com_sum_rc;
+                REG1[N*com+i] = com_sum_cr;
             }
         }
     }

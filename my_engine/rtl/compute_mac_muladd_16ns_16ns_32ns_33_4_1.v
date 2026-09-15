@@ -5,14 +5,14 @@
 // ==============================================================
 `timescale 1 ns / 1 ps
 
-module compute_mac_muladd_16ns_16ns_32ns_32_4_1_DSP48_2(
+module compute_mac_muladd_16ns_16ns_32ns_33_4_1_DSP48_1(
     input clk,
     input rst,
     input ce,
     input  [16 - 1:0] in0,
     input  [16 - 1:0] in1,
     input  [32 - 1:0] in2,
-    output [32 - 1:0]  dout);
+    output [33 - 1:0]  dout);
 
 wire signed [27 - 1:0]     a;
 wire signed [18 - 1:0]     b;
@@ -44,7 +44,7 @@ assign dout = p_reg;
 
 endmodule
 `timescale 1 ns / 1 ps
-module compute_mac_muladd_16ns_16ns_32ns_32_4_1(
+module compute_mac_muladd_16ns_16ns_32ns_33_4_1(
     clk,
     reset,
     ce,
@@ -69,7 +69,7 @@ output[dout_WIDTH - 1:0] dout;
 
 
 
-compute_mac_muladd_16ns_16ns_32ns_32_4_1_DSP48_2 compute_mac_muladd_16ns_16ns_32ns_32_4_1_DSP48_2_U(
+compute_mac_muladd_16ns_16ns_32ns_33_4_1_DSP48_1 compute_mac_muladd_16ns_16ns_32ns_33_4_1_DSP48_1_U(
     .clk( clk ),
     .rst( reset ),
     .ce( ce ),

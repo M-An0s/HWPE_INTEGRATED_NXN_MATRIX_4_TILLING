@@ -21,7 +21,11 @@ module mac_top
 #(
   parameter int unsigned N_CORES = 2,
   parameter int unsigned MP  = 4,
-  parameter int unsigned ID  = 10
+  parameter int unsigned ID  = 10,
+  parameter int unsigned N  = 128,
+  parameter int unsigned N2 = 256,
+  parameter int unsigned logN = 7,
+  parameter int unsigned logN2 = 8
 )
 (
   // global signals
@@ -47,17 +51,17 @@ module mac_top
   logic        compute_done;
  
    // in_Mem <-> compute (read) and cont (write inputs)
-    logic [3:0]  comp_b1_addr;    // AW for in_Mem
+    logic [logN:0]  comp_b1_addr;    // AW for in_Mem
     logic        comp_b1_ce;
     logic [63:0] comp_b1_q;       // read data to compute (64-bit packed)
   
-    logic [3:0]  cont_wr_addr;    // cont writes inputs
+    logic [logN:0]  cont_wr_addr;    // cont writes inputs
     logic        cont_wr_ce;
     logic        cont_wr_we;
     logic [63:0] cont_wr_d;
   
     // res_Mem <-> compute (two write ports) and cont (FIFO drain)
-    logic [3:0]  comp_b2_addr0, comp_b2_addr1;
+    logic [logN:0]  comp_b2_addr0, comp_b2_addr1;
     logic        comp_b2_ce0,   comp_b2_ce1;
     logic        comp_b2_we0,   comp_b2_we1;
     logic [31:0] comp_b2_d0,    comp_b2_d1;
@@ -79,22 +83,22 @@ module mac_top
 
 
       // --- cont -> MEM2 write (second input memory) ---
-    logic [2:0]  cont_wr1_addr;   // AW=3 for DEPTH=8 input mem -- MATCH your MEM2 depth
+    logic [logN:0]  cont_wr1_addr;   // AW=logN for DEPTH=N input mem -- MATCH your MEM2 depth
     logic        cont_wr1_ce;
     logic        cont_wr1_we;
     logic [63:0] cont_wr1_d;      // 64-bit packed input words
   
     // --- MPE2 <-> MEM2 read (compute reads its inputs) ---
-    logic [2:0]  mpe2_in_addr;    // AW=3, match MEM2
+    logic [logN:0]  mpe2_in_addr;    // AW=3, match MEM2
     logic        mpe2_in_ce;
     logic [63:0] mpe2_in_q;       // 64-bit packed read data
   
     // --- MPE2 -> res2 write (two write ports) ---
-    logic [3:0]  mpe2_res_addr0;  // AW=4 for DEPTH=16 result mem
+    logic [logN:0]  mpe2_res_addr0;  // AW=4 for DEPTH=16 result mem
     logic        mpe2_res_ce0;
     logic        mpe2_res_we0;
     logic [31:0] mpe2_res_d0;     // 32-bit results
-    logic [3:0]  mpe2_res_addr1;
+    logic [logN:0]  mpe2_res_addr1;
     logic        mpe2_res_ce1;
     logic        mpe2_res_we1;
     logic [31:0] mpe2_res_d1;
@@ -112,32 +116,32 @@ module mac_top
   logic phase_c2;
 
   //TRY to pipeline: 
-  logic [3:0]  comp_b1_addr2;    // AW for in_Mem
+  logic [logN:0]  comp_b1_addr2;    // AW for in_Mem
   logic        comp_b1_ce2;
   logic [63:0] comp_b1_q2;       // read data to compute (64-bit packed)s
 
-   logic [2:0]  mpe2_in_addr2;    // AW=3, match MEM2
+   logic [logN:0]  mpe2_in_addr2;    // AW=3, match MEM2
    logic        mpe2_in_ce2;
    logic [63:0] mpe2_in_q2;       // 64-bit packed read data
 
   //MEMORY FOR THE SECONDARIES
 
-     logic [2:0]  cont_wr_addr2a;    // cont writes inputs
+     logic [logN:0]  cont_wr_addr2a;    // cont writes inputs
   logic        cont_wr_ce2a;
   logic        cont_wr_we2a;
   logic [31:0] cont_wr_d2a;
 
-  logic [2:0]  cont_wr_addr2b;    // cont writes inputs
+  logic [logN:0]  cont_wr_addr2b;    // cont writes inputs
   logic        cont_wr_ce2b;
   logic        cont_wr_we2b;
   logic [31:0] cont_wr_d2b;
 
-  logic [2:0]  cont_wr_addr3a;    // cont writes inputs
+  logic [logN:0]  cont_wr_addr3a;    // cont writes inputs
   logic        cont_wr_ce3a;
   logic        cont_wr_we3a;
   logic [31:0] cont_wr_d3a;
 
-  logic [2:0]  cont_wr_addr3b;    // cont writes inputs
+  logic [logN:0]  cont_wr_addr3b;    // cont writes inputs
   logic        cont_wr_ce3b;
   logic        cont_wr_we3b;
   logic [31:0] cont_wr_d3b;
@@ -145,37 +149,37 @@ module mac_top
   //SLAVE SIDE MEMORY AND RESULTS 
 
   
-   logic [3:0]  comp_ba_addrs;    // AW for in_Mem
+   logic [logN:0]  comp_ba_addrs;    // AW for in_Mem
     logic        comp_ba_ces;
     logic [31:0] comp_ba_qs;  
 
-    logic [3:0]  comp_bb_addrs;    // AW for in_Mem
+    logic [logN:0]  comp_bb_addrs;    // AW for in_Mem
     logic        comp_bb_ces;
     logic [31:0] comp_bb_qs; 
-    logic [3:0]  comp_bb_addrs1;    // AW for in_Mem
+    logic [logN:0]  comp_bb_addrs1;    // AW for in_Mem
     logic        comp_bb_ces1;
     logic [31:0] comp_bb_qs1;
 
     //for slave out mem
-    logic [3:0]  sl1_b2_addr1;
+    logic [logN:0]  sl1_b2_addr1;
     logic        sl1_b2_ce1; 
     logic        sl1_b2_we1;   
     logic [31:0] sl1_b2_d1; 
 
 
-    logic [3:0]  comp_ba_addrs2;    // AW for in_Mem
+    logic [logN:0]  comp_ba_addrs2;    // AW for in_Mem
     logic        comp_ba_ces2;
     logic [31:0] comp_ba_qs2;  
 
-    logic [3:0]  comp_bb_addrs2;    // AW for in_Mem
+    logic [logN:0]  comp_bb_addrs2;    // AW for in_Mem
     logic        comp_bb_ces2;
     logic [31:0] comp_bb_qs2; 
-    logic [3:0]  comp_bb_addrs12;    // AW for in_Mem
+    logic [logN:0]  comp_bb_addrs12;    // AW for in_Mem
     logic        comp_bb_ces12;
     logic [31:0] comp_bb_qs12;
 
     //for slave out mem
-    logic [3:0]  sl1_b2_addr12;
+    logic [logN:0]  sl1_b2_addr12;
     logic        sl1_b2_ce12; 
     logic        sl1_b2_we12;   
     logic [31:0] sl1_b2_d12; 
@@ -294,7 +298,7 @@ module mac_top
   );
 
   
-res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s2(
+res_Mem #(.DEPTH(N2), .AW(logN2), .DW(32)) i_res_s2(
     .clk_i  ( clk_i           ),
     .rst_ni ( rst_ni          ),
     // port A : compute write 0  (during COMPUTE) / cont FIFO read (during UNLOAD)
@@ -345,7 +349,7 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s2(
 
 
 
-  in_Mem #(.DEPTH(8), .AW(3), .DW(32)) i_mem_3b(
+  in_Mem #(.DEPTH(N), .AW(logN), .DW(32)) i_mem_3b(
     .clk_i  (clk_i), 
     .rst_ni (rst_ni),
     // port A -- read/write !!!!!
@@ -369,7 +373,7 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s2(
 
 
     
-  in_Mem #(.DEPTH(8), .AW(3), .DW(32)) i_mem_3a(
+  in_Mem #(.DEPTH(N), .AW(logN), .DW(32)) i_mem_3a(
     .clk_i  (clk_i), 
     .rst_ni (rst_ni),
     // port A -- read/write !!!!!
@@ -420,7 +424,7 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s2(
 
  
 
-res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s1(
+res_Mem #(.DEPTH(N2), .AW(logN2), .DW(32)) i_res_s1(
     .clk_i  ( clk_i           ),
     .rst_ni ( rst_ni          ),
     // port A : compute write 0  (during COMPUTE) / cont FIFO read (during UNLOAD)
@@ -441,7 +445,7 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s1(
 
   
 
-  in_Mem #(.DEPTH(8), .AW(3), .DW(32)) i_mem_2a(
+  in_Mem #(.DEPTH(N), .AW(logN), .DW(32)) i_mem_2a(
     .clk_i  (clk_i), 
     .rst_ni (rst_ni),
     // port A -- read/write !!!!!
@@ -463,7 +467,7 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s1(
     .c_q      () ); //comp_b1_q2
 
 
-  in_Mem #(.DEPTH(8), .AW(3), .DW(32)) i_mem_2b(
+  in_Mem #(.DEPTH(N), .AW(logN), .DW(32)) i_mem_2b(
     .clk_i  (clk_i), 
     .rst_ni (rst_ni),
     // port A -- read/write !!!!!
@@ -486,7 +490,7 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s1(
 
 
   // --- second input memory (MEM2) ---
-  in_Mem #(.DEPTH(8), .AW(3), .DW(64)) i_mem2 (
+  in_Mem #(.DEPTH(N), .AW(logN), .DW(64)) i_mem2 (
     .clk_i  ( clk_i         ),
     .rst_ni ( rst_ni        ),
     .a_addr  (cont_wr1_addr),  //only control writes here -> TRY TO COMBINE THE FUNCTIONALITY
@@ -508,7 +512,7 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s1(
 
 
   //THIS IS NOW MEM1
-  in_Mem #(.DEPTH(8), .AW(3), .DW(64)) i_mem_1(
+  in_Mem #(.DEPTH(N), .AW(logN), .DW(64)) i_mem_1(
     .clk_i  (clk_i), 
     .rst_ni (rst_ni),
     // port A -- read/write !!!!!
@@ -530,7 +534,7 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s1(
     .c_q      (comp_b1_q2) ); //comp_b1_q2
 
 
-  res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_buffer_2(
+  res_Mem #(.DEPTH(N2), .AW(logN2), .DW(32)) i_buffer_2(
      .clk_i  ( clk_i           ),
     .rst_ni ( rst_ni          ),
     // port A : compute write 0  (during COMPUTE) / cont FIFO read (during UNLOAD)
@@ -549,7 +553,7 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s1(
     .b_q    (                 )
   );  
 
-   res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res2 (
+   res_Mem #(.DEPTH(N2), .AW(logN2), .DW(32)) i_res2 (
     .clk_i  ( clk_i ), 
     .rst_ni( rst_ni ),
     .a_addr ( mpe2_res_addr0 ), 
@@ -580,9 +584,9 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s1(
     .buffer_1_ce0 (comp_b1_ce ),
     .buffer_1_q0  (comp_b1_q),
     //Second read port: 
-    .buffer_1_address1( comp_b1_addr2 ),  // -> in_Mem port A, reading
-    .buffer_1_ce1     ( comp_b1_ce2   ),
-    .buffer_1_q1      ( comp_b1_q2    ),
+    //.buffer_1_address1( comp_b1_addr2 ),  // -> in_Mem port A, reading
+    //.buffer_1_ce1     ( comp_b1_ce2   ),
+    //.buffer_1_q1      ( comp_b1_q2    ),
 
     .buffer_2_address0 ( comp_b2_addr0 ),
     .buffer_2_ce0      ( comp_b2_ce0   ),
@@ -607,9 +611,9 @@ res_Mem #(.DEPTH(16), .AW(4), .DW(32)) i_res_s1(
     .buffer_1_ce0     ( mpe2_in_ce     ),
     .buffer_1_q0      ( mpe2_in_q      ),
     //CAREFULLL
-    .buffer_1_address1( mpe2_in_addr2  ),   // NEW: 2nd read -> MEM2 port A
-    .buffer_1_ce1     ( mpe2_in_ce2    ),
-    .buffer_1_q1      ( mpe2_in_q2     ),
+   // .buffer_1_address1( mpe2_in_addr2  ),   // NEW: 2nd read -> MEM2 port A
+   // .buffer_1_ce1     ( mpe2_in_ce2    ),
+    //.buffer_1_q1      ( mpe2_in_q2     ),
 
     .buffer_2_address0( mpe2_res_addr0 ),   // writes res2
     .buffer_2_ce0     ( mpe2_res_ce0   ),

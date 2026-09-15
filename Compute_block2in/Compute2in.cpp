@@ -1,12 +1,6 @@
 #include "Compute2in.h"
 #include "hls_stream.h"
 
-#define Size 16
-#define Size2 8 
-#define M 4
-#define N 4
-#define K 4
-
 /*                  
 A MXN   | a11 a12|  B NXK | b11 b12 b13|    RES MXK
         | a21 a22|        | b21 b22 b23|
@@ -32,6 +26,13 @@ A MXN   | a11 a12|  B NXK | b11 b12 b13|    RES MXK
 // BUFFER_2 => OUTPUT MEMORY 16 SLOTS 32 BIT QUICKLY WRITING ORGANIZED OUTPUTS
 
 
+
+#define N 16
+#define N2 (N/2) //N/2 OR HAS TO DO WITH THE INPUT BEING 2 EL???
+#define Size (N*N)
+#define Size2 (N*N/2)
+#define REG_W  (2*N) 
+
 // THIS WILL BE A MASTER PE MODULE
 void compute2in(dat_t buffer_a[Size2],dat_t buffer_b[Size2],
     dat_t buffer_2[Size],
@@ -47,26 +48,22 @@ void compute2in(dat_t buffer_a[Size2],dat_t buffer_b[Size2],
     for (int k = 1; k < Size; k++) {
         buffer_1[k] = k;
     }*/
-ap_uint<16> REG[N][8];
+ap_uint<16> REG[N][REG_W];
 //for partial storing
-static ap_uint<32> REG1[16];
+static ap_uint<32> REG1[Size];
 bool phase_local;
 #pragma HLS ARRAY_PARTITION variable=REG complete dim=0
 #pragma HLS ARRAY_PARTITION variable=REG1 complete dim=0
-volatile int dummy =0;
-delay: for (int k = 0; k < 1; k++) {
-    dummy = dummy+k;   // 1 cycle to give memory time for last write to finish before reading it back
-}
 
 read_and_write_back:
          phase_local = phase;
         for(int i=0;i<N;i++){ 
             //#pragma HLS PIPELINE II=1
             res_t self_sum = 0; //diag
-            for(int fe=0;fe<2;fe++){ //this has to do with 2 fetches needed for a full row and col combination
+            for(int fe=0;fe<N2;fe++){ //this has to do with 2 fetches needed for a full row and col combination
                 //#pragma HLS unroll
-                ap_uint<32> word = buffer_a[2*i+fe];
-                ap_uint<32> word1 = buffer_b[2*i+fe];
+                ap_uint<32> word = buffer_a[N2*i+fe];
+                ap_uint<32> word1 = buffer_b[N2*i+fe];
                 ap_uint<16> v0 = word.range(15,0);    // a
                 ap_uint<16> v1 = word.range(31,16);  // a
                 ap_uint<16> v2 = word1.range(15,0);  // b
@@ -93,11 +90,11 @@ read_and_write_back:
                     com_sum_cr += REG[com][ptr]*REG[i][ptr+N];}
 
                 if(phase_local ==1){
-                buffer_2[4*i+com] = com_sum_rc +REG1[4*i+com];
-                buffer_2[4*com+i] = com_sum_cr +REG1[4*com+i];}
+                buffer_2[N*i+com] = com_sum_rc +REG1[N*i+com];
+                buffer_2[N*com+i] = com_sum_cr +REG1[N*com+i];}
                 else if(phase_local ==0){
-                    REG1[4*i+com] = com_sum_rc;
-                    REG1[4*com+i] = com_sum_cr;
+                    REG1[N*i+com] = com_sum_rc;
+                    REG1[N*com+i] = com_sum_cr;
                 }
             }
           

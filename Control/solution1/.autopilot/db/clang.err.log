@@ -1,4 +1,0 @@
-Control/control.cpp:114:12: warning: enumeration values 'WAIT_MPE1', 'WAIT_MPE2', and 'PIP_1' not handled in switch [-Wswitch]
-    switch(state){
-           ^
-1 warning generated.

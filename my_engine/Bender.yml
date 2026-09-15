@@ -18,25 +18,33 @@ sources:
       # Level 0
       - rtl/mac_package.sv
       # Level 1
+    
+      - rtl/compute_compute_Pipeline_VITIS_LOOP_84_2.v
+      - rtl/compute_compute_Pipeline_VITIS_LOOP_103_3.v
+      - rtl/compute_flow_control_loop_pipe_sequential_init.v
       - rtl/compute_mac_muladd_16ns_16ns_32ns_32_4_1.v
       - rtl/compute_mul_mul_16ns_16ns_32_4_1.v
+      - rtl/compute_mac_muladd_16ns_16ns_32ns_33_4_1.v
       - rtl/compute_mux_32_16_1_1.v
       - rtl/compute_mux_42_32_1_1.v
       - rtl/compute_mux_124_32_1_1.v
       - rtl/compute_mux_154_32_1_1.v
+      - rtl/compute_mux_154_16_1_1.v
+      - rtl/compute_mux_164_16_1_1.v
+      - rtl/compute_mux_164_32_1_1.v
+      - rtl/compute_mux_2408_32_1_1.v
+      - rtl/compute_mux_2558_32_1_1.v
       - rtl/compute.v
-
-        #COMPUTE 2in
-      - rtl/compute2in_mac_muladd_16ns_16ns_32ns_33_4_1.v
       - rtl/compute2in_ama_addmuladd_16ns_16ns_1ns_17s_32_4_1_DSP48_1.v
       - rtl/compute2in_ama_addmuladd_16ns_16ns_1ns_17s_32_4_1.v
-      - rtl/compute2in_compute2in_Pipeline_VITIS_LOOP_66_2.v
-      - rtl/compute2in_compute2in_Pipeline_VITIS_LOOP_87_3.v
+      - rtl/compute2in_compute2in_Pipeline_VITIS_LOOP_63_2.v
+      - rtl/compute2in_compute2in_Pipeline_VITIS_LOOP_84_3.v
       - rtl/compute2in_flow_control_loop_pipe_sequential_init.v
       - rtl/compute2in_mac_muladd_1ns_16ns_17ns_33_4_1_DSP48_0.v
       - rtl/compute2in_mac_muladd_1ns_16ns_17ns_33_4_1.v
       - rtl/compute2in_mac_muladd_16ns_16ns_32ns_32_4_1_DSP48_2.v
       - rtl/compute2in_mac_muladd_16ns_16ns_32ns_32_4_1.v
+      - rtl/compute2in_mac_muladd_16ns_16ns_32ns_33_4_1.v
       - rtl/compute2in_mul_1ns_16ns_32_1_1.v
       - rtl/compute2in_mul_16ns_1ns_32_1_1.v
       - rtl/compute2in_mul_17ns_1ns_32_1_1.v
@@ -47,13 +55,14 @@ sources:
       - rtl/compute2in_mux_42_16_1_1.v
       - rtl/compute2in_mux_42_32_1_1.v
       - rtl/compute2in_mux_124_32_1_1.v
+      - rtl/compute2in_mux_154_16_1_1.v
       - rtl/compute2in_mux_154_32_1_1.v
-      - rtl/compute2in_mac_muladd_16ns_16ns_32ns_33_4_1.v
+      - rtl/compute2in_mux_164_16_1_1.v
+      - rtl/compute2in_mux_164_32_1_1.v
+      - rtl/compute2in_mux_2408_32_1_1.v
+      - rtl/compute2in_mux_2558_32_1_1.v
       - rtl/compute2in.v
-      - rtl/compute.v
       - rtl/cont.v
-
-
       #test compute: 
       
       - rtl/in_Mem.v

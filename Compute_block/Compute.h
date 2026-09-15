@@ -46,9 +46,12 @@ struct hs_is_t{
     strb_t strb; 
 };
 
-#define Size 16
-#define Size2 8 
 
+#define N 16
+#define N2 (N/2) //N/2 OR HAS TO DO WITH THE INPUT BEING 2 EL???
+#define Size (N*N)
+#define Size2 (N*N/2)
+#define REG_W  (2*N) 
 
 void compute(res_t buffer_1[Size2], dat_t buffer_2[Size], bool phase);
 

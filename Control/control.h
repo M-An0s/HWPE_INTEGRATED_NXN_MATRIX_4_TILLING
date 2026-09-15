@@ -6,6 +6,11 @@
 #include <fstream>
 #include "hls_stream.h"
 
+#define N       16
+#define Size    (N*N)        // 256  -- results per tile (was 16)
+#define M_size  ((N*N)/2)    // 128  -- input words per buffer (was 8)
+
+
 //standard character output 
 using namespace std;
 
@@ -46,7 +51,6 @@ struct hs_is_t{
     strb_t strb; 
 };
 
-#define Size 20
 
 //start the two memories process, buffer_1_wr is in_MEM 1, buffer_1_wr1 is in_MEM 2
 void cont(hs_is_t *a_i,hs_is_t *b_i,hs_is_t *c_i,hs_is_t *d_o,
@@ -54,9 +58,9 @@ void cont(hs_is_t *a_i,hs_is_t *b_i,hs_is_t *c_i,hs_is_t *d_o,
              len_t *f_cnt,bool *f_valid,hls::stream<ap_uint<32>>& buffer_1_rd,hls::stream<ap_uint<32>>& buffer_1_rd1,
              hls::stream<ap_uint<32>>& buffer_1_rd2,
              hls::stream<ap_uint<32>>& buffer_1_rd3,
-             res_t buffer_1_wr[Size], res_t buffer_1_wr1[Size],
-             dat_t buffer_1_wr2a[Size],dat_t buffer_1_wr2b[Size],
-             dat_t buffer_1_wr3a[Size],dat_t buffer_1_wr3b[Size],
+             res_t buffer_1_wr[M_size], res_t buffer_1_wr1[M_size],
+             dat_t buffer_1_wr2a[M_size],dat_t buffer_1_wr2b[M_size],
+             dat_t buffer_1_wr3a[M_size],dat_t buffer_1_wr3b[M_size],
              bool *compute_start,            
              bool compute_done,bool *compute_start2,
              bool compute_done2,

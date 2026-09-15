@@ -1,3 +1,7 @@
+# Ignore every solution1 directory anywhere in the project
+solution1/
+
+# Ignore Ada files
 *.adb
 *.ads
 *.ali

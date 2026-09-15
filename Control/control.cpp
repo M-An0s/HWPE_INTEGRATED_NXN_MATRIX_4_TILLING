@@ -2,8 +2,9 @@
 #include "ap_int.h"
 #include "hls_stream.h"
 
-#define Size 20
-#define M_size 8
+#define N       16
+#define Size    (N*N)        // 256  -- results per tile (was 16)
+#define M_size  ((N*N)/2)    // 128  -- input words per buffer (was 8)
 
 enum State{
     IDLE,               //0
@@ -11,11 +12,9 @@ enum State{
     LOAD_MEM_2,         //2
     START_MPE1,         //3
     START_MPE2,         //4
-    WAIT_MPE1,           //5
-    WAIT_MPE2,           //6
-    WAIT_ALL,            //7
-    PIP_1,              //8
-    UNLOAD              //9
+    WAIT_MPE2,           //5
+    WAIT_ALL,            //6
+    UNLOAD              //7
 };
 
 // shift/function still selects the mode; kept for the mac_fsm contract.
@@ -29,10 +28,10 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
           hls::stream<ap_uint<32>>& buffer_1_rd1, //FOR NOW TO SEE IF I HAVE CORRECT MULTIPLICATION ON PE2 
           hls::stream<ap_uint<32>>& buffer_1_rd2,
           hls::stream<ap_uint<32>>& buffer_1_rd3,
-          res_t buffer_1_wr[Size],                 //first shared BRAM
-          res_t buffer_1_wr1[Size],
-          dat_t buffer_1_wr2a[Size],dat_t buffer_1_wr2b[Size],
-          dat_t buffer_1_wr3a[Size],dat_t buffer_1_wr3b[Size],              // cont -> second shared BRAM (write)
+          res_t buffer_1_wr[M_size],                 //first shared BRAM
+          res_t buffer_1_wr1[M_size],
+          dat_t buffer_1_wr2a[M_size],dat_t buffer_1_wr2b[M_size],
+          dat_t buffer_1_wr3a[M_size],dat_t buffer_1_wr3b[M_size],              // cont -> second shared BRAM (write)
           bool *compute_start1,                     // -> compute ap_start
           bool compute_done1,
           bool *compute_start2,
@@ -251,32 +250,33 @@ void cont(hs_is_t *a_i, hs_is_t *b_i, hs_is_t *c_i, hs_is_t *d_o,
         case UNLOAD:{
             res_t tmp;
             
-            if (!buffer_1_rd.empty()&&(i<16)){
+            if (!buffer_1_rd.empty()&&(i<Size)){
                 tmp = buffer_1_rd.read();
                 r_acc_valid = 1;
                 r_cnt++;
                 i++;
             }
             
-            else if(!buffer_1_rd1.empty()&&(i<32)){
-                 tmp = buffer_1_rd1.read();
+            else if(!buffer_1_rd2.empty()&&(i<2*Size)){
+                    tmp = buffer_1_rd2.read();
                  r_acc_valid = 1;
                  r_cnt++;
                  i++;
             } 
             
-            else if(!buffer_1_rd2.empty()&&(i<48)){
-                 tmp = buffer_1_rd2.read();
+            else if(!buffer_1_rd3.empty()&&(i<3*Size)){
+                tmp = buffer_1_rd3.read();
                  r_acc_valid = 1;
                  r_cnt++;
                  i++;
             } 
 
             else{
-                 tmp = buffer_1_rd3.read();
+                    tmp = buffer_1_rd1.read();
                  r_acc_valid = 1;
                  r_cnt++;
                  i++;
+              
             }
             
             if ((r_cnt < len) && store_result_ready){
