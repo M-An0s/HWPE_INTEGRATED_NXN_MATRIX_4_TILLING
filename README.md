@@ -7,6 +7,6 @@
 The issue has been corrected in the FFT Load module available [here](https://github.com/M-An0s/Reprogrammable_HWPE_Accelerator_for_5G-6G_Baseband_Kernels/tree/8x8_and_params), and we will incorporate the corresponding fix into this implementation in the future.
 
 **For correct HLS–I/O interaction, please refer to:**
-https://github.com/M-An0s/Measurements_and_test/tree/main
+https://github.com/M-An0s/Reprogrammable_HWPE_Accelerator_for_5G-6G_Baseband_Kernels/tree/8x8_and_params
 
 The code in this repository has been used primarily to measure the throughput and latency of the accelerator design when integrated into the PULPissimo SoC.
